@@ -26,11 +26,11 @@ qasim.warraich@uzh.ch\\[15mm]
 \subsection*{Introduction}
 
 Despite the arguably dated appearance, difficult learning curve and practical
-non existence in the general personal computing space, Command Line Interfaces
+non-existence in the general personal computing space, Command Line Interfaces
 (CLIs) have more than stood the test of time in the software development world.
 There are a multitude of extremely popular tools and applications that
 primarily focus on the command line as an interaction medium. Some examples
-include version control software like `git`, compilers and interpreters for
+include version control software like `git', compilers and interpreters for
 programming languages, package managers and various core utilities that are
 popular in areas such as scripting and system administration.
 
@@ -38,24 +38,27 @@ As mentioned before,the use of command line interfaces has effectively
 disappeared from a mainstream personal computer usage perspective. This
 contributes greatly to the intimidation factor and learning difficulty for
 those interested in getting into software engineering or system administration.
-This paired with the inevitability of usage of CLIs in the development space
+This, paired with the inevitability of usage of CLIs in the development space
 highlights a need to make the command line more accessible to new users for
-whom text based interaction with their computer is an alien concept. In recent
+whom text-based interaction with their computer is an alien concept. In recent
 years interactive learning utilising tools such as sandboxed environments have
 been gaining in popularity and have the potential to be a suitable medium for
-learning command line basics through actual usage, examples and practice. 
+learning command line basics through actual usage, examples and practice.
 
 \subsection*{The goals of this Master's thesis}
 
-This thesis aims to create a forgiving shell like interface with the goal of
-teaching beginners basic CLI usage. The goal is to cover topics as shell
+This thesis aims to create a forgiving shell like interface for the purpose of
+teaching beginners basic CLI usage. The goal is to cover topics such as shell
 scripting basics and Unix-like core utility usage through the use of
-interactive examples. The inspiration for this tool is form the `vimtutor`
-\cite{pierce_ware_smith_moolenaar_2019} utility shipping along side the
-extremely popular terminal based text editor Vim. A secondary goal would be to
-wrap the shell learning tool in a web application in order to make it more
-accessible and portable. To validate the tool, a user study will be conducted,
+interactive examples. We draw inspiration form the `vimtutor'
+\cite{pierce_ware_smith_moolenaar_2019} utility shipping alongside the
+popular terminal based text editor \emph{Vim}. The tool shall allow for opt-in
+analytics that are sent back to a data collection service for the purpose of
+learning which mistakes are most commonly made, and to improve the tool
+accordingly. To validate the tool, a user study will be conducted,
 most likely with bachelor students at the University of Zurich.
+A secondary goal is be to embed the shell learning tool in a protypical web
+application in order to make it more accessible and portable.
 
 \subsection*{Tasks}
 
@@ -64,15 +67,23 @@ this space, in order to ascertain what the core difficulties and issues that
 would need to be tackled are. 
 
 \paragraph{Outlining the curriculum.} Deciding what lessons and examples
-the tutor utility should comprise of. This will be done by looking at existing
+the tutor utility should comprise. This will be done by looking at existing
 learning tools, guides and through insights gained from the literature
 research.
 
 \paragraph{Development of the forgiving shell.} The task here is to
 implement a CLI or TUI interface that allows for mistakes and can gently guide
 the user toward a correct answer rather than producing intimidating or cryptic
-errors as using a traditional shell directly might do. The `GoCui` library
+errors as using a traditional shell directly might do. The `GoCui' library
 might be an appropriate candidate for building a tool such as this.
+
+\paragraph{Development of the analytics service.} The CLI tutor shall include
+an opt-in feature that allows users to share their input and output logs with
+an analytics service that allows us to investigate common mistakes and usage
+patterns to make improvements to the tool.
+
+\paragraph{Web tool} Embed the teaching tool into a website for demonstration
+purposes and to gather more data from a broader audience.
 
 \paragraph{Validation} Performing a user study in order to measure the
 effectiveness of such a tool.
@@ -80,43 +91,48 @@ effectiveness of such a tool.
 \subsection*{Milestones}
 
 \begin{tabular}{lp{10cm}}
-Deadline & What \\
+Deadline & What (\emph{thesis-related}) \\
 \hline\noalign{\smallskip}
 March 1st & Official start of thesis. \\
-March 8th  & Literature review complete. \\
+March 8th  & Literature review complete. \emph{Related work section written. Research questions defined.} \\
 March 15th & First draft of curriculum completed. \\
-March 21st & Curriculum defined. \\
+March 21st & Curriculum defined. \emph{Introduction and curriculum written.} \\
 March 29th & Development of tool begins. \\
-May 31st  & Review of tool \& Decision made regarding Web based version. \\
-June 7th & Validation and study defined and begun. \\
-June 29st  & Study completed. \\
-July 5th  & Analysis of findings completed. \\
-July 31st & Thesis submitted and presentation completed. \\
+April 15th & Interaction framework completed. \\
+April 30th & Majority of lessons implemented. \\
+May 15th & Analytics service implemented. \emph{Method section mostly written.} \\
+May 31st & Web demo implemented. \\
+June 10th & Validation and study defined and begun. \\
+June 29st & Data from web users and study participants collected. \emph{Method section completed}. \\
+July 14th & Analysis of findings completed. \emph{Results and future work sections mostly completed}. \\
+July 31st & Tool, documentation \emph{and thesis} finalized. \\
+August 31st & \emph{Final thesis due date}. \\
+September & Presentation including demo.
 \end{tabular}
 
-% \subsection*{General thesis guidelines}
+\subsection*{General thesis guidelines}
 
-% The typical rules of academic work must be followed. In
-% \cite{Bernstein2005-daguide}, Bernstein describes a number of guidelines which
-% must be followed. At the end of the thesis, a final report has to be
-% written. The report should clearly be organized, follow the usual academic
-% report structure, and has to be written in English using our
-% s.e.a.l. \LaTeX-template.
+The typical rules of academic work must be followed. In
+\cite{Bernstein2005-daguide}, Bernstein describes a number of guidelines which
+must be followed. At the end of the thesis, a final report has to be
+written. The report should clearly be organized, follow the usual academic
+report structure, and has to be written in English using our
+s.e.a.l. \LaTeX-template.
 
-% Since implementing software is also part of this thesis, state-of-the-art
-% design, coding, and documentation standards for the software have to be obeyed.
+Since implementing software is also part of this thesis, state-of-the-art
+design, coding, and documentation standards for the software have to be obeyed.
 
-% Effective feedback can only be provided to the student if the thesis draft is handed in well before the final deadline!
+Effective feedback can only be provided to the student if the thesis draft is handed in well before the final deadline!
 
-% The diploma thesis has to be concluded with a final presentation for the members
-% of the Software Evolution and Architecture Lab (s.e.a.l.).
+The diploma thesis has to be concluded with a final presentation for the members
+of the Software Evolution and Architecture Lab (s.e.a.l.).
 
 \subsection*{Special remarks}
 \paragraph{Copyright.}
 In accordance with current regulations, the student retains the copyright to his work, while providing a non-exclusive, non-revocable, time-unlimited license for it to the university. For this particular thesis, the student intends to keep all source code public so as to provide maximum accessibility to the proposed learning aid. 
 
 \vspace{2em}
-\noindent\textbf{Responsible assistant}: Dr. Carol Alexandru-Funakoshi
+\noindent\textbf{Responsible assistant}: Dr. Carol V. Alexandru-Funakoshi
 
 \vspace{2em}
 \noindent\textbf{Signatures:}
