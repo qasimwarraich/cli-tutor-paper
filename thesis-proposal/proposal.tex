@@ -32,33 +32,49 @@ There are a multitude of extremely popular tools and applications that
 primarily focus on the command line as an interaction medium. Some examples
 include version control software like `git', compilers and interpreters for
 programming languages, package managers and various core utilities that are
-popular in areas such as scripting and system administration.
+popular in areas such as software development, scripting and system
+administration.
 
-As mentioned before,the use of command line interfaces has effectively
-disappeared from a mainstream personal computer usage perspective. This
-contributes greatly to the intimidation factor and learning difficulty for
+As mentioned before, the use of the command line as an interaction paradigm has
+effectively disappeared from a mainstream personal computer usage perspective.
+This contributes greatly to the intimidation factor and learning difficulty for
 those interested in getting into software engineering or system administration.
-This, paired with the inevitability of usage of CLIs in the development space
-highlights a need to make the command line more accessible to new users for
-whom text-based interaction with their computer is an alien concept. In recent
-years interactive learning utilising tools such as sandboxed environments have
-been gaining in popularity and have the potential to be a suitable medium for
-learning command line basics through actual usage, examples and practice.
+This unfamiliarity, paired with the inevitability of usage of CLIs in the
+development space highlights a need to make the command line more accessible to
+new users for whom text-based interaction with their computer is an alien
+concept. In recent years interactive learning utilising tools such as sandboxed
+environments have been gaining in popularity and have the potential to be a
+suitable medium for learning command line basics through actual usage, examples
+and practice.
 
 \subsection*{The goals of this Master's thesis}
 
 This thesis aims to create a forgiving shell like interface for the purpose of
 teaching beginners basic CLI usage. The goal is to cover topics such as shell
 scripting basics and Unix-like core utility usage through the use of
-interactive examples. We draw inspiration form the `vimtutor'
-\cite{pierce_ware_smith_moolenaar_2019} utility shipping alongside the
-popular terminal based text editor \emph{Vim}. The tool shall allow for opt-in
+interactive examples. We draw inspiration from the `vimtutor'
+\cite{pierce_ware_smith_moolenaar_2019} utility shipping alongside the popular
+terminal based text editor \emph{Vim}. The proposed tool shall allow for opt-in
 analytics that are sent back to a data collection service for the purpose of
 learning which mistakes are most commonly made, and to improve the tool
-accordingly. To validate the tool, a user study will be conducted,
-most likely with bachelor students at the University of Zurich.
-A secondary goal is be to embed the shell learning tool in a protypical web
-application in order to make it more accessible and portable.
+accordingly. To validate the tool, a user study will be conducted, most likely
+with bachelor students at the University of Zurich. A secondary goal is to
+embed the shell like learning tool in a prototypical web application in order
+to make it more accessible and portable.
+
+\subsection*{Research questions}
+\todo{Refine the questions a bit: They still feel a little `overlappy'.}
+
+\begin{itemize}
+    \item Are there identifiable patterns of difficulty when it
+        comes to adopting CLIs? Can the `indimidation factor' be pinned down?
+    \item Can an interactive learning tool help to address the difficulty and
+        indimidation factor of CLIs?
+    \item Is an interactive tool more effective than text based learning
+        methods?
+    \item Are novice CLI users more likely to continue
+        using CLI interfaces after using such a tool?
+\end{itemize}
 
 \subsection*{Tasks}
 
@@ -93,21 +109,21 @@ effectiveness of such a tool.
 \begin{tabular}{lp{10cm}}
 Deadline & What (\emph{thesis-related}) \\
 \hline\noalign{\smallskip}
-March 1st & Official start of thesis. \\
-March 8th  & Literature review complete. \emph{Related work section written. Research questions defined.} \\
-March 15th & First draft of curriculum completed. \\
-March 21st & Curriculum defined. \emph{Introduction and curriculum written.} \\
-March 29th & Development of tool begins. \\
-April 15th & Interaction framework completed. \\
-April 30th & Majority of lessons implemented. \\
-May 15th & Analytics service implemented. \emph{Method section mostly written.} \\
-May 31st & Web demo implemented. \\
-June 10th & Validation and study defined and begun. \\
-June 29st & Data from web users and study participants collected. \emph{Method section completed}. \\
-July 14th & Analysis of findings completed. \emph{Results and future work sections mostly completed}. \\
-July 31st & Tool, documentation \emph{and thesis} finalized. \\
+March 8th   & Official start of thesis. \\
+March 15th  & Literature review complete. \emph{Related work section written. Research questions defined.} \\
+March 21st  & First draft of curriculum completed. \\
+March 29th  & Curriculum defined. \emph{Introduction and curriculum written.} \\
+March 29th  & Development of tool begins. \\
+April 15th  & Interaction framework completed. \\
+April 30th  & Majority of lessons implemented. \\
+May 15th    & Analytics service implemented. \emph{Method section mostly written.} \\
+May 31st    & Web demo implemented. \\
+June 10th   & Validation and study defined and begun. \\
+June 29st   & Data from web users and study participants collected. \emph{Method section completed}. \\
+July 14th   & Analysis of findings completed. \emph{Results and future work sections mostly completed}. \\
+July 31st   & Tool, documentation \emph{and thesis} finalized. \\
 August 31st & \emph{Final thesis due date}. \\
-September & Presentation including demo.
+September   & Presentation including demo. \\
 \end{tabular}
 
 \subsection*{General thesis guidelines}
