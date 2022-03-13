@@ -1,19 +1,19 @@
 \documentclass{seal_thesis}
 
-\thesisType{Bachelor/Master/Diploma}
+\thesisType{Master's Thesis}
 \date{\today}
-\title{Example title}
-\subtitle{Example subtitle}
-\author{<first name> <last name>}
-\home{<geburtsort>} % Geburtsort
-\country{<heimatland>}
-\legi{xx-xxx-xxx}
+\title{CLI Tutor}
+\subtitle{Can interactive learning make the command line more approachable?}
+\author{Qasim Warraich}
+\home{Lahore} % Geburtsort
+\country{Pakistan}
+\legi{18-787-796}
 \prof{Prof. Dr. Harald C. Gall}
-\assistent{Assistant}
-\email{<email-address>}
-\url{<url if available>}
-\begindate{<start date of thesis>}
-\enddate{<end date of thesis>}
+\assistent{Dr. Carol V. Alexandru-Funakoshi}
+\email{qasim.warraich@uzh.ch}
+\url{gitlab.com/qasimwarraich/clitutor}
+\begindate{2022-03-14}
+\enddate{2022-03-14}
 
 \begin{document}
 \maketitle
@@ -26,6 +26,8 @@
 \begin{abstract}
 \end{abstract}
 
+% NOTE: Does this need to be in German. Also is a summary really necessary?
+
 \begin{zusammenfassung}
 \end{zusammenfassung}
 
@@ -35,7 +37,7 @@
 \lstlistoflistings
 
 \mainmatter
-\chapter{Chapter}
+\chapter{Introduction}
 \section{Section}
 %
 \subsubsection{Subsubsection}
@@ -43,6 +45,11 @@
 
 \subsection{Subsection}
 %
+
+% NOTE: What are use cases for paragraphs like this or are they in place of
+% list items as in the proposal.
+
+% NOTE: Paragraphs titles should always have a point (.) after the title.
 \paragraph{Paragraph.} Always with a point.
 
 \begin{lstlisting}[caption=An example code snippet]
@@ -60,7 +67,9 @@ public class Foo {
 \end{lstlisting}
 
 \backmatter
+
+% NOTE: this bibstyle seems weird. 
 \bibliographystyle{alpha}
-\bibliography{}
+\bibliography{thesis}
 
 \end{document}
