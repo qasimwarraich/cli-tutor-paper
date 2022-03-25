@@ -83,3 +83,9 @@
 
 - Mostly very old papers
 - If there is a comparison it is usually in the realm of network engineers not newbies.
+
+
+## Look into 
+
+- Bash readline
+- Capturing bash commands
