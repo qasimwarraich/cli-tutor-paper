@@ -4,29 +4,46 @@
 
 - What is textual interaction
 
-- What is a shell
+- What is a shell (kind of like talking to the computer)
   - Prompt
-  - File system
-    - Meaning of '~'
-    - ls, cd, touch, mkdir
-  
+  - Seed the interest with some cool command
+    - curl something?
+
 - How to formulate a command
   - Arguments
   - Flags
     - conventions i.e '--flag vs -f'
 
-- Streams: stdin, stdout stderr
+- Let's play with some commands
+  - Examples and use cases.
 
-- Redirections
-
-- Unix pipes
-  - Some simple examples of chaining
+- File system
+  - Meaning of '~'
+  - ls, cd, touch, mkdir
+  - Globbing
 
 - Shell shortcuts
   - up arrow
   - tab-completion
   - history
   - double bang
+
+- How to help yourself?
+  - man pages
+
+<!-- TODO: Rewrite -->
+- Sticky situations extras.
+  - sed -x
+  - quoting
+  - jobs, ps
+  - exit status $?
+
+- Streams: stdin, stdout stderr
+
+- Unix pipes
+  - Some simple examples of chaining
+
+- Redirections
 
 <!-- NOTE: How much programming knowledge can we reasonable assume? -->
 - Bash
@@ -35,18 +52,27 @@
     - &&, ;, ||
   - Logical operators
   - Intro to scripting
-  - Globbing 
+
+- CLI Dev tools (Bonus Chapter)
+  - jq
+  - xml lint
 
 ## Should cover
 
 - ls
 - cd
+- touch
 - rm
 - man
-- wc?
+- wc
 - cat
+- head
+- tail
 - find
 - grep
+- sed
+- awk
+- cut
 
 ## References
 
