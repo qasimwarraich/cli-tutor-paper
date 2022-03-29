@@ -1,0 +1,29 @@
+shapeshifter@atticora> ./interactive.py 
+# ls
+__pycache__/          bash_completion.py    interactive.py        temp/ 
+# git
+add               describe          merge             rm 
+am                diff              mergetool         send-email 
+apply             difftool          mv                shortlog 
+archive           fetch             notes             show 
+bisect            format-patch      prune             show-branch 
+blame             fsck              pull              sparse-checkout 
+branch            gc                push              stage 
+bundle            gitk              range-diff        stash 
+checkout          grep              rebase            status 
+cherry            gui               reflog            submodule 
+cherry-pick       help              remote            switch 
+citool            init              repack            tag 
+clang-format      instaweb          replace           whatchanged 
+clean             latexdiff         request-pull      worktree 
+clone             lfs               reset             
+commit            log               restore           
+config            maintenance       revert            
+# uname -a
+Linux atticora 5.16.16-arch1-1 #1 SMP PREEMPT Mon, 21 Mar 2022 22:59:40 +0000 x86_64 GNU/Linux
+# rm everything
+Let's stick to the basics for now
+# vim
+Vim: Warning: Output is not to a terminal
+^C
+Shutting down...

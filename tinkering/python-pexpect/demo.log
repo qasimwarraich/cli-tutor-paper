@@ -1,0 +1,47 @@
+shapeshifter@atticora> ./interactive.py 
+tutor starting
+[shapeshifter@atticora python-pexpect]$ ls
+getch.py  interactive.py
+[shapeshifter@atticora python-pexpect]$ git
+git                 git-latexdiff       git-upload-archive
+git-clang-format    git-lfs             git-upload-pack
+git-cvsserver       git-receive-pack    
+gitk                git-shell           
+[shapeshifter@atticora python-pexpect]$ git 
+add               fsck              remote 
+am                gc                repack 
+apply             gitk              replace 
+archive           grep              request-pull 
+bisect            gui               reset 
+blame             help              restore 
+branch            init              revert 
+bundle            instaweb          rm 
+checkout          latexdiff         send-email 
+cherry            lfs               shortlog 
+cherry-pick       log               show 
+citool            maintenance       show-branch 
+clang-format      merge             sparse-checkout 
+clean             mergetool         stage 
+clone             mv                stash 
+commit            notes             status 
+config            prune             submodule 
+describe          pull              switch 
+diff              push              tag 
+difftool          range-diff        whatchanged 
+fetch             rebase            worktree 
+format-patch      reflog            
+[shapeshifter@atticora python-pexpect]$ uname -a
+Let's stick to the basics for now
+^C
+[shapeshifter@atticora python-pexpect]$ uname -a
+Linux atticora 5.16.16-arch1-1 #1 SMP PREEMPT Mon, 21 Mar 2022 22:59:40 +0000 x86_64 GNU/Linux
+[shapeshifter@atticora python-pexpect]$ vim
+[shapeshifter@atticora python-pexpect]$ uname -x
+uname: invalid option -- 'x'
+Try 'uname --help' for more information.
+
+TIP: Try typing 'man' followed by the command name to learn more
+[shapeshifter@atticora python-pexpect]$ 
+exit
+tutor has ended
+
