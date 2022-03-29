@@ -6,4 +6,10 @@ thesis-proposal/proposal.fdb_latexmk
 thesis-proposal/proposal.fls
 thesis-proposal/proposal.log
 thesis-proposal/proposal.synctex.gz
-notes.md
+thesis-proposal/notes.md
+thesis/thesis.synctex.gz
+thesis/thesis.bbl
+thesis/thesis.blg
+thesis/thesis.fdb_latexmk
+thesis/thesis.fls
+thesis/thesis.out

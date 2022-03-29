@@ -1,19 +1,19 @@
 \documentclass{seal_thesis}
 
-\thesisType{Bachelor/Master/Diploma}
+\thesisType{Master's Thesis}
 \date{\today}
-\title{Example title}
-\subtitle{Example subtitle}
-\author{<first name> <last name>}
-\home{<geburtsort>} % Geburtsort
-\country{<heimatland>}
-\legi{xx-xxx-xxx}
+\title{CLI Tutor}
+\subtitle{Can interactive learning make the command line more approachable?}
+\author{Qasim Warraich}
+\home{Lahore} % Geburtsort
+\country{Pakistan}
+\legi{18-787-796}
 \prof{Prof. Dr. Harald C. Gall}
-\assistent{Assistant}
-\email{<email-address>}
-\url{<url if available>}
-\begindate{<start date of thesis>}
-\enddate{<end date of thesis>}
+\assistent{Dr. Carol V. Alexandru-Funakoshi}
+\email{qasim.warraich@uzh.ch}
+\url{gitlab.com/qasimwarraich/clitutor}
+\begindate{2022-03-14}
+\enddate{2022-03-14}
 
 \begin{document}
 \maketitle
@@ -24,7 +24,31 @@
 %\end{acknowledgements}
 
 \begin{abstract}
+Despite the arguably dated appearance, difficult learning curve and practical
+non-existence in the general personal computing space, Command Line Interfaces
+(CLIs) have more than stood the test of time in the software development world.
+There are a multitude of extremely popular tools and applications that
+primarily focus on the command line as an interaction medium. Some examples
+include version control software like `git', compilers and interpreters for
+programming languages, package managers and various core utilities that are
+popular in areas such as software development, scripting and system
+administration.
+
+As mentioned before, the use of the command line as an interaction paradigm has
+effectively disappeared from a mainstream personal computer usage perspective.
+This contributes greatly to the intimidation factor and learning difficulty for
+those interested in getting into software engineering or system administration.
+This unfamiliarity, paired with the inevitability of usage of CLIs in the
+development space highlights a need to make the command line more accessible to
+new users for whom text-based interaction with their computer is an alien
+concept. In recent years interactive learning utilising tools such as sandboxed
+environments have been gaining in popularity and have the potential to be a
+suitable medium for learning command line basics through actual usage, examples
+and practice.
+
 \end{abstract}
+
+% NOTE: Does this need to be in German. Also is a summary really necessary?
 
 \begin{zusammenfassung}
 \end{zusammenfassung}
@@ -35,7 +59,7 @@
 \lstlistoflistings
 
 \mainmatter
-\chapter{Chapter}
+\chapter{Introduction}
 \section{Section}
 %
 \subsubsection{Subsubsection}
@@ -43,6 +67,11 @@
 
 \subsection{Subsection}
 %
+
+% NOTE: What are use cases for paragraphs like this or are they in place of
+% list items as in the proposal.
+
+% NOTE: Paragraphs titles should always have a point (.) after the title.
 \paragraph{Paragraph.} Always with a point.
 
 \begin{lstlisting}[caption=An example code snippet]
@@ -59,8 +88,15 @@ public class Foo {
 }
 \end{lstlisting}
 
+
+\section{Curriculum}
+
+The Curriculum is an important part of defining such a tool 
+
 \backmatter
+
+% NOTE: this bibstyle seems weird. 
 \bibliographystyle{alpha}
-\bibliography{}
+\bibliography{thesis}
 
 \end{document}
