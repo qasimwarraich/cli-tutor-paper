@@ -78,7 +78,7 @@
 
 - [bashmanual](https://www.gnu.org/software/bash/manual/bash.pdf)
 - [xinybash](https://learnxinyminutes.com/docs/bash/)
-
+-[soups](https://www.usenix.org/system/files/soups2019-voronkov.pdf)
 ## Existing literature
 
 - Mostly very old papers
