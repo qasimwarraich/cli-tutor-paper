@@ -47,6 +47,9 @@ def input_filter(input_byte):
         # clear the input buffer
         INPUT_BUFFER = b""
         try:
+            # Handle up arrow
+            if b'\x1b[A' in tokens[0]:
+                return input_byte
             # restrict permitted commands
             if tokens[0] not in vocabulary:
                 print("\r\nLet's stick to the basics for now\r")
