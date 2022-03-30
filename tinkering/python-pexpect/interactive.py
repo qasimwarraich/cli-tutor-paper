@@ -9,10 +9,10 @@ def get_terminal_size():
                       sys.stdout.fileno(), termios.TIOCGWINSZ, s))
     return a[0], a[1]
 
-def sigwinch_passthrough(sig, data):
-    global p
-    if not p.closed:
-        p.setwinsize(*get_terminal_size())
+# def sigwinch_passthrough(sig, data):
+#     global p
+#     if not p.closed:
+#         p.setwinsize(*get_terminal_size())
 
 # allowed commands
 vocabulary = {'ls', 'uname', 'man', 'mkdir', 'cat', 'unalias', 'cd', 'vim'}
@@ -64,7 +64,7 @@ print('tutor starting')
 
 p = pexpect.spawn('/bin/bash')
 p.setwinsize(*get_terminal_size())
-signal.signal(signal.SIGWINCH, sigwinch_passthrough)
+# signal.signal(signal.SIGWINCH, sigwinch_passthrough)
 p.interact(input_filter=input_filter, output_filter=output_filter)
 p.kill(1)
 
