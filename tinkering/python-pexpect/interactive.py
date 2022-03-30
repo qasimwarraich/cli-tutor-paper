@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import pexpect, struct, fcntl, termios, signal, sys
+from termcolor import cprint
 
 # This is to adjust the window size when resizing the terminal
 def get_terminal_size():
@@ -50,9 +51,11 @@ def input_filter(input_byte):
             # Handle up arrow
             if b'\x1b[A' in tokens[0]:
                 return input_byte
+
             # restrict permitted commands
             if tokens[0] not in vocabulary:
-                print("\r\nLet's stick to the basics for now\r")
+                # print("\r\nLet's stick to the basics for now\r")
+                cprint("\r\n[TUTOR]: Let's stick to the basics for now\r", 'cyan', attrs=['bold'])
                 return b"\x03" # not sure how to hide the ^C
 
             # if we're going into a nested environemnt like vim
@@ -77,6 +80,10 @@ def output_filter(output):
     # we can intercept output from the shell to add or change stuff
     if b"invalid option" in output:
 
+        cprint("\r\n[TUTOR]:  TIP: Try typing 'man' followed by the command name to learn more \r", 'yellow', attrs=['bold'])
+
+        cprint("\r\n[ERROR Message]: \r", 'red', attrs=['bold'])
+        # output += b"\nTIP: Try typing 'man' followed by the command name to learn more\r\n"
     return output
 print('tutor starting')
 
