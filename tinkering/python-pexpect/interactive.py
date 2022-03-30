@@ -18,48 +18,63 @@ def get_terminal_size():
 vocabulary = {'ls', 'uname', 'man', 'mkdir', 'cat', 'unalias', 'cd', 'vim'}
 # everything's in bytes, not str
 vocabulary = {str.encode(s) for s in vocabulary}
-input_buffer = b""
+
+
+INPUT_BUFFER = b""
 
 # detect when leaving the shell into a nested environment
-nested = False
+NESTED = False
 
-# bytes are directly sent to the underlying bash shell
-# so that tab-completion and everything else works
-def input_filter(s):
-    global input_buffer, nested
+# 
+def input_filter(input_byte):
+    """
+    Recieves input byte by byte on keypress in the interactive session
+    bytes are directly sent to the underlying bash shell
+    so that tab-completion and everything else works
+    """
+    global INPUT_BUFFER, NESTED
+
     # so we add each byte to a buffer before sending it to bash
-    input_buffer+=s
+    INPUT_BUFFER+=input_byte
+
+
+
     # but if the user hits return, we check the entire input buffer
     # unless we're in a nested environment (like vim, man, etc.)
-    if s == b'\r' and not nested:
-        tokens = input_buffer.split()
+    if input_byte == b'\r' and not NESTED:
+        tokens = INPUT_BUFFER.split()
+        print('\nINPUT BUFFER: ',tokens)
         # clear the input buffer
-        input_buffer = b""
+        INPUT_BUFFER = b""
         try:
             # restrict permitted commands
             if tokens[0] not in vocabulary:
                 print("\r\nLet's stick to the basics for now\r")
                 return b"\x03" # not sure how to hide the ^C
-            else:
-                # if we're going into a nested environemnt like vim
-                # need to disable the filtering
-                if tokens[0] == b'vim':
-                    nested = True
-                # not sure how to reset nested = False when exiting,
-                # maybe mess with bash's job management or check $?
-                return s
+
+            # if we're going into a nested environemnt like vim
+            # need to disable the filtering
+            if tokens[0] == b'vim':
+                NESTED = True
+            # not sure how to reset nested = False when exiting,
+            # maybe mess with bash's job management or check $?
+
+            return input_byte
         # user didn't enter any command, just return
         except IndexError:
-            return s
+            return input_byte
     else:
-        return s
+        return input_byte
 
-def output_filter(s):
+def output_filter(output):
+    """
+    Recieves output from the interactive session
+
+    """
     # we can intercept output from the shell to add or change stuff
-    if b"invalid option" in s:
-        s += b"\nTIP: Try typing 'man' followed by the command name to learn more\r\n"
-    return s
+    if b"invalid option" in output:
 
+    return output
 print('tutor starting')
 
 p = pexpect.spawn('/bin/bash')
