@@ -85,11 +85,15 @@ def output_filter(output):
         cprint("\r\n[ERROR Message]: \r", 'red', attrs=['bold'])
         # output += b"\nTIP: Try typing 'man' followed by the command name to learn more\r\n"
     return output
+
 print('tutor starting')
 
 p = pexpect.spawn('/bin/bash')
 p.setwinsize(*get_terminal_size())
 # signal.signal(signal.SIGWINCH, sigwinch_passthrough)
+p.sendline('stty -echoctl')
+p.sendcontrol('l')
+
 p.interact(input_filter=input_filter, output_filter=output_filter)
 p.kill(1)
 
