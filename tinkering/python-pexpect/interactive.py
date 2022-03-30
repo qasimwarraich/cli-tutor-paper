@@ -6,9 +6,9 @@ from termcolor import cprint
 # This is to adjust the window size when resizing the terminal
 def get_terminal_size():
     s = struct.pack("HHHH", 0, 0, 0, 0)
-    a = struct.unpack('hhhh', fcntl.ioctl(
-                      sys.stdout.fileno(), termios.TIOCGWINSZ, s))
+    a = struct.unpack("hhhh", fcntl.ioctl(sys.stdout.fileno(), termios.TIOCGWINSZ, s))
     return a[0], a[1]
+
 
 # def sigwinch_passthrough(sig, data):
 #     global p
@@ -16,7 +16,7 @@ def get_terminal_size():
 #         p.setwinsize(*get_terminal_size())
 
 # allowed commands
-vocabulary = {'ls', 'uname', 'man', 'mkdir', 'cat', 'unalias', 'cd', 'vim'}
+vocabulary = {"ls", "uname", "man", "mkdir", "cat", "unalias", "cd", "vim"}
 # everything's in bytes, not str
 vocabulary = {str.encode(s) for s in vocabulary}
 
@@ -26,7 +26,7 @@ INPUT_BUFFER = b""
 # detect when leaving the shell into a nested environment
 NESTED = False
 
-# 
+#
 def input_filter(input_byte):
     """
     Recieves input byte by byte on keypress in the interactive session
@@ -36,31 +36,33 @@ def input_filter(input_byte):
     global INPUT_BUFFER, NESTED
 
     # so we add each byte to a buffer before sending it to bash
-    INPUT_BUFFER+=input_byte
-
-
+    INPUT_BUFFER += input_byte
 
     # but if the user hits return, we check the entire input buffer
     # unless we're in a nested environment (like vim, man, etc.)
-    if input_byte == b'\r' and not NESTED:
+    if input_byte == b"\r" and not NESTED:
         tokens = INPUT_BUFFER.split()
-        print('\nINPUT BUFFER: ',tokens)
+        print("\nINPUT BUFFER: ", tokens)
         # clear the input buffer
         INPUT_BUFFER = b""
         try:
             # Handle up arrow
-            if b'\x1b[A' in tokens[0]:
+            if b"\x1b[A" in tokens[0]:
                 return input_byte
 
             # restrict permitted commands
             if tokens[0] not in vocabulary:
                 # print("\r\nLet's stick to the basics for now\r")
-                cprint("\r\n[TUTOR]: Let's stick to the basics for now\r", 'cyan', attrs=['bold'])
-                return b"\x03" # not sure how to hide the ^C
+                cprint(
+                    "\r\n[TUTOR]: Let's stick to the basics for now\r",
+                    "cyan",
+                    attrs=["bold"],
+                )
+                return b"\x03"  # not sure how to hide the ^C
 
             # if we're going into a nested environemnt like vim
             # need to disable the filtering
-            if tokens[0] == b'vim':
+            if tokens[0] == b"vim":
                 NESTED = True
             # not sure how to reset nested = False when exiting,
             # maybe mess with bash's job management or check $?
@@ -72,6 +74,7 @@ def input_filter(input_byte):
     else:
         return input_byte
 
+
 def output_filter(output):
     """
     Recieves output from the interactive session
@@ -80,22 +83,26 @@ def output_filter(output):
     # we can intercept output from the shell to add or change stuff
     if b"invalid option" in output:
 
-        cprint("\r\n[TUTOR]:  TIP: Try typing 'man' followed by the command name to learn more \r", 'yellow', attrs=['bold'])
+        cprint(
+            "\r\n[TUTOR]:  TIP: Try typing 'man' followed by the command name to learn more \r",
+            "yellow",
+            attrs=["bold"],
+        )
 
-        cprint("\r\n[ERROR Message]: \r", 'red', attrs=['bold'])
+        cprint("\r\n[ERROR Message]: \r", "red", attrs=["bold"])
         # output += b"\nTIP: Try typing 'man' followed by the command name to learn more\r\n"
     return output
 
-print('tutor starting')
 
-p = pexpect.spawn('/bin/bash')
+print("tutor starting")
+
+p = pexpect.spawn("/bin/bash")
 p.setwinsize(*get_terminal_size())
 # signal.signal(signal.SIGWINCH, sigwinch_passthrough)
-p.sendline('stty -echoctl')
-p.sendcontrol('l')
+p.sendline("stty -echoctl")
+p.sendcontrol("l")
 
 p.interact(input_filter=input_filter, output_filter=output_filter)
 p.kill(1)
 
-print('tutor has ended')
-
+print("tutor has ended")
