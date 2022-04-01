@@ -78,7 +78,9 @@
 
 - [bashmanual](https://www.gnu.org/software/bash/manual/bash.pdf)
 - [xinybash](https://learnxinyminutes.com/docs/bash/)
--[soups](https://www.usenix.org/system/files/soups2019-voronkov.pdf)
+- [soups](https://www.usenix.org/system/files/soups2019-voronkov.pdf)
+- [readline](https://eli.thegreenplace.net/2016/basics-of-using-the-readline-library/)
+
 ## Existing literature
 
 - Mostly very old papers
