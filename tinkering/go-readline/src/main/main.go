@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"os/user"
 	"time"
 
 	"github.com/chzyer/readline"
@@ -29,20 +30,22 @@ func printer(s string, string_type string) {
 }
 
 func buildPrompt() string {
-    user, _ := exec.Command("whoami").Output()
-    userstring := string(user[:len(user)-1])
+	user, _ := user.Current()
+	username := promptStyler(user.Username, "blue")
 
-    host, err := os.LookupEnv("HOST")
-    if err {host = "Tutor"}
+	host, _ := os.Hostname()
+	hostname := promptStyler(host, "magenta")
 
-    cwd, _ := os.Getwd()
+	cwd, _ := os.Getwd()
+	styled_cwd := promptStyler(cwd, "green")
 
+	return username + " @ " + hostname + " in " + styled_cwd
+}
 
-    return userstring + "@" + host + "in" + cwd
 }
 
 func main() {
-    rl, err := readline.New(buildPrompt() + " >")
+	rl, err := readline.New(buildPrompt() + " > ")
 	if err != nil {
 		panic(err)
 	}
