@@ -152,7 +152,7 @@ func main() {
 			output, _ := cmd.Output()
 			fmt.Print(string(output))
 		} else {
-			fmt.Println("Let's stick to the basics")
+			printer("Let's stick to the basics", "error")
 		}
 
 	}
