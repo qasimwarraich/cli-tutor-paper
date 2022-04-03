@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"os/exec"
 	"time"
 
 	"github.com/chzyer/readline"
@@ -26,8 +28,21 @@ func printer(s string, string_type string) {
 	}
 }
 
+func buildPrompt() string {
+    user, _ := exec.Command("whoami").Output()
+    userstring := string(user[:len(user)-1])
+
+    host, err := os.LookupEnv("HOST")
+    if err {host = "Tutor"}
+
+    cwd, _ := os.Getwd()
+
+
+    return userstring + "@" + host + "in" + cwd
+}
+
 func main() {
-	rl, err := readline.New("Chistole > ")
+    rl, err := readline.New(buildPrompt() + " >")
 	if err != nil {
 		panic(err)
 	}
@@ -52,7 +67,7 @@ func main() {
     laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa
     duis.`, "")
 
-	time.Sleep(4 * time.Second)
+	// time.Sleep(4 * time.Second)
     printer("\n\nWhen you are ready press any key to begin", "note")
     fmt.Scanln() // Any key
     
