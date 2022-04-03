@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/exec"
 	"os/user"
+	"strings"
 	"time"
 
 	"github.com/chzyer/readline"
@@ -74,6 +75,22 @@ func buildPrompt() string {
 	return username + " @ " + hostname + " in " + styled_cwd
 }
 
+func contains(s string, arr []string) bool {
+	for _, val := range arr {
+		if s == val {
+			return true
+		}
+	}
+	return false
+}
+
+func inputFilter(s string) []string {
+	vocubulary := []string{"pwd", "ls", "cd", "whoami", "uname", "echo"}
+	split := strings.Fields(s)
+	if contains(split[0], vocubulary) {
+		return split
+	}
+	return []string{}
 }
 
 func main() {
