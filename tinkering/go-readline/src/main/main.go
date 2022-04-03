@@ -107,7 +107,7 @@ func main() {
 	time.Sleep(1 * time.Second)
 
 	printer("This lesson will be about", "")
-    printer(`Lorem ipsum dolor sit amet, officia excepteur ex fugiat
+	printer(`Lorem ipsum dolor sit amet, officia excepteur ex fugiat
     reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse
     exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit
     nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor
@@ -120,19 +120,40 @@ func main() {
     duis.`, "")
 
 	// time.Sleep(4 * time.Second)
-    printer("\n\nWhen you are ready press any key to begin", "note")
-    fmt.Scanln() // Any key
-    
+
+	printer("\n\nWhen you are ready press any key to begin", "note")
+	fmt.Scanln() // Any key
+
 	termenv.ClearScreen()
 
 	printer("Welcome to the shell", "")
 
-    //Readline loop
+	// Readline loop
 	for {
 		line, err := rl.Readline()
 		if err != nil { // io.EOF
 			break
 		}
-		println(line)
+		if line == "" {
+			continue
+		}
+
+		command := inputFilter(line)
+
+		var cmd *exec.Cmd
+
+		if len(command) > 0 {
+			if len(command) > 1 {
+				args := command[1:]
+				cmd = exec.Command(command[0], args...)
+			} else {
+				cmd = exec.Command(line)
+			}
+			output, _ := cmd.Output()
+			fmt.Print(string(output))
+		} else {
+			fmt.Println("Let's stick to the basics")
+		}
+
 	}
 }
