@@ -127,6 +127,7 @@ func main() {
 	termenv.ClearScreen()
 
 	printer("Welcome to the shell", "")
+	printer(`Try out some commands or type "exit"/"quit" to quit the shell`, "note")
 
 	// Readline loop
 	for {
@@ -137,6 +138,10 @@ func main() {
 		if line == "" {
 			continue
 		}
+
+        if line == "quit" || line == "exit" {
+            break
+        }
 
 		command := inputFilter(line)
 
