@@ -85,9 +85,9 @@ func contains(s string, arr []string) bool {
 }
 
 func inputFilter(s string) []string {
-	vocubulary := []string{"pwd", "ls", "cd", "whoami", "uname", "echo"}
+	vocabulary := []string{"pwd", "ls", "cd", "whoami", "uname", "echo"}
 	split := strings.Fields(s)
-	if contains(split[0], vocubulary) {
+	if contains(split[0], vocabulary) {
 		return split
 	}
 	return []string{}
