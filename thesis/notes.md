@@ -17,7 +17,7 @@
 - Let's play with some commands
   - Examples and use cases.
 
-- File system
+- File system [chroot]
   - Meaning of '~'
   - ls, cd, touch, mkdir
   - Globbing
