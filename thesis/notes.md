@@ -86,8 +86,74 @@
 - Mostly very old papers
 - If there is a comparison it is usually in the realm of network engineers not newbies.
 
-
-## Look into 
+## Look into
 
 - Bash readline
 - Capturing bash commands
+
+## Paper structure
+
+- Abstract
+- Introduction
+  - problem description
+  - introduce tool
+  - outline thesis
+- Tool
+  - overview
+  - web version
+- Design and Implementation
+  - overview
+  - architecture
+  - architecture of webtool
+- User Study
+- Related Work and Reflections
+  - related work
+  - future work
+- Conclusion
+- Appendix
+  - Detailed dev considerations
+
+## Sample format
+
+```tex
+
+\chapter{Introduction}
+\section{Section}
+%
+\subsubsection{Subsubsection}
+\fig[.5\textwidth]{seal_blue}{seal logo}{logo}
+
+\subsection{Subsection}
+%
+
+% NOTE: What are use cases for paragraphs like this or are they in place of
+% list items as in the proposal.
+
+% NOTE: Paragraphs titles should always have a point (.) after the title.
+\paragraph{Paragraph.} Always with a point.
+
+\begin{lstlisting}[caption=An example code snippet]
+/**
+ * Javadoc comment
+ */
+public class Foo {
+	// line comment
+	public void bar(int number) {
+		if (number < 0) {
+			return; /* block comment */
+		}
+	}
+}
+\end{lstlisting}
+
+
+\section{Curriculum}
+
+The Curriculum is an important part of defining such a tool 
+
+\section{Interactive Learning Tool}
+
+The Curriculum is an important part of defining such a tool 
+
+
+```
