@@ -33,7 +33,7 @@
 
 <!-- TODO: Rewrite -->
 - Sticky situations extras.
-  - sed -x
+  - set x
   - quoting
   - jobs, ps
   - exit status $?
@@ -59,20 +59,20 @@
 
 ## Should cover
 
-- ls
-- cd
-- touch
-- rm
-- man
-- wc
-- cat
-- head
-- tail
-- find
-- grep
-- sed
-- awk
-- cut
+- [x] ls
+- [x] cd
+- [x] touch
+- [x] rm
+- [x] man
+- [x] wc
+- [x] cat
+- [ ] head
+- [ ] tail
+- [ ] find
+- [ ] grep
+- [ ] sed
+- [ ] awk
+- [ ] cut
 
 ## References
 
