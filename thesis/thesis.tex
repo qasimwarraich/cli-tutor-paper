@@ -9,7 +9,7 @@
 \country{Pakistan}
 \legi{18-787-796}
 \prof{Prof. Dr. Harald C. Gall}
-\assistent{Dr. Carol V. Alexandru-Funakoshi}
+\assistent{}
 \email{qasim.warraich@uzh.ch}
 \url{gitlab.com/qasimwarraich/clitutor}
 \begindate{2022-03-14}
@@ -20,38 +20,12 @@
 
 \frontmatter
 
-%\begin{acknowledgements}
-%\end{acknowledgements}
+% acknowledgements
+\include{chapters/acknowledgements/acknowledgements}
 
-\begin{abstract}
-Despite the arguably dated appearance, difficult learning curve and practical
-non-existence in the general personal computing space, Command Line Interfaces
-(CLIs) have more than stood the test of time in the software development world.
-There are a multitude of extremely popular tools and applications that
-primarily focus on the command line as an interaction medium. Some examples
-include version control software like `git', compilers and interpreters for
-programming languages, package managers and various core utilities that are
-popular in areas such as software development, scripting and system
-administration.
-
-As mentioned before, the use of the command line as an interaction paradigm has
-effectively disappeared from a mainstream personal computer usage perspective.
-This contributes greatly to the intimidation factor and learning difficulty for
-those interested in getting into software engineering or system administration.
-This unfamiliarity, paired with the inevitability of usage of CLIs in the
-development space highlights a need to make the command line more accessible to
-new users for whom text-based interaction with their computer is an alien
-concept. In recent years interactive learning utilising tools such as sandboxed
-environments have been gaining in popularity and have the potential to be a
-suitable medium for learning command line basics through actual usage, examples
-and practice.
-
-\end{abstract}
-
-% NOTE: Does this need to be in German. Also is a summary really necessary?
-
-\begin{zusammenfassung}
-\end{zusammenfassung}
+% abstract(s)
+\include{chapters/abstract/abstract}
+\include{chapters/abstract/zusammenfassung}
 
 \tableofcontents
 \listoffigures
@@ -59,44 +33,20 @@ and practice.
 \lstlistoflistings
 
 \mainmatter
-\chapter{Introduction}
-\section{Section}
-%
-\subsubsection{Subsubsection}
-\fig[.5\textwidth]{seal_blue}{seal logo}{logo}
 
-\subsection{Subsection}
-%
-
-% NOTE: What are use cases for paragraphs like this or are they in place of
-% list items as in the proposal.
-
-% NOTE: Paragraphs titles should always have a point (.) after the title.
-\paragraph{Paragraph.} Always with a point.
-
-\begin{lstlisting}[caption=An example code snippet]
-/**
- * Javadoc comment
- */
-public class Foo {
-	// line comment
-	public void bar(int number) {
-		if (number < 0) {
-			return; /* block comment */
-		}
-	}
-}
-\end{lstlisting}
-
-
-\section{Curriculum}
-
-The Curriculum is an important part of defining such a tool 
+% chapters
+\include{chapters/introduction/introduction}
+\include{chapters/the_cli-tutor_tool/the_cli-tutor_tool}
+\include{chapters/design_and_implementation/design_and_implementation}
+\include{chapters/related_work/related_work}
 
 \backmatter
 
 % NOTE: this bibstyle seems weird. 
 \bibliographystyle{alpha}
 \bibliography{thesis}
+
+% appendix 
+\include{chapters/appendix/appendix}
 
 \end{document}
