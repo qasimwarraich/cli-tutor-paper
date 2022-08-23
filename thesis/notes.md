@@ -94,17 +94,18 @@
 ## Paper structure
 
 - Abstract
-- Introduction
-  - problem description
-  - introduce tool
-  - outline thesis
+ - Overview
+   - problem description
+   - introduce tool
+   - outline thesis
+ - Introduction
 - Tool
   - overview
   - web version
 - Design and Implementation
   - overview
   - architecture
-  - architecture of webtool
+  - architecture of web-tool
 - User Study
 - Related Work and Reflections
   - related work
