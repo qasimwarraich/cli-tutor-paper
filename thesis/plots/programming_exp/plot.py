@@ -27,7 +27,9 @@ sns.despine(ax=ax1, left=True)
 ax1.set(yticks=[])
 ax1.tick_params(axis="x", which="both", labelbottom=True)  # changes apply to the x-axis
 
-sns.histplot(x=years, bins=bins, kde=True, ax=ax2, color="c", edgecolor="black", alpha=0.5)
+sns.histplot(
+    x=years, bins=bins, kde=True, ax=ax2, color="c", edgecolor="black", alpha=0.5
+)
 
 min_ylim, max_ylim = plt.ylim()
 ax2.axvline(years.mean(), color="k", linestyle="dashed", linewidth=1)

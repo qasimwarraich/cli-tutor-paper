@@ -71,11 +71,9 @@
 \pgfsetmiterjoin%
 \definecolor{currentfill}{rgb}{0.443627,0.681863,0.752451}%
 \pgfsetfillcolor{currentfill}%
-\pgfsetfillopacity{0.600000}%
 \pgfsetlinewidth{1.505625pt}%
 \definecolor{currentstroke}{rgb}{0.360784,0.360784,0.360784}%
 \pgfsetstrokecolor{currentstroke}%
-\pgfsetstrokeopacity{0.600000}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{1.192085in}{3.724470in}}%
 \pgfpathlineto{\pgfqpoint{1.192085in}{3.382323in}}%
