@@ -50,7 +50,7 @@
 \definecolor{textcolor}{rgb}{0.150000,0.150000,0.150000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=3.027163in,y=0.411111in,,top]{\color{textcolor}\sffamily\fontsize{12.000000}{14.400000}\selectfont Computer Science University Experience}%
+\pgftext[x=3.027163in,y=0.411111in,,top]{\color{textcolor}\sffamily\fontsize{12.000000}{14.400000}\selectfont Computer Science UniversityUniverity Experience}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%

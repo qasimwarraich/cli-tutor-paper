@@ -12,7 +12,7 @@ plt.tight_layout()
 fig.set_size_inches(5.90666, 5)
 sns.set(style="ticks")
 
-plt.xlabel("Computer Science University Experience")
+plt.xlabel("Computer Science UniversityUniverity Experience")
 
 data = np.array([29.41, 29.41, 29.41, 0, 11.76, 0])
 explode = (0.2, 0, 0, 0, 0, 0)
