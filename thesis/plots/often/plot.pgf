@@ -1,0 +1,182 @@
+%% Creator: Matplotlib, PGF backend
+%%
+%% To include the figure in your LaTeX document, write
+%%   \input{<filename>.pgf}
+%%
+%% Make sure the required packages are loaded in your preamble
+%%   \usepackage{pgf}
+%%
+%% Also ensure that all the required font packages are loaded; for instance,
+%% the lmodern package is sometimes necessary when using math font.
+%%   \usepackage{lmodern}
+%%
+%% Figures using additional raster images can only be included by \input if
+%% they are in the same directory as the main LaTeX file. For loading figures
+%% from other directories you can use the `import` package
+%%   \usepackage{import}
+%%
+%% and then include the figures with
+%%   \import{<path to file>}{<filename>.pgf}
+%%
+%% Matplotlib used the following preamble
+%%   \usepackage{fontspec}
+%%   \setmainfont{DejaVuSerif.ttf}[Path=\detokenize{/home/spam/miniconda3/envs/mpl/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/}]
+%%   \setsansfont{DejaVuSans.ttf}[Path=\detokenize{/home/spam/miniconda3/envs/mpl/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/}]
+%%   \setmonofont{DejaVuSansMono.ttf}[Path=\detokenize{/home/spam/miniconda3/envs/mpl/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/}]
+%%
+\begingroup%
+\makeatletter%
+\begin{pgfpicture}%
+\pgfpathrectangle{\pgfpointorigin}{\pgfqpoint{8.000944in}{4.840000in}}%
+\pgfusepath{use as bounding box, clip}%
+\begin{pgfscope}%
+\pgfsetbuttcap%
+\pgfsetmiterjoin%
+\pgfsetlinewidth{0.000000pt}%
+\definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{currentstroke}%
+\pgfsetstrokeopacity{0.000000}%
+\pgfsetdash{}{0pt}%
+\pgfpathmoveto{\pgfqpoint{0.000000in}{-0.000000in}}%
+\pgfpathlineto{\pgfqpoint{8.000944in}{-0.000000in}}%
+\pgfpathlineto{\pgfqpoint{8.000944in}{4.840000in}}%
+\pgfpathlineto{\pgfqpoint{0.000000in}{4.840000in}}%
+\pgfpathlineto{\pgfqpoint{0.000000in}{-0.000000in}}%
+\pgfpathclose%
+\pgfusepath{}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.150000,0.150000,0.150000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=4.000472in,y=0.261295in,,top]{\color{textcolor}\sffamily\fontsize{12.000000}{14.400000}\selectfont Are you interested in integrating the command line more into your day to day computer use?}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\pgfsetbuttcap%
+\pgfsetmiterjoin%
+\definecolor{currentfill}{rgb}{0.745098,0.729412,0.854902}%
+\pgfsetfillcolor{currentfill}%
+\pgfsetlinewidth{1.003750pt}%
+\definecolor{currentstroke}{rgb}{1.000000,1.000000,1.000000}%
+\pgfsetstrokecolor{currentstroke}%
+\pgfsetdash{}{0pt}%
+\pgfpathmoveto{\pgfqpoint{2.473772in}{2.293032in}}%
+\pgfpathcurveto{\pgfqpoint{2.473772in}{1.970194in}}{\pgfqpoint{2.563831in}{1.653668in}}{\pgfqpoint{2.733784in}{1.379185in}}%
+\pgfpathcurveto{\pgfqpoint{2.903736in}{1.104702in}}{\pgfqpoint{3.146936in}{0.882996in}}{\pgfqpoint{3.435929in}{0.739095in}}%
+\pgfpathcurveto{\pgfqpoint{3.724922in}{0.595193in}}{\pgfqpoint{4.048408in}{0.534723in}}{\pgfqpoint{4.369869in}{0.564511in}}%
+\pgfpathcurveto{\pgfqpoint{4.691330in}{0.594299in}}{\pgfqpoint{4.998196in}{0.713180in}}{\pgfqpoint{5.255827in}{0.907733in}}%
+\pgfpathcurveto{\pgfqpoint{5.513457in}{1.102287in}}{\pgfqpoint{5.711778in}{1.364905in}}{\pgfqpoint{5.828401in}{1.665943in}}%
+\pgfpathcurveto{\pgfqpoint{5.945023in}{1.966981in}}{\pgfqpoint{5.975388in}{2.294666in}}{\pgfqpoint{5.916067in}{2.612008in}}%
+\pgfpathcurveto{\pgfqpoint{5.856745in}{2.929349in}}{\pgfqpoint{5.710058in}{3.223938in}}{\pgfqpoint{5.492563in}{3.462518in}}%
+\pgfpathcurveto{\pgfqpoint{5.275068in}{3.701098in}}{\pgfqpoint{4.995271in}{3.874342in}}{\pgfqpoint{4.684757in}{3.962691in}}%
+\pgfpathlineto{\pgfqpoint{4.209698in}{2.293032in}}%
+\pgfpathlineto{\pgfqpoint{2.473772in}{2.293032in}}%
+\pgfpathlineto{\pgfqpoint{2.473772in}{2.293032in}}%
+\pgfpathclose%
+\pgfusepath{stroke,fill}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\pgfsetbuttcap%
+\pgfsetmiterjoin%
+\definecolor{currentfill}{rgb}{0.984314,0.501961,0.447059}%
+\pgfsetfillcolor{currentfill}%
+\pgfsetlinewidth{1.003750pt}%
+\definecolor{currentstroke}{rgb}{1.000000,1.000000,1.000000}%
+\pgfsetstrokecolor{currentstroke}%
+\pgfsetdash{}{0pt}%
+\pgfpathmoveto{\pgfqpoint{4.475531in}{4.239750in}}%
+\pgfpathcurveto{\pgfqpoint{4.217267in}{4.313233in}}{\pgfqpoint{3.945440in}{4.325801in}}{\pgfqpoint{3.681497in}{4.276461in}}%
+\pgfpathcurveto{\pgfqpoint{3.417554in}{4.227122in}}{\pgfqpoint{3.168623in}{4.117208in}}{\pgfqpoint{2.954343in}{3.955392in}}%
+\pgfpathcurveto{\pgfqpoint{2.740063in}{3.793575in}}{\pgfqpoint{2.566222in}{3.584226in}}{\pgfqpoint{2.446535in}{3.343862in}}%
+\pgfpathcurveto{\pgfqpoint{2.326847in}{3.103497in}}{\pgfqpoint{2.264546in}{2.838608in}}{\pgfqpoint{2.264546in}{2.570093in}}%
+\pgfpathlineto{\pgfqpoint{4.000472in}{2.570092in}}%
+\pgfpathlineto{\pgfqpoint{4.475531in}{4.239750in}}%
+\pgfpathlineto{\pgfqpoint{4.475531in}{4.239750in}}%
+\pgfpathclose%
+\pgfusepath{stroke,fill}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.150000,0.150000,0.150000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=4.837375in,y=1.461853in,,]{\color{textcolor}\sffamily\fontsize{12.000000}{14.400000}\selectfont 70.59\%}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.150000,0.150000,0.150000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=3.372795in,y=3.401272in,,]{\color{textcolor}\sffamily\fontsize{12.000000}{14.400000}\selectfont 29.41\%}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\pgfsetbuttcap%
+\pgfsetmiterjoin%
+\definecolor{currentfill}{rgb}{1.000000,1.000000,1.000000}%
+\pgfsetfillcolor{currentfill}%
+\pgfsetfillopacity{0.800000}%
+\pgfsetlinewidth{1.003750pt}%
+\definecolor{currentstroke}{rgb}{0.800000,0.800000,0.800000}%
+\pgfsetstrokecolor{currentstroke}%
+\pgfsetstrokeopacity{0.800000}%
+\pgfsetdash{}{0pt}%
+\pgfpathmoveto{\pgfqpoint{4.599693in}{0.302981in}}%
+\pgfpathlineto{\pgfqpoint{6.063435in}{0.302981in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{6.093991in}{0.302981in}}{\pgfqpoint{6.093991in}{0.333536in}}%
+\pgfpathlineto{\pgfqpoint{6.093991in}{0.705633in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{6.093991in}{0.736189in}}{\pgfqpoint{6.063435in}{0.736189in}}%
+\pgfpathlineto{\pgfqpoint{4.599693in}{0.736189in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{4.569137in}{0.736189in}}{\pgfqpoint{4.569137in}{0.705633in}}%
+\pgfpathlineto{\pgfqpoint{4.569137in}{0.333536in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{4.569137in}{0.302981in}}{\pgfqpoint{4.599693in}{0.302981in}}%
+\pgfpathlineto{\pgfqpoint{4.599693in}{0.302981in}}%
+\pgfpathclose%
+\pgfusepath{stroke,fill}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\pgfsetbuttcap%
+\pgfsetmiterjoin%
+\definecolor{currentfill}{rgb}{0.745098,0.729412,0.854902}%
+\pgfsetfillcolor{currentfill}%
+\pgfsetlinewidth{1.003750pt}%
+\definecolor{currentstroke}{rgb}{1.000000,1.000000,1.000000}%
+\pgfsetstrokecolor{currentstroke}%
+\pgfsetdash{}{0pt}%
+\pgfpathmoveto{\pgfqpoint{4.630249in}{0.559002in}}%
+\pgfpathlineto{\pgfqpoint{4.935804in}{0.559002in}}%
+\pgfpathlineto{\pgfqpoint{4.935804in}{0.665947in}}%
+\pgfpathlineto{\pgfqpoint{4.630249in}{0.665947in}}%
+\pgfpathlineto{\pgfqpoint{4.630249in}{0.559002in}}%
+\pgfpathclose%
+\pgfusepath{stroke,fill}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.150000,0.150000,0.150000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=5.058026in,y=0.559002in,left,base]{\color{textcolor}\sffamily\fontsize{11.000000}{13.200000}\selectfont Yes, 70.59 \%}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\pgfsetbuttcap%
+\pgfsetmiterjoin%
+\definecolor{currentfill}{rgb}{0.984314,0.501961,0.447059}%
+\pgfsetfillcolor{currentfill}%
+\pgfsetlinewidth{1.003750pt}%
+\definecolor{currentstroke}{rgb}{1.000000,1.000000,1.000000}%
+\pgfsetstrokecolor{currentstroke}%
+\pgfsetdash{}{0pt}%
+\pgfpathmoveto{\pgfqpoint{4.630249in}{0.395870in}}%
+\pgfpathlineto{\pgfqpoint{4.935804in}{0.395870in}}%
+\pgfpathlineto{\pgfqpoint{4.935804in}{0.502815in}}%
+\pgfpathlineto{\pgfqpoint{4.630249in}{0.502815in}}%
+\pgfpathlineto{\pgfqpoint{4.630249in}{0.395870in}}%
+\pgfpathclose%
+\pgfusepath{stroke,fill}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.150000,0.150000,0.150000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=5.058026in,y=0.395870in,left,base]{\color{textcolor}\sffamily\fontsize{11.000000}{13.200000}\selectfont No, 29.41 \%}%
+\end{pgfscope}%
+\end{pgfpicture}%
+\makeatother%
+\endgroup%
