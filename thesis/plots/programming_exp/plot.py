@@ -10,7 +10,7 @@ import numpy as np
 fig, (ax1, ax2) = plt.subplots(
     2, sharex=True, gridspec_kw={"height_ratios": (0.15, 0.85)}
 )
-fig.set_size_inches(5.90666, 4)
+fig.set_size_inches(5.90666, 5)
 sns.set(style="ticks")
 
 plt.xlabel("Programming Experience in Years")
@@ -38,12 +38,12 @@ ax2.axvline(data.mean(), color="k", linestyle="dashed", linewidth=1)
 ax2.text(
     data.mean() - 0.25,
     max_ylim * 0.6,
-    "Median: {:.2f}".format(data.mean()),
+    "Mean: {:.2f}".format(data.mean()),
     color="k",
     zorder=5,
     backgroundcolor="white",
     rotation="vertical",
-    fontsize=8,
+    fontsize=9,
 )
 
 median = int(np.median(data))
@@ -56,7 +56,7 @@ ax2.text(
     zorder=5,
     backgroundcolor="white",
     rotation="vertical",
-    fontsize=8,
+    fontsize=9,
 )
 
 
