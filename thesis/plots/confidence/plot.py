@@ -64,7 +64,7 @@ fig.legend(
     labelspacing=0.1,
 )
 
-# fig.set_constrained_layout(True)
-fig.tight_layout()
+fig.set_constrained_layout(True)
+# fig.tight_layout()
 fig.savefig("plot.png", dpi=100)
 fig.savefig("plot.pgf", format="pgf", bbox_inches="tight", transparent=True)
