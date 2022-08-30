@@ -29,8 +29,15 @@ colors = sns.color_palette("Set3")[0:7]
 
 plt.pie(data, colors=colors, autopct="%.1f%%")
 legend_labels = ["%s, %1.1f %%" % (l, s) for l, s in zip(labels, data)]
-plt.legend(legend_labels, bbox_to_anchor=(1.25, -0.04), loc="lower right", fontsize=9)
+plt.legend(
+    legend_labels,
+    bbox_to_anchor=(1, -0.04),
+    loc="lower right",
+    handlelength=0.5,
+    labelspacing=0.1,
+)
 
+# fig.set_constrained_layout(True)
 plt.tight_layout()
 fig.savefig("plot.png", dpi=100)
-fig.savefig("plot.pgf", format="pgf")
+fig.savefig("plot.pgf", format="pgf", bbox_inches="tight", transparent=True)
