@@ -1,4 +1,5 @@
 import matplotlib as mpl
+from plot_likert.colors import TRANSPARENT
 
 mpl.use("pgf")
 
@@ -46,19 +47,19 @@ data = pd.DataFrame(
             10: "Neither Comfortable nor Uncomfortable",
             11: "Neither Comfortable nor Uncomfortable",
             12: "Neither Comfortable nor Uncomfortable",
-            13: "Comfortable",
-            14: "Comfortable",
+            13: "Neither Comfortable nor Uncomfortable",
+            14: "Extremely Uncomfortable",
             15: "Comfortable",
             16: "Extremely Comfortable",
         },
         Q2: {
             0: "Extremely Uncomfortable",
             1: "Extremely Uncomfortable",
-            2: "Uncomfortable",
-            3: "Uncomfortable",
-            4: "Uncomfortable",
-            5: "Uncomfortable",
-            6: "Uncomfortable",
+            2: "Extremely Uncomfortable",
+            3: "Extremely Uncomfortable",
+            4: "Extremely Uncomfortable",
+            5: "Extremely Uncomfortable",
+            6: "Extremely Uncomfortable",
             7: "Uncomfortable",
             8: "Uncomfortable",
             9: "Uncomfortable",
@@ -92,18 +93,20 @@ data = pd.DataFrame(
     }
 )
 
-colors = sns.color_palette("coolwarm")
+colors = sns.color_palette("coolwarm_r")
+colors[0] = TRANSPARENT
+
 # ax = plot_likert.plot_likert(data, comfort, plot_percentage=True, colors=colors, figsize=(5.90666, 5))
 ax = plot_likert.plot_likert(
-    # data, comfort, plot_percentage=True, colors=colors, figsize=(8, 5)
     data,
     comfort,
     plot_percentage=True,
     colors=colors,
+    width=0.7
 )
 
-for bars, color in zip(ax.containers[1:], ["white"] + ["black"] * 2 + ["white"] * 2):
-    ax.bar_label(bars, label_type="center", fmt="%.1f %%", color=color, fontsize=9)
+for bars, color in zip(ax.containers[1:], ["white"] + ["black"] * 3 + ["white"] * 2):
+    ax.bar_label(bars, label_type="center", fmt="%.1f%%", color=color, fontsize=8.5)
 
 plt.legend(
     loc="upper center",
@@ -115,7 +118,7 @@ plt.legend(
     bbox_to_anchor=(0.2, 1.4),
 )
 
-ax.figure.set_size_inches(7, 2)
+ax.figure.set_size_inches(7, 2.5)
 # plt.show()
 
 plt.savefig("plot.png", dpi=100)
