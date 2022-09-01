@@ -210,16 +210,16 @@
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetstrokeopacity{0.800000}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{0.688534in}{0.302981in}}%
-\pgfpathlineto{\pgfqpoint{3.812093in}{0.302981in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{3.842649in}{0.302981in}}{\pgfqpoint{3.842649in}{0.333536in}}%
-\pgfpathlineto{\pgfqpoint{3.842649in}{1.358160in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{3.842649in}{1.388716in}}{\pgfqpoint{3.812093in}{1.388716in}}%
-\pgfpathlineto{\pgfqpoint{0.688534in}{1.388716in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{0.657978in}{1.388716in}}{\pgfqpoint{0.657978in}{1.358160in}}%
-\pgfpathlineto{\pgfqpoint{0.657978in}{0.333536in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{0.657978in}{0.302981in}}{\pgfqpoint{0.688534in}{0.302981in}}%
-\pgfpathlineto{\pgfqpoint{0.688534in}{0.302981in}}%
+\pgfpathmoveto{\pgfqpoint{1.209312in}{0.302981in}}%
+\pgfpathlineto{\pgfqpoint{4.332871in}{0.302981in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{4.363427in}{0.302981in}}{\pgfqpoint{4.363427in}{0.333536in}}%
+\pgfpathlineto{\pgfqpoint{4.363427in}{1.358160in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{4.363427in}{1.388716in}}{\pgfqpoint{4.332871in}{1.388716in}}%
+\pgfpathlineto{\pgfqpoint{1.209312in}{1.388716in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{1.178756in}{1.388716in}}{\pgfqpoint{1.178756in}{1.358160in}}%
+\pgfpathlineto{\pgfqpoint{1.178756in}{0.333536in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{1.178756in}{0.302981in}}{\pgfqpoint{1.209312in}{0.302981in}}%
+\pgfpathlineto{\pgfqpoint{1.209312in}{0.302981in}}%
 \pgfpathclose%
 \pgfusepath{stroke,fill}%
 \end{pgfscope}%
@@ -232,11 +232,11 @@
 \definecolor{currentstroke}{rgb}{1.000000,1.000000,1.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{0.719089in}{1.211529in}}%
-\pgfpathlineto{\pgfqpoint{1.024645in}{1.211529in}}%
-\pgfpathlineto{\pgfqpoint{1.024645in}{1.318474in}}%
-\pgfpathlineto{\pgfqpoint{0.719089in}{1.318474in}}%
-\pgfpathlineto{\pgfqpoint{0.719089in}{1.211529in}}%
+\pgfpathmoveto{\pgfqpoint{1.239867in}{1.211529in}}%
+\pgfpathlineto{\pgfqpoint{1.545423in}{1.211529in}}%
+\pgfpathlineto{\pgfqpoint{1.545423in}{1.318474in}}%
+\pgfpathlineto{\pgfqpoint{1.239867in}{1.318474in}}%
+\pgfpathlineto{\pgfqpoint{1.239867in}{1.211529in}}%
 \pgfpathclose%
 \pgfusepath{stroke,fill}%
 \end{pgfscope}%
@@ -244,7 +244,7 @@
 \definecolor{textcolor}{rgb}{0.150000,0.150000,0.150000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=1.146867in,y=1.211529in,left,base]{\color{textcolor}\sffamily\fontsize{11.000000}{13.200000}\selectfont No CS Degree, 29.4 \%}%
+\pgftext[x=1.667645in,y=1.211529in,left,base]{\color{textcolor}\sffamily\fontsize{11.000000}{13.200000}\selectfont No CS Degree, 29.4 \%}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -255,11 +255,11 @@
 \definecolor{currentstroke}{rgb}{1.000000,1.000000,1.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{0.719089in}{1.048398in}}%
-\pgfpathlineto{\pgfqpoint{1.024645in}{1.048398in}}%
-\pgfpathlineto{\pgfqpoint{1.024645in}{1.155342in}}%
-\pgfpathlineto{\pgfqpoint{0.719089in}{1.155342in}}%
-\pgfpathlineto{\pgfqpoint{0.719089in}{1.048398in}}%
+\pgfpathmoveto{\pgfqpoint{1.239867in}{1.048398in}}%
+\pgfpathlineto{\pgfqpoint{1.545423in}{1.048398in}}%
+\pgfpathlineto{\pgfqpoint{1.545423in}{1.155342in}}%
+\pgfpathlineto{\pgfqpoint{1.239867in}{1.155342in}}%
+\pgfpathlineto{\pgfqpoint{1.239867in}{1.048398in}}%
 \pgfpathclose%
 \pgfusepath{stroke,fill}%
 \end{pgfscope}%
@@ -267,7 +267,7 @@
 \definecolor{textcolor}{rgb}{0.150000,0.150000,0.150000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=1.146867in,y=1.048398in,left,base]{\color{textcolor}\sffamily\fontsize{11.000000}{13.200000}\selectfont Bachelors's Degree, 29.4 \%}%
+\pgftext[x=1.667645in,y=1.048398in,left,base]{\color{textcolor}\sffamily\fontsize{11.000000}{13.200000}\selectfont Bachelors's Degree, 29.4 \%}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -278,11 +278,11 @@
 \definecolor{currentstroke}{rgb}{1.000000,1.000000,1.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{0.719089in}{0.885266in}}%
-\pgfpathlineto{\pgfqpoint{1.024645in}{0.885266in}}%
-\pgfpathlineto{\pgfqpoint{1.024645in}{0.992210in}}%
-\pgfpathlineto{\pgfqpoint{0.719089in}{0.992210in}}%
-\pgfpathlineto{\pgfqpoint{0.719089in}{0.885266in}}%
+\pgfpathmoveto{\pgfqpoint{1.239867in}{0.885266in}}%
+\pgfpathlineto{\pgfqpoint{1.545423in}{0.885266in}}%
+\pgfpathlineto{\pgfqpoint{1.545423in}{0.992210in}}%
+\pgfpathlineto{\pgfqpoint{1.239867in}{0.992210in}}%
+\pgfpathlineto{\pgfqpoint{1.239867in}{0.885266in}}%
 \pgfpathclose%
 \pgfusepath{stroke,fill}%
 \end{pgfscope}%
@@ -290,7 +290,7 @@
 \definecolor{textcolor}{rgb}{0.150000,0.150000,0.150000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=1.146867in,y=0.885266in,left,base]{\color{textcolor}\sffamily\fontsize{11.000000}{13.200000}\selectfont Master's Degree, 29.4 \%}%
+\pgftext[x=1.667645in,y=0.885266in,left,base]{\color{textcolor}\sffamily\fontsize{11.000000}{13.200000}\selectfont Master's Degree, 29.4 \%}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -301,11 +301,11 @@
 \definecolor{currentstroke}{rgb}{1.000000,1.000000,1.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{0.719089in}{0.722134in}}%
-\pgfpathlineto{\pgfqpoint{1.024645in}{0.722134in}}%
-\pgfpathlineto{\pgfqpoint{1.024645in}{0.829078in}}%
-\pgfpathlineto{\pgfqpoint{0.719089in}{0.829078in}}%
-\pgfpathlineto{\pgfqpoint{0.719089in}{0.722134in}}%
+\pgfpathmoveto{\pgfqpoint{1.239867in}{0.722134in}}%
+\pgfpathlineto{\pgfqpoint{1.545423in}{0.722134in}}%
+\pgfpathlineto{\pgfqpoint{1.545423in}{0.829078in}}%
+\pgfpathlineto{\pgfqpoint{1.239867in}{0.829078in}}%
+\pgfpathlineto{\pgfqpoint{1.239867in}{0.722134in}}%
 \pgfpathclose%
 \pgfusepath{stroke,fill}%
 \end{pgfscope}%
@@ -313,7 +313,7 @@
 \definecolor{textcolor}{rgb}{0.150000,0.150000,0.150000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=1.146867in,y=0.722134in,left,base]{\color{textcolor}\sffamily\fontsize{11.000000}{13.200000}\selectfont Doctorate Degree, 0.0 \%}%
+\pgftext[x=1.667645in,y=0.722134in,left,base]{\color{textcolor}\sffamily\fontsize{11.000000}{13.200000}\selectfont Doctorate Degree, 0.0 \%}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -324,11 +324,11 @@
 \definecolor{currentstroke}{rgb}{1.000000,1.000000,1.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{0.719089in}{0.559002in}}%
-\pgfpathlineto{\pgfqpoint{1.024645in}{0.559002in}}%
-\pgfpathlineto{\pgfqpoint{1.024645in}{0.665947in}}%
-\pgfpathlineto{\pgfqpoint{0.719089in}{0.665947in}}%
-\pgfpathlineto{\pgfqpoint{0.719089in}{0.559002in}}%
+\pgfpathmoveto{\pgfqpoint{1.239867in}{0.559002in}}%
+\pgfpathlineto{\pgfqpoint{1.545423in}{0.559002in}}%
+\pgfpathlineto{\pgfqpoint{1.545423in}{0.665947in}}%
+\pgfpathlineto{\pgfqpoint{1.239867in}{0.665947in}}%
+\pgfpathlineto{\pgfqpoint{1.239867in}{0.559002in}}%
 \pgfpathclose%
 \pgfusepath{stroke,fill}%
 \end{pgfscope}%
@@ -336,7 +336,7 @@
 \definecolor{textcolor}{rgb}{0.150000,0.150000,0.150000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=1.146867in,y=0.559002in,left,base]{\color{textcolor}\sffamily\fontsize{11.000000}{13.200000}\selectfont Other Engineering Degree, 11.8 \%}%
+\pgftext[x=1.667645in,y=0.559002in,left,base]{\color{textcolor}\sffamily\fontsize{11.000000}{13.200000}\selectfont Other Engineering Degree, 11.8 \%}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -347,11 +347,11 @@
 \definecolor{currentstroke}{rgb}{1.000000,1.000000,1.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{0.719089in}{0.395870in}}%
-\pgfpathlineto{\pgfqpoint{1.024645in}{0.395870in}}%
-\pgfpathlineto{\pgfqpoint{1.024645in}{0.502815in}}%
-\pgfpathlineto{\pgfqpoint{0.719089in}{0.502815in}}%
-\pgfpathlineto{\pgfqpoint{0.719089in}{0.395870in}}%
+\pgfpathmoveto{\pgfqpoint{1.239867in}{0.395870in}}%
+\pgfpathlineto{\pgfqpoint{1.545423in}{0.395870in}}%
+\pgfpathlineto{\pgfqpoint{1.545423in}{0.502815in}}%
+\pgfpathlineto{\pgfqpoint{1.239867in}{0.502815in}}%
+\pgfpathlineto{\pgfqpoint{1.239867in}{0.395870in}}%
 \pgfpathclose%
 \pgfusepath{stroke,fill}%
 \end{pgfscope}%
@@ -359,7 +359,7 @@
 \definecolor{textcolor}{rgb}{0.150000,0.150000,0.150000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=1.146867in,y=0.395870in,left,base]{\color{textcolor}\sffamily\fontsize{11.000000}{13.200000}\selectfont Yes but did not finish, 0.0 \%}%
+\pgftext[x=1.667645in,y=0.395870in,left,base]{\color{textcolor}\sffamily\fontsize{11.000000}{13.200000}\selectfont Yes but did not finish, 0.0 \%}%
 \end{pgfscope}%
 \end{pgfpicture}%
 \makeatother%

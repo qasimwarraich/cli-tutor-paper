@@ -31,7 +31,7 @@ plt.pie(data, colors=colors, autopct="%.1f%%")
 legend_labels = ["%s, %1.1f %%" % (l, s) for l, s in zip(labels, data)]
 plt.legend(
     legend_labels,
-    bbox_to_anchor=(1, -0.04),
+    bbox_to_anchor=(0.88, -0.04),
     loc="lower right",
     # handlelength=0.5,
     labelspacing=0.1,
