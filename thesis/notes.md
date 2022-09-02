@@ -131,6 +131,7 @@
 
 - Search engines can also be considered CLIs
 - Elements of CLIs are often found in GUIs and websites. Like / to search
+- Motivate the usage of CLIs. Uncovered features, batch processing, larger datasets, limited resources, ease of remote work.
 
 ## Sample format
 
