@@ -93,26 +93,44 @@
 
 ## Paper structure
 
+## Outline
+
 - Abstract
- - Overview
-   - problem description
-   - introduce tool
-   - outline thesis
- - Introduction
-- Tool
-  - overview
-  - web version
+- Overview
+- problem description
+- introduce tool
+- outline thesis
+- Introduction
+- Tool (CLI-Tutor)
+- overview
+  - cirriculum
+  - lesson design
+  - usability considerations
+  - safety considerations
+- web version
 - Design and Implementation
-  - overview
-  - architecture
-  - architecture of web-tool
+- overview
+- features and considerations
+- architecture of cli-tool
+- architecture of web-tool
 - User Study
+  - methodology
+    - assignment
+    - survey structure
+  - participants
+  - findings
 - Related Work and Reflections
-  - related work
-  - future work
+- related work
+- improvements
+- future work
 - Conclusion
 - Appendix
-  - Detailed dev considerations
+- Detailed dev considerations
+
+## Random notes
+
+- Search engines can also be considered CLIs
+- Elements of CLIs are often found in GUIs and websites. Like / to search
 
 ## Sample format
 
@@ -158,3 +176,24 @@ The Curriculum is an important part of defining such a tool
 
 
 ```
+Abstract:
+
+may be worth pointing out that some modern applications in domains outside of software also use CLI (in the intro, mention explicit examples, e.g. Bloomberg terminals, STATA)
+
+https://en.wikipedia.org/wiki/Bloomberg_Terminal#Core_Terminal
+
+https://en.wikipedia.org/wiki/Stata#User_interface
+
+
+Overview:
+
+Start with a section with a very brief history lesson on CLI and on why the CLI
+is still being used (in sw dev but also the above), why it matters etc.
+(bascially what's in the abstract but with references, more examples, etc.).
+Then problem description. I would also add a brief section method/approach that
+describes how you ended up with "introducting cli-tutor". Just a brief summary.
+
+Where you mention vimtutor, describe what it is and how it works in more
+detail, and why it's nice (because it teaching from within itself).
+
+But it reads very nicely in general!

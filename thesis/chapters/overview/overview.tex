@@ -3,6 +3,8 @@
 % - Overview - problem description - introduce tool - outline thesis
 \section{Problem Description}
 
+-- INSERT BRIEF HISTORY LESSON HERE --
+
 The command line is still a popular interaction medium for tooling in the areas
 of software engineering and system administration. However, the usage of the
 command line in the general personal computing space has practically
@@ -47,19 +49,32 @@ The \textit{CLI-Tutor} tool is an interactive shell-like tutorial program for
 the command line. We draw inspiration from the
 `vimtutor'\cite{pierce_ware_smith_moolenaar_2019} (see: Figure
 \ref{fig:vimtutor}) utility shipping alongside the popular terminal-based text
-editor Vim. The \textit{CLI-Tutor} tool introduces users to topics such as
-shell basics and Unix-like core utility usage through a series of interactive
-examples. The tool aims to relax the steep learning curve associated with the
-command line by leveraging interactive examples and a feedback mechanism to
-instruct the stage of the lesson and provide some feedback based on the inputs
-of the user. The core of \textit{CLI-Tutor} is contained within a command line
-application written in golang\footnote{Go programming language:
-\href{https://go.dev/}{https://go.dev/}} and serves as a standalone
-application. However, in order to make the learning experience safer for the
-user and to encourage exploration, the CLI application has been wrapped into a
-web application to form a sandboxed environment for the user that exposes a
-terminal over the web. This means the user can use the tutorial application
-without fear of causing their own system any harm. 
+editor Vim. Vimtutor is an interactive tutorial for the Vim text editor. It is
+one long guided lesson presented as a text file. The file itself contains the
+basic instructions for editing and creating text within Vim and is intended to
+be modified while proceeding through the lesson. This "learning by doing"
+approach presented itself as a very suitable choice for teaching the command
+line. Much like with Vim, where one must learn a new paradigm of modal editing
+when novices learn the command line they are not only taking on new information
+about shell usage but also learning an entirely unfamiliar (textual)
+interaction paradigm. Newer versions of vimtutor are even more interactive. In
+the version included in the popular fork of Vim called Neovim
+\cite{neovimHomeNeovim}, lines intended to be edited by the user also provide
+feedback regarding correctness in the form of green arrows and red crosses. 
+
+The \textit{CLI-Tutor} tool introduces users to topics such as shell basics and
+Unix-like core utility usage through a series of interactive examples. The tool
+aims to relax the steep learning curve associated with the command line by
+leveraging interactive examples and a feedback mechanism to instruct and
+educate the user about the current stage of the lesson and provide some
+feedback based on the inputs of the user. The core of \textit{CLI-Tutor} is
+contained within a command line application written in golang\footnote{Go
+programming language: \href{https://go.dev/}{https://go.dev/}} and serves as a
+standalone application. However, in order to make the learning experience safer
+for the user and to encourage exploration, the CLI application has been wrapped
+into a web application to form a sandboxed environment for the user that
+exposes a terminal over the web. This means the user can use the tutorial
+application without fear of causing their own system any harm. 
 
 The \textit{CLI-Tutor} application is fully open source and also comes with its
 own modified parser and structure for specifying lessons based on Markdown
