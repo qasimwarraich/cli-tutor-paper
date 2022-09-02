@@ -3,39 +3,64 @@
 \chapter{Introduction}
 \label{chap:intro}
 
-Command line interfaces are still widely employed and created for a variety of
-reasons. Command line interfaces allow for rapid development and the
-implementation of a very large amount of features that would require entail
-much more detailed and complicated implementation decisions if they were to be
-integrated into a graphical interface. Command line programs also benefit a lot
-from their inherent simplicity. The simple notion of text input and output
-being the main forms of interactions allow for an extremely flexible interface
-for chaining tools together. This composition of programs is referred to as
-piping ( SOME UNIX PHILOSOPHY MEME STUFF HERE ). This compositional simplicity
-paired with the ability to specify arguments and modify program behaviour on
-instantiation opens the room for powerful batch processing capabilities,
-automation and the ability to deal with large amounts of input and output
-efficiently.
+Command line interfaces are still widely employed and being developed for a
+variety of uses. Benefitting from their simplicity, Command line interfaces
+allow for comparatively rapid development and the implementation of features
+when compared to their graphical counterparts, which would require a much more
+detailed and complicated implementation and more difficult user interface
+considerations. Command line programs also further benefit from simplicity of
+their textual nature when it comes to their ability to work with other
+programs. The simple notion of textual input and output being the main forms of
+interaction allow for an extremely flexible interface\footnote{In this case
+"interface" describes a medium through which programs can communicate, not a
+user interface.} for chaining tools together. This composition of programs is
+referred to as piping ( SOME UNIX PHILOSOPHY MEME STUFF
+HERE)\cite{mcilroy1978unix}. Since most command line applications share this
+idea of textual input and output there isn't the need for bespoke mediums of
+interaction to be developed and features can be more effectively shared across
+programs.
 
-The learning curve to such systems is however a strong barrier towards
-employments of these benefits. This learning curve is made steeper by the
-paradigm shift in the personal computing space towards graphical user
+Since CLI programs are run within a shell, which has direct access to the
+underlying operating system, a tight integration between program and system is
+formed. This tight coupling, paired with the low system resource requirements
+and the ability to specify inputs and arguments via text and modify program
+behaviour upon instantiation with flags opens the room for powerful batch
+processing capabilities, easy automation and the ability to deal with large
+amounts of input and output efficiently.
+
+The learning curve to such systems is however a strong barrier to widespread
+enjoyment of these benefits. For new users, this learning curve is made steeper
+by the paradigm shift in the personal computing space towards graphical user
 interfaces.
 
+\paragraph{Paragraph.} Always with a point.
 
+\section{Interactive Learning Tools} 
 
-\section{Interactive Learning Tools}
 To validate the tool and answer our
 research questions, a user study will be conducted, most likely with bachelor's
 students at the University of Zurich. A secondary goal is to embed the learning
 tool into a prototypical web application in order to make it more accessible
-and portable.
-This tool aims to determine whether an interactive learning method may ease the
-introduction into command line interfaces for novice users, particularly
-mitigating the 'scare factor' experienced by first-time users. 
+and portable. This tool aims to determine whether an interactive learning
+method may ease the introduction into command line interfaces for novice users,
+particularly mitigating the 'scare factor' experienced by first-time users.
 
 \section{Requirements}
 
+
+We preliminarily define the following research questions:
+
+\begin{itemize}
+    \item Are there identifiable patterns of difficulty when it
+          comes to adopting CLIs? Can the `indimidation factor' be pinned down?
+    \item How should an interactive learning tool be designed to mitigate
+          the difficulty and indimidation factor of learning CLIs?
+    \item How can a `forgiving' shell be implemented on top of an existing
+          shell to enable the transition from learning to real-world usage?
+    \item Is the interactive tool more effective than text based learning methods?
+    \item Are novice CLI users more likely to continue
+          using CLI interfaces after using such a tool?
+\end{itemize}
 % NOTE: Paragraphs titles should always have a point (.) after the title.
 \paragraph{Paragraph.} Always with a point.
 
