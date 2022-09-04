@@ -66,7 +66,7 @@
 \def\prof#1{\gdef\@prof{#1}}
 \def\assistent#1{\gdef\@assistent{#1}}
 \def\email#1{\gdef\@email{#1}}
-\def\url#1{\gdef\@url{#1}}
+\def\turl#1{\gdef\@url{#1}}
 \def\begindate#1{\gdef\@begindate{#1}}
 \def\enddate#1{\gdef\@enddate{#1}}
 
