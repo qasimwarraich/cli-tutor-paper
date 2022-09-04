@@ -3,8 +3,6 @@
 % - Overview - problem description - introduce tool - outline thesis
 \section{Problem Description}
 
-%TODO: -- INSERT BRIEF HISTORY LESSON HERE --
-
 Command line interfaces have been with us since the 1950s
 \cite{raymond2004art}. The rise of command line interfaces was closely coupled
 with the rise of time-sharing computer systems. Command line interfaces and
@@ -24,42 +22,43 @@ original \textit{UNIX} shell \cite{raymond2004art}.
 The command line is still a popular interaction medium for tooling in the areas
 of software engineering and system administration. However, the usage of the
 command line in the general personal computing space has practically
-disappeared. This is especially true for younger individuals who from their
-very first exposure to computers have been working with Graphical User
-Interfaces (GUIs). This schism in interaction mediums causes issues when the
-same younger individuals strive to enter technical fields such as software
-development or system administration. The issue is further propagated by the
-fact that the command line is its own distinct interaction paradigm
-based entirely on writing and reading text. This can mean that the usage of
-traditional learning resources such as documentation and manuals might prove
-difficult to translate into effective usage without active textual interaction
-practice on the part of the learner. On the other hand, jumping straight into
-practising on the command line comes with its caveats. The shell can be an
-unforgiving tool for a novice user as it is very sensitive to syntax and often
-provides feedback that is difficult to understand for novice users. The shell
-also interacts directly with the operating system and does not require
-confirmation for certain destructive tasks such as file deletion.
+disappeared. This is especially true for younger individuals, whose very first
+exposure to computers has been working with Graphical User Interfaces (GUIs).
+This schism in interaction mediums causes issues when the same younger
+individuals strive to enter technical fields such as software development or
+system administration. The issue is further propagated by the fact that the
+command line is its own distinct interaction paradigm based entirely on writing
+and reading text. This can mean that the usage of traditional learning
+resources such as documentation and manuals might prove difficult to translate
+into effective usage without active textual interaction practice on the part of
+the learner. On the other hand, jumping straight into practising on the command
+line comes with its caveats. The shell can be an unforgiving tool for a novice
+user as it is very sensitive to syntax and often provides feedback that is
+difficult to understand for novice users. The shell also interacts directly
+with the operating system and does not require confirmation for certain
+destructive tasks such as file deletion.
 
-The goal of this Master's thesis is to develop a tool that simultaneously aims
-to address the previously introduced issues of lack of exposure to textual
-interaction and the difficulties of traditional learning methodologies. The
-tool should provide a more forgiving experience than using the shell directly
-whilst still being an honest representation of shell interaction. Concepts
-learned during the interactive tutorials should be directly transferrable to a
-standard Unix-like shell. Furthermore, the tool should be easy to use and
-encourage experimentation in order to augment the learning experience and in
-order to better exploit the advantages offered by interactive learning systems.
+\subsection{Solving The Problem} The goal of this Master's thesis is to develop
+a tool that simultaneously aims to address the previously introduced issues of
+lack of exposure to textual interaction, the novice unfriendly environment of
+the shell and the difficulties of traditional learning methodologies. The tool
+should provide a more forgiving experience than using the shell directly whilst
+still being a faithful representation of a system shell. Concepts learned
+during the interactive tutorials should be directly transferrable to a standard
+Unix-like shell. Furthermore, the tool should be easy to use and encourage
+experimentation in order to augment the learning experience and in order to
+better exploit the advantages offered by interactive learning systems.
+%TODO: Expand a bit
 
 
 % \fig[0.75\textwidth]{img/vimtutor}{Screen shot of vimtutor}{fig:vimtutor}
+\section{Introducing "CLI-Tutor"}
 \begin{figure}[htbp]
 	\centering 
 	\includegraphics[width=0.75\textwidth]{img/vimtutor}
-	\caption{Screen shot of vimtutor}
+    \caption{Screen shot of \textit{vimtutor}}
 	\label{fig:vimtutor}
 \end{figure}
-
-\section{Introducing "CLI-Tutor"}
 
 The \textit{CLI-Tutor} tool is an interactive shell-like tutorial program for
 the command line. We draw inspiration from the
