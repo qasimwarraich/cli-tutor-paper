@@ -4,6 +4,23 @@
 \section{Problem Description}
 
 %TODO: -- INSERT BRIEF HISTORY LESSON HERE --
+
+Command line interfaces have been with us since the 1950s
+\cite{raymond2004art}. The rise of command line interfaces was closely coupled
+with the rise of time-sharing computer systems. Command line interfaces and
+time-sharing systems greatly shortened the feedback loop of earlier batch
+computing systems and allowed programmers to be able to modify their programs
+in near real time. Time-sharing systems also introduced the concept of a
+\textit{shell}. A \textit{shell}, a term coined by Louis Pouzin \cite{pouzin},
+is a program that allows for interaction with the operating system via textual
+commands. The \textit{Multics}\cite{corbato1965introduction} operating system
+pioneered the concept of operating system shells. The concept proved to be
+extremely influential and directly influenced the creation of the
+\textit{Thompson shell} for the \textit{UNIX} operating system. The
+\textit{UNIX} shell has arguably had the greatest influence on the command line
+interfaces as we know them today, as most modern shells are descendants of the
+original \textit{UNIX} shell \cite{raymond2004art}.
+
 The command line is still a popular interaction medium for tooling in the areas
 of software engineering and system administration. However, the usage of the
 command line in the general personal computing space has practically
@@ -36,7 +53,7 @@ order to better exploit the advantages offered by interactive learning systems.
 
 % \fig[0.75\textwidth]{img/vimtutor}{Screen shot of vimtutor}{fig:vimtutor}
 \begin{figure}[htbp]
-	\centering
+	\centering 
 	\includegraphics[width=0.75\textwidth]{img/vimtutor}
 	\caption{Screen shot of vimtutor}
 	\label{fig:vimtutor}
@@ -46,18 +63,18 @@ order to better exploit the advantages offered by interactive learning systems.
 
 The \textit{CLI-Tutor} tool is an interactive shell-like tutorial program for
 the command line. We draw inspiration from the
-`vimtutor'\cite{pierce_ware_smith_moolenaar_2019} (see: Figure
+\textit{vimtutor}\cite{pierce_ware_smith_moolenaar_2019} (see: Figure
 \ref{fig:vimtutor}) utility shipping alongside the popular terminal-based text
-editor Vim. Vimtutor is an interactive tutorial for the Vim text editor. It is
-one long guided lesson presented as a text file. The file itself contains the
-basic instructions for editing and creating text within Vim and is intended to
-be modified while proceeding through the lesson. This "learning by doing"
-approach presented itself as a very suitable choice for teaching the command
-line. Much like with Vim, where one must learn a new paradigm of modal editing
-when novices learn the command line they are not only taking on new information
-about shell usage but also learning an entirely unfamiliar (textual)
-interaction paradigm. Newer versions of vimtutor are even more interactive. In
-the version included in the popular fork of Vim called Neovim
+editor \textit{Vim}. \textit{Vimtutor} is an interactive tutorial for the Vim text
+editor. It is one long guided lesson presented as a text file. The file itself
+contains the basic instructions for editing and creating text within Vim and is
+intended to be modified while proceeding through the lesson. This "learning by
+doing" approach presented itself as a very suitable choice for teaching the
+command line. Much like with Vim, where one must learn a new paradigm of modal
+editing when novices learn the command line they are not only taking on new
+information about shell usage but also learning an entirely unfamiliar
+(textual) interaction paradigm. Newer versions of \textit{vimtutor} are even more
+interactive. In the version included in the popular fork of Vim called \textit{Neovim}
 \cite{neovimHomeNeovim}, lines intended to be edited by the user also provide
 feedback regarding correctness in the form of green arrows and red crosses.
 
@@ -104,5 +121,3 @@ we will evaluate and reflect upon the solution. We will consider existing
 approaches and make suggestions regarding building upon and refining the
 \textit{CLI-Tutor}, before, concluding in \autoref{chap:conclusion}.
 
-
-\paragraph{Paragraph.} Always with a point. {}
