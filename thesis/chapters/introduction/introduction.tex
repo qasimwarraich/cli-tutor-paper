@@ -15,7 +15,7 @@ interaction allow for an extremely flexible interface\footnote{In this case
 	"interface" describes a medium through which programs can communicate, not
 	a user interface.} for chaining tools together. This composition of
 programs is referred to as piping and is a hallmark element of what is
-considered to be the \textit{UNIX Philosopy} \cite{mcilroy1978unix}. Since
+considered to be the \textit{UNIX Philosophy} \cite{mcilroy1978unix}. Since
 most command line applications share this philosophy of textual input and output
 there isn't the need for bespoke mediums of communication to be developed and
 features can be more effectively shared across programs.
@@ -31,7 +31,10 @@ amounts of input and output efficiently.
 The learning curve of such command line interfaces is however a strong barrier
 to widespread enjoyment of these benefits. For new users, this learning curve
 is made steeper by the paradigm shift in the personal computing space towards
-graphical user interfaces.
+graphical user interfaces. In this chapter, we will look at the interactive
+learning tool, \textit{CLI-Tutor}, developed as a potential solution that
+addresses the steep learning curve of the command line through interactive
+lessons and a sandboxed shell environment.
 
 
 \section{Interactive Learning Tools}
@@ -46,19 +49,22 @@ factor' experienced by first-time users.
 
 \section{Requirements}
 
+
+\subsection{Research Questions}
+
 From the perspective of command line interfaces and how effective potential so..
 
 We define the following research questions:
 
 \begin{enumerate}[label=\textbf{RQ \arabic*}]
 	\item Are there identifiable patterns of difficulty when it
-        comes to adopting CLIs? Can the `indimidation factor' be pinned down? \label{rq:1}
+	      comes to adopting CLIs? Can the `indimidation factor' be pinned down? \label{rq:1}
 	\item How should an interactive learning tool be designed to mitigate
 	      the difficulty and indimidation factor of learning CLIs? \label{rq:2}
 	\item How can a `forgiving' shell be implemented on top of an existing
 	      shell to enable the transition from learning to real-world usage? \label{rq:3}
 	\item Is the interactive tool more effective than text based learning methods? \label{rq:4}
 	\item Are novice CLI users more likely to continue
-        using CLI interfaces after using such a tool? \label{rq:5}
+	      using CLI interfaces after using such a tool? \label{rq:5}
 \end{enumerate}
 
