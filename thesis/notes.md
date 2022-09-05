@@ -133,6 +133,7 @@
 - Elements of CLIs are often found in GUIs and websites. Like / to search
 - Motivate the usage of CLIs. Uncovered features, batch processing, larger datasets, limited resources, ease of remote work.
 - Asynchronous learnings, Computer based learning (linear learning).
+- The tool should respect the GUI norm of things and such try to explain the cli without special knowledge and use metaphors from guis.
 
 ## Sample format
 
