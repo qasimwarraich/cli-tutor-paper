@@ -1,16 +1,19 @@
 \chapter{The CLI-Tutor Tool}
 % - Tool (CLI-Tutor)
 %   - overview
-%       - cirriculum
+%       - curriculum
 %       - lesson design
 %            - deliberate emphasis on  easy vocabulary
+%            - running examples
+%            - refresher from previous lesson
 %       - usability considerations
 %       - safety considerations
+%       - vocab and validation
 %   - web version
 %
 \label{chap:clitutor}
 
-\begin{lstlisting}[float=htbp, keepspaces, frame=single, language={}, caption=Output of the help flag of \textit{CLI-Tutor} running in a docker container.]
+\begin{lstlisting}[float=htbp, keepspaces, frame=single, language={}, label=lst:clihelp, caption=Output of the help flag of \textit{CLI-Tutor} running in a docker container.]
 
 cli-student@3bc86f9090f9:~/tutor$ cli-tutor -h
 
@@ -44,11 +47,81 @@ Use "cli-tutor [command] --help" for more information about a command.
 \end{lstlisting}
 
 
-The \textit{CLI-Tutor} tool is a command line application written in the Go programming language. 
-
+\textit{CLI-Tutor} is a command line application written in the Go
+programming language. It is an interactive tutorial focused on introducing
+novices to the Linux command line environment. The application is intended to
+be a forgiving but faithful representation of a shell running
+\textit{Bash}\footnote{\textit{Bourne Again SHell}:
+\url{https://www.gnu.org/software/bash/}}. In this chapter, we will discuss the non-technical design considerations and choices made during the development of \textit{CLI-Tutor}.
 
 \section{Overview}
 \subsection{Curriculum}
+
+\textit{CLI-Tutor} is intended to be used with zero prerequisite knowledge of
+the command line. To achieve this low barrier to entry lessons had to be
+designed from the perspective of a complete novice. The curriculum consists of
+lessons that introduce the very basics of textual interaction and shell usage.
+As of writing \textit{CLI-Tutor} has 5 full lessons implemented as a proof of
+concept and serve as the curriculum in the user study performed in this work.
+The tool is designed to be easily extensible with new lessons being easy to
+contribute. How this is achieved will be discussed later in
+\autoref{chap:design}.
+
+\subsubsection{List of implemented lessons} 
+
+\paragraph{Basics of Textual Interaction.} This lesson covers the very
+foundational concepts of textual interaction. The user is introduced to the
+term \textit{CLI} and explained what a \textit{shell} is using an ASCII
+graphic. The user is then introduced to the concept of issuing a command. To
+sow interest the user is then asked to execute some commands to illustrate that
+the terminal is really interacting with their operating system. The Users are
+asked to use the \textit{curl} from command to pull down a weather report from
+the \url{wttr.in} as an example of what is possible with the command line.
+Furthermore, the user is introduced to some important in-built commands
+of \textit{CLI-Tutor} and taught how to clear the screen. Another feature
+introduced to the user is \textit{zen-mode}, a feature that prevents the screen
+from being cluttered with output of previous commands to prevent the user from
+getting overwhelmed. This feature is turned on by default in lesson 1 but is
+then turned off unless explicitly requested for the remainder of the curriculum.
+
+\paragraph{Getting more familiar with the shell.} This lesson jumps deeper into
+the concept of issuing commands and the "grammar" behind a command. To make
+this more intuitive the metaphor of a sentence is used, adapted from the
+documentation of the \textit{cobra} command line tool
+library\cite{franciacobra}. The lesson introduces users to important concepts
+such as sub commands, and flags. The user is then asked to perform a series of
+task involving the \textit{wc} word counting core utility. These actions are
+performed on a sample file that \textit{CLI-Tutor} creates and serves as a
+running example throughout the tutor.
+
+\paragraph{Basics of the file system and practicing commands.} Lesson 3 is all
+about the file system. The file system and file system operations. The user is
+first introduced to the prompt and given an explanation of all the different
+sections of the prompt line. The prompt in \textit{CLI-Tutor} is modeled after
+the stock prompt of many popular Linux distributions, consisting of a username,
+hostname and current working directory path. The user is introduced to the idea
+of a hierarchical tree-like file system and is taught how to navigate around.
+The \textit{ls} command is also discussed and used to illustrate the concept of
+hidden files. \textit{CLI-Tutor} also includes a hidden file that it places in
+the directory the tutor is launched from to help illustrate the concept of
+hidden files. All the example files included in lessons are deleted upon
+exiting the tutor. The lesson closes with a long example for the user to try
+out that includes all the concepts discussed in the lesson.
+
+\paragraph{Shell shortcuts and tricks.} This lesson is aimed to be a bit more
+fun and introduces the user to some tricks and shortcuts available in the shell
+and the \textit{readline}\cite{ramey_fox_readline} library used for input in a
+\textit{bash} shell environment. The user is introduced to the concept of a
+shell history file and also of the reverse history search feature with
+\textit{Ctrl+r}. The cancel \textit{Ctrl+c} command is also introduced as well
+as the \textit{!!} operator. As a last step, tab completion is also introduced.
+
+\paragraph{Helping your self.} This is the last lesson of the current version
+of \textit{CLI-Tutor} and covers how a user can go about seeking help at the
+command line and helping themselves. The concept of pagers and some important
+keybindings of the \textit{less} pager program is first explained before
+introducing the \textit{man} command to the user. Users are also taught about help flags and encouraged to checkout the help command shown at the very beginning of this \hyperref[chap:clitutor]{Chapter} (see: \autoref{lst:clihelp}).
+
 \subsection{Lesson Design}
 \subsection{Usability Considerations}
 \subsection{Safety Considerations}
