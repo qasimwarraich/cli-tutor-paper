@@ -95,39 +95,54 @@
 
 ## Outline
 
-- Abstract
-- Overview
-- problem description
-- introduce tool
-- outline thesis
-- Introduction
-- Tool (CLI-Tutor)
-- overview
-  - cirriculum
-  - lesson design
-  - usability considerations
-  - safety considerations
-- web version
-- Design and Implementation
-- overview
-- features and considerations
-- architecture of cli-tool
-- architecture of web-tool
-- User Study
-  - methodology
-    - assignment
-    - survey structure
-  - participants
-  - findings
-- Related Work and Reflections
-- related work
-- improvements
-- future work
-- Conclusion
-- Appendix
-- Detailed dev considerations
+- [x] Abstract
+- [x] Overview
+  - [x] problem description
+      - [x] potential solution
+  - [x] introduce tool
+  - [x] outline thesis
+- [x] Introduction
+  - [ ] Interactive learning tools
+  - [ ] Requirements
+      - [x] RQs
+- [ ] Tool (CLI-Tutor)
+  - [ ] overview
+      - [ ] cirriculum
+      - [ ] lesson design
+      - [ ] usability considerations
+      - [ ] safety considerations
+  - [ ] web version
+- [ ] Design and Implementation
+  - [ ] overview
+  - [ ] original tinkering and considerations
+  - [ ] features and considerations
+      - [ ] readline
+      - [ ] golang
+      - [ ] logging
+      - [ ] extensibility
+      - [ ] embedded files
+          - [ ] Running examples
+      - [ ] usability 
+  - [ ] architecture of cli-tool
+  - [ ] architecture of web-tool
+      - [ ] how sandboxing is achieved
+- [ ] User Study
+   - [ ] methodology
+      - [ ] assignment
+      - [ ] survey structure
+   - [ ] participants
+   - [ ] findings
+- [ ] Related Work and Reflections
+  - [ ] related work
+  - [ ] future work
+      - [ ] improvements to CLI-Tutor
+      - [ ] areas to explore in the space
+- [ ] Conclusion
+- [ ] Appendix
+  - [x] Survey questions
+  - [ ] Detailed dev considerations
 
-## Random notes
+# Random notes
 
 - Search engines can also be considered CLIs
 - Elements of CLIs are often found in GUIs and websites. Like / to search
