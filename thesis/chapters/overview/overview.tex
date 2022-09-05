@@ -14,29 +14,30 @@ is a program that allows for interaction with the operating system via textual
 commands. The \textit{Multics}\cite{corbato1965introduction} operating system
 pioneered the concept of operating system shells. The concept proved to be
 extremely influential and directly influenced the creation of the
-\textit{Thompson shell} for the \textit{UNIX} operating system. The
-\textit{UNIX} shell has arguably had the greatest influence on command line
-interfaces as we know them today, as most modern shells are descendants of the
-original \textit{UNIX} shell \cite{raymond2004art}.
+\textit{Thompson shell} for the \textit{UNIX} \cite{ritchie1974unix} operating
+system. The \textit{UNIX} shell has arguably had the greatest influence on
+command line interfaces as we know them today, as most modern shells are
+descendants of the original \textit{UNIX} shell \cite{raymond2004art}.
 
 The command line is still a popular interaction medium for tooling in the areas
-of software engineering and system administration. However, the usage of the
-command line in the general personal computing space has practically
-disappeared. This is especially true for younger individuals, whose very first
-exposure to computers has been working with Graphical User Interfaces (GUIs).
-This schism in interaction mediums causes issues when the same younger
-individuals strive to enter technical fields such as software development or
-system administration. The issue is further propagated by the fact that the
-command line is its own distinct interaction paradigm based entirely on writing
-and reading text. This can mean that the usage of traditional learning
-resources such as documentation and manuals might prove difficult to translate
-into effective usage without active textual interaction practice on the part of
-the learner. On the other hand, jumping straight into practising on the command
-line comes with its caveats. The shell can be an unforgiving tool for a novice
-user as it is very sensitive to syntax and often provides feedback that is
-difficult to understand for novice users. The shell also interacts directly
-with the operating system and does not require confirmation for certain
-destructive tasks such as file deletion.
+of software engineering and system administration
+\cite{hultstrand2015git,takayama2006trust}. However, the usage of the command
+line in the general personal computing space has practically disappeared
+\cite{reimer2005history}. This is especially true for younger individuals,
+whose very first exposure to computers has been working with Graphical User
+Interfaces (GUIs). This schism in interaction mediums causes issues when the
+same younger individuals strive to enter technical fields such as software
+development or system administration. The issue is further propagated by the
+fact that the command line is its own distinct interaction paradigm based
+entirely on writing and reading text. This can mean that the usage of
+traditional learning resources such as documentation and manuals might prove
+difficult to translate into effective usage without active textual interaction
+practice on the part of the learner. On the other hand, jumping straight into
+practising on the command line comes with its caveats. The shell can be an
+unforgiving tool for a novice user as it is very sensitive to syntax and often
+provides feedback that is difficult to understand for novice users. The shell
+also interacts directly with the operating system and does not require
+confirmation for certain destructive tasks such as file deletion.
 
 \subsection{Solving The Problem} The goal of this Master's thesis is to develop
 a tool that simultaneously aims to address the previously introduced issues of
@@ -120,3 +121,13 @@ we will evaluate and reflect upon the solution. We will consider existing
 approaches and make suggestions regarding building upon and refining the
 \textit{CLI-Tutor}, before, concluding in \autoref{chap:conclusion}.
 
+
+\begin{lstlisting}[caption=spam]
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello World!")
+}
+\end{lstlisting}
