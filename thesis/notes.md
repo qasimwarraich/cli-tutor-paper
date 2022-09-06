@@ -158,6 +158,8 @@
   teaching a library or programming language.
 - lesson5 typo in screenshots
 - consequently, 
+- chat apps and search engines use cli like interaction things like slashes and
+  up arrows.
 
 ## Sample format
 

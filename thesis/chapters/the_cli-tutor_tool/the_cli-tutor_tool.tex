@@ -50,7 +50,7 @@ programming language. It is an interactive tutorial focused on introducing
 novices to the Linux command line environment. The application is intended to
 be a forgiving but faithful representation of a shell running
 \textit{Bash}\footnote{\textit{Bourne Again SHell}:
-\url{https://www.gnu.org/software/bash/}}. In this chapter, we will discuss the non-technical design considerations and choices made during the development of \textit{CLI-Tutor}.
+	\url{https://www.gnu.org/software/bash/}}. In this chapter, we will discuss the non-technical design considerations and choices made during the development of \textit{CLI-Tutor}.
 
 \section{Overview}
 \subsection{Curriculum}
@@ -65,7 +65,7 @@ in this thesis work. \textit{CLI-Tutor} is designed to be easily extensible
 with new lessons being easy to contribute. How this is achieved will be
 discussed later in \autoref{chap:design}.
 
-\subsubsection{List of implemented lessons} 
+\subsubsection{List of implemented lessons}
 
 \paragraph{Basics of Textual Interaction.} This lesson covers the very
 foundational concepts of textual interaction. The user is introduced to the
@@ -92,10 +92,10 @@ tasks involving the \textit{wc} word counting core utility. These actions are
 performed on a sample file that \textit{CLI-Tutor} creates and serves as a
 running example throughout the tutor.
 
-\paragraph{Basics of the file system and practicing commands.} Lesson 3 is all
+\paragraph{Basics of the file system and practising commands.} Lesson 3 is all
 about the file system. The file system and file system operations. The user is
-first introduced to the prompt and given an explanation of all the different
-sections of the prompt line. The prompt in \textit{CLI-Tutor} is modeled after
+first introduced to the prompt and given and is explanation of all the different
+sections of the prompt line. The prompt in \textit{CLI-Tutor} is modelled after
 the stock prompt of many popular Linux distributions (see:
 \autoref{lst:clihelp}, line 1), consisting of a username, hostname and current
 working directory path. The user is introduced to the idea of a hierarchical
@@ -135,9 +135,10 @@ with a very short refresher of the last lesson and ends with a recap of the
 learnt commands. The lessons are designed to be guided but to leave some room
 for exploration for the user. \textit{CLI-Tutor} also has some running examples
 that are included in the form of files that are created upon launching the
-program and deleted when the program exits. These files are included in order
-to augment the tasks and to allow the user to directly apply commands rather
-than creating an environment to support their learning themselves.
+program and deleted when the program exits. These files are included in for the
+purpose of augmenting the tasks and to allow the user to directly apply
+commands rather than creating an environment to support their learning
+themselves.
 
 \subsubsection{Anatomy of a lesson} A lesson is a container that contains a
 series of tasks. A lesson has a title and description which are used to
@@ -162,7 +163,7 @@ of \textit{CLI-Tutor}. Expected values prompt the tutor to consider the current
 task as interactive and thus the tutor blocks advancing to the next task unless
 the interactive task is performed. The expected value pertains to the expected
 result of performing a certain command or action. This expected value can be
-specified in a number of ways. Expected values could be a constant values such
+specified in three different ways (see: \autoref{lst:markdown}). Expected values could be a constant values such
 as a string or number, they could be the result of some function call and even
 a system call.
 
@@ -170,15 +171,15 @@ a system call.
 
 As previously mentioned, lessons are designed with no prior knowledge
 assumption. In addition to the curriculum a number of considerations regarding
-the usability, and design of the tool also had to be taken in order to
+the usability and design of the tool also had to be taken to
 maintain a very low barrier to entry.
 
 \subsubsection{User Interface}
 In general, the user interface of \textit{CLI-Tutor} is designed to be very
 simple and uncluttered. Strictly speaking, despite aiming to be an application
-that mimics a shell environment, \textit{CLI-Tutor} is a \textit{TUI} or "text
-user interface" application. It consists of two primary views, the lesson view
-and the menu view. In addition to these two views there is also a prompt to
+that mimics a shell environment, \textit{CLI-Tutor} is a \textit{TUI} or "Text
+User Interface" application. It consists of two primary views, the lesson view
+and the menu view. In addition to these two views, there is also a prompt to
 enter an identifier when the program is first launched. This was only added to
 the program to help identify log files for the user study conducted as a part
 of this thesis work.
@@ -187,57 +188,57 @@ of this thesis work.
 launching the program. It lists the lessons in a menu which the user can use to
 select and start a lesson (see: \autoref{fig:clitutormenu}). The menu view also
 has a help bar at the base with the keyboard shortcuts illustrated and allows
-for filtering the lessons by using a search functionality. Menu items display
-the title and description of a lesson, these are parsed directly from the
-Markdown based lesson files.
+for filtering the lessons by using the search functionality. Menu items display
+the title and description of a lesson, which are parsed directly from the
+Markdown-based lesson files.
 
 \begin{figure}[htbp]
-% \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{img/menushort}
-    \caption{Screen shot of \textit{CLI-Tutor} menu screen.}
-    \label{fig:clitutormenu}
+	% \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{img/menushort}
+	\caption{Screen shot of \textit{CLI-Tutor} menu screen.}
+	\label{fig:clitutormenu}
 \end{figure}
 
 
 \paragraph{Lesson view.} The lesson view is where the shell environment is
 reproduced. It is designed to look exactly like what interacting with the shell
 in a terminal looks like but with some added cues from the lesson. These cues
-include the current task, it's instructions and any feedback pertaining to the
+include the current task, its instructions and any feedback about the
 last input of the user (see: \autoref{fig:lessonview}). The lesson view is also
 running golang \textit{readline} library to have an input mechanism essentially
 identical to that of a normal shell. The expected shortcuts all work as they
 should but certain controls such as \textit{Ctrl+d} and the  \textit{Ctrl+c}
-interrupts are captured in order to not close the program unexpectedly. 
+interrupts are captured in order to not close the program unexpectedly.
 
 \begin{figure}[htbp]
-% \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{img/lessonview}
-    \caption{Screen shot of the \textit{CLI-Tutor} lesson view showing the task tracker, feedback mechanism and an inbuilt helper command.}
-    \label{fig:lessonview}
+	% \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{img/lessonview}
+	\caption{Screen shot of the \textit{CLI-Tutor} lesson view showing the task tracker, feedback mechanism and an inbuilt helper command.}
+	\label{fig:lessonview}
 \end{figure}
 
 
-\paragraph{Mouse support.} In order to make the program more usable for
+\paragraph{Mouse support.} To make the program more usable for
 individuals used to GUIs, basic mouse support had to be implemented in
 \textit{CLI-Tutor}. Mouse support is a bit extended in the menu than what would
 be common in most TUI applications. The user can hover to highlight and click
-to select lesson. The hit boxes for the menu items are also precisely
+to select a lesson. The hitboxes for the menu items are also precisely
 calculated based on the text rendered to offer a consistent and GUI-like mouse
 experience. In the lesson view, mouse support is implemented to a degree but
 still retains the goal of providing an honest shell-like experience. The user
 can access the scrollback buffer and use the mouse to select and copy text
 using the keyboard shortcuts of their terminal emulator. In the web version, a
-right click menu that is native to the browser is also available.
+right-click menu that is native to the browser is also available.
 
-\paragraph{Keyboard shortcuts (multiple for same).}
-As showing in \autoref{fig:lessonview}, there are also some inbuilt commands
-that are not shell commands available to the user. For example, the
-\textit{commands}, command prints all the available commands, also known as the
-lesson's \textit{vocabulary}, to the screen. There are other special
-commands in the lesson view that allow the user to navigate forward and
-backwards thought the lesson, quit the lesson and toggle \textit{zen-mode}.
+\paragraph{Keyboard shortcuts (multiple for same).} As shown in
+\autoref{fig:lessonview}, some inbuilt commands available to the user, at are
+not shell commands. For example, the \textit{commands}, command prints all the
+available commands, also known as the lesson's \textit{vocabulary}, to the
+screen. There are other special commands in the lesson view that allow the user
+to navigate forward and backwards through the lesson, quit the lesson and
+toggle \textit{zen-mode}.
 
 \paragraph{Zen mode.} This is a special output printing mode of the lesson
 view. It aims to prevent the user from being overwhelmed by the textual output
@@ -248,35 +249,105 @@ the very first lesson but then deactivated unless specifically set once the
 user has been taught about clearing the screen using the \textit{clear}
 command.
 
-\paragraph{Feedback coloring.} \textit{CLI-Tutor} utilises colour to
-differentiate different elements of the lesson. For example a cyan colour is
+\paragraph{Feedback colouring.} \textit{CLI-Tutor} utilises colour to
+differentiate different elements of the lesson. For example, a cyan colour is
 used to indicate commands, green is used for the task tracker, yellow is used
 for notes or information about key bindings and finally success and failure
 feedback is also coded in red and green respectively (see:
-\autoref{fig:lessonview}).
+\autoref{fig:lessonview} and \autoref{fig:colours}).
 
+\paragraph{Logging} To assist with gathering usage data and user behaviour,
+\textit{CLI-Tutor} maintains a log file which can be optionally sent back to a
+server for examination. The log file is a mirror copy of the lesson session
+with timestamps for every action that occurs during the lesson.
 
 \subsection{Safety Considerations}
-\paragraph{Fake jail warden.}
-In order to minimise the disruptions caused by file permissions issues that may
-be completely cryptic to the user \textit{CLI-Tutor}  uses a fake jail to
-prevent the current working directory from being moved above the home folder of
-the user.
 
-\section{Web Version}
+\paragraph{Fake jail warden.} To minimise the disruptions caused by
+file permissions issues that may be completely cryptic to the user
+\textit{CLI-Tutor}  uses a fake jail to prevent the current working directory
+from being moved above the home folder of the user.
+
+\paragraph{Sandbox.} In addition to permissions issues which are merely an
+inconvenience, accidental file deletion or other potential mistakes during a
+file system lesson can result in permanent data loss. To mitigate this risk and
+to create a safe "sandbox" for users to use the application. The simplest
+way is to run the application in a \textit{docker}\cite{dockerinc_2022}
+container. However, this greatly increases the barrier of entry to using
+\textit{CLI-Tutor}. To make the tool accessible and easy to distribute
+a web application to serve instances of \textit{docker} containers running
+\textit{CLI-Tutor} was created.
+
+\section{Web Application}
+
+While the core component of \textit{CLI-Tutor} is a command line application it
+does have an accompanying web application. The purpose of creating this web
+application was briefly discussed in the preceding section. The web
+application was the medium through which the user study was conducted. Two
+versions of the web application were created to support the two user
+groups in the user study (see: \autoref{chap:userstudy}). One version contains
+the \textit{CLI-Tutor} program and the second "CLI only" version serves to
+provide a sandboxed Linux shell to individuals participating in the user study.
+Additionally, also to support the User Study a documentation static website was
+also created alongside the web application. In this section, we will describe
+the general architecture of the application. More technical details will be
+discussed in \autoref{chap:design}.
+
+\subsection{Overview of Web Application}
+
+
+\paragraph{Frontend} The frontend is a simple Javascript web application that
+presents the user with a special front end terminal component. This component
+is then connected to a backend API\footnote{Application Programming Interface}
+running on the same server which uses \textit{docker} to create containers on
+demand. The containers are then connected to the web terminal (see: \autoref{fig:webversion}) on the frontend
+and a WebSocket\footnote{A full-duplex communication protocol native to modern
+web browsers.} connection is established to allow the user to interact
+with the provisioned \textit{docker} container.
+
+\paragraph{Backend} The backend is a REST\footnote{Representational state
+transfer: An architectural style for creating interfaces to allow Client-Server
+communication.} API, written in Go. The API allows the frontend to communicate
+with the \textit{docker daemon} running on the server, to create,
+resize and stop containers on the backend.
+ 
+\paragraph{CLI Only} As mentioned earlier, a CLI only version (see: \autoref{fig:cliversion})was also created
+using essentially the same architecture as the version that includes
+\textit{CLI-Tutor}. Slight visual differences were made to differentiate the
+two however they are based on fundamentally the same \textit{docker} image, with
+the only difference being that the "CLI Only" version does not contain the
+\textit{CLI-Tutor} tool and drops the user directly into a Linux shell.
+
+\paragraph{Documentation Website} Created using MkDocs,\cite{mkdocs} a widely
+used tool for documentation in the software development world. The
+documentation website (see: \autoref{fig:docsweb}) was also built to support the
+User Study. It uses the same lessons as in the \textit{CLI-Tutor}
+application, albeit with some prompts for user interface actions removed.
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=1\textwidth]{img/cliwebfull}
-	\caption{Screen shot of \textit{CLI-Tutor} menu screen in the web version.}
+	\includegraphics[width=1\textwidth]{img/cliwebshort}
+	\caption{Screen shot of \textit{CLI-Tutor} running in a browser.}
 	\label{fig:webversion}
 \end{figure}
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=1\textwidth]{img/cliexpansionfull}
-	\caption{Screen shot of a \textit{CLI-Tutor} lesson showing values interpolated into the lesson.}
-	\label{fig:webversion}
+	\includegraphics[width=0.9\textwidth]{img/lesson1.1}
+	\caption{Screen shot of \textit{CLI-Tutor} showcasing the usage of colours.}
+	\label{fig:colours}
 \end{figure}
 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[height=0.5\textheight]{img/clionly}
+	\caption{Screen shot of the CLI only version.}
+	\label{fig:cliversion}
+\end{figure}
 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=1\textwidth]{img/docsfull}
+	\caption{Screen shot of the documentation website.}
+	\label{fig:docsweb}
+\end{figure}
