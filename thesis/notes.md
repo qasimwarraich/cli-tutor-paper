@@ -157,6 +157,7 @@
   faithful representation of working env is prob a higher priority than when
   teaching a library or programming language.
 - lesson5 typo in screenshots
+- consequently, 
 
 ## Sample format
 

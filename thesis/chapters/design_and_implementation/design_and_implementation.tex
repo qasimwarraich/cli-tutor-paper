@@ -9,6 +9,7 @@
 %       - extensibility
 %       - embedded files
 %           - Running examples
+%           - syscalls (combined output)
 %       - usability 
 %   - architecture of cli-tool
 %   - architecture of web-tool
@@ -20,7 +21,7 @@
 \section{Architecture}
 \section{Extending CLI-Tutor}
 
-\begin{lstlisting}[float=htbp, frame=single, language={}, caption=Specification for Markdown lesson files.]
+\begin{lstlisting}[float=htbp, frame=single, language={}, label=lst:markdown, caption=Specification for Markdown lesson files.]
 # Lesson Title
 
 A line under a level 1 heading is the lesson description. This is also
@@ -68,8 +69,6 @@ level 3 heading )
 vim, ls, cp, cat, echo <--- only these commands will be permitted in this lesson.
 
 \end{lstlisting}
-
-
 
 \subsubsection{Subsubsection}
 

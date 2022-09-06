@@ -45,7 +45,6 @@ Flags:
 Use "cli-tutor [command] --help" for more information about a command.
 \end{lstlisting}
 
-
 \textit{CLI-Tutor} is a command line application written in the Go
 programming language. It is an interactive tutorial focused on introducing
 novices to the Linux command line environment. The application is intended to
@@ -126,17 +125,146 @@ shown at the very beginning of this \hyperref[chap:clitutor]{chapter} (see:
 \autoref{lst:clihelp}).
 
 \subsection{Lesson Design}
-\subsection{Usability Considerations}
-\subsection{Safety Considerations}
-\section{Web Version}
+Lessons in \textit{CLI-Tutor} are written as a Markdown file and are rendered
+in the lesson view by a Markdown renderer. The exact structure of this Markdown
+file will be discussed in \autoref{chap:design} (see: \autoref{lst:markdown}).
+Lessons are designed to cover one topic per lesson and typically consist of a
+bit of introduction to the concept before jumping into directly applying the
+subject in a series of interactive tasks. Each lesson typically also starts
+with a very short refresher of the last lesson and ends with a recap of the
+learnt commands. The lessons are designed to be guided but to leave some room
+for exploration for the user. \textit{CLI-Tutor} also has some running examples
+that are included in the form of files that are created upon launching the
+program and deleted when the program exits. These files are included in order
+to augment the tasks and to allow the user to directly apply commands rather
+than creating an environment to support their learning themselves.
 
+\subsubsection{Anatomy of a lesson} A lesson is a container that contains a
+series of tasks. A lesson has a title and description which are used to
+populate the menu screen of \textit{CLI-Tutor}. Every task contains a title and
+description as well. The title of a task is displayed in the task tracker and
+the description is the actual textual content of a task. This content is either
+explaining a concept to the user, displaying a diagram or prompting the user to
+input some commands. The amount of tasks dictates the length of the lesson. The
+user can keep track of their progress inside a lesson by the task tracker,
+which displays the title of the current task as well as a progression counter.
+
+\subsubsection{Lessons also contain two additional features:}
+
+\paragraph{Vocabulary.}  The vocabulary of a lesson is the set of permitted
+commands in that lesson. This is primarily designed as a safety feature to
+prevent users from issuing commands incorrectly or bringing damage to their
+systems. The vocabulary consists of commands that will be covered in the
+current lesson and also commands previously covered in the tutor.
+
+\paragraph{Expected values.} Expected values are what drive the interactivity
+of \textit{CLI-Tutor}. Expected values prompt the tutor to consider the current
+task as interactive and thus the tutor blocks advancing to the next task unless
+the interactive task is performed. The expected value pertains to the expected
+result of performing a certain command or action. This expected value can be
+specified in a number of ways. Expected values could be a constant values such
+as a string or number, they could be the result of some function call and even
+a system call.
+
+\subsection{Usability Considerations}
+
+As previously mentioned, lessons are designed with no prior knowledge
+assumption. In addition to the curriculum a number of considerations regarding
+the usability, and design of the tool also had to be taken in order to
+maintain a very low barrier to entry.
+
+\subsubsection{User Interface}
+In general, the user interface of \textit{CLI-Tutor} is designed to be very
+simple and uncluttered. Strictly speaking, despite aiming to be an application
+that mimics a shell environment, \textit{CLI-Tutor} is a \textit{TUI} or "text
+user interface" application. It consists of two primary views, the lesson view
+and the menu view. In addition to these two views there is also a prompt to
+enter an identifier when the program is first launched. This was only added to
+the program to help identify log files for the user study conducted as a part
+of this thesis work.
+
+\paragraph{Menu view.} The menu view is what the user is greeted with upon
+launching the program. It lists the lessons in a menu which the user can use to
+select and start a lesson (see: \autoref{fig:clitutormenu}). The menu view also
+has a help bar at the base with the keyboard shortcuts illustrated and allows
+for filtering the lessons by using a search functionality. Menu items display
+the title and description of a lesson, these are parsed directly from the
+Markdown based lesson files.
 
 \begin{figure}[htbp]
+% \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{img/climenu}
+    \includegraphics[width=0.9\textwidth]{img/menushort}
     \caption{Screen shot of \textit{CLI-Tutor} menu screen.}
     \label{fig:clitutormenu}
 \end{figure}
+
+
+\paragraph{Lesson view.} The lesson view is where the shell environment is
+reproduced. It is designed to look exactly like what interacting with the shell
+in a terminal looks like but with some added cues from the lesson. These cues
+include the current task, it's instructions and any feedback pertaining to the
+last input of the user (see: \autoref{fig:lessonview}). The lesson view is also
+running golang \textit{readline} library to have an input mechanism essentially
+identical to that of a normal shell. The expected shortcuts all work as they
+should but certain controls such as \textit{Ctrl+d} and the  \textit{Ctrl+c}
+interrupts are captured in order to not close the program unexpectedly. 
+
+\begin{figure}[htbp]
+% \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/lessonview}
+    \caption{Screen shot of the \textit{CLI-Tutor} lesson view showing the task tracker, feedback mechanism and an inbuilt helper command.}
+    \label{fig:lessonview}
+\end{figure}
+
+
+\paragraph{Mouse support.} In order to make the program more usable for
+individuals used to GUIs, basic mouse support had to be implemented in
+\textit{CLI-Tutor}. Mouse support is a bit extended in the menu than what would
+be common in most TUI applications. The user can hover to highlight and click
+to select lesson. The hit boxes for the menu items are also precisely
+calculated based on the text rendered to offer a consistent and GUI-like mouse
+experience. In the lesson view, mouse support is implemented to a degree but
+still retains the goal of providing an honest shell-like experience. The user
+can access the scrollback buffer and use the mouse to select and copy text
+using the keyboard shortcuts of their terminal emulator. In the web version, a
+right click menu that is native to the browser is also available.
+
+\paragraph{Keyboard shortcuts (multiple for same).}
+As showing in \autoref{fig:lessonview}, there are also some inbuilt commands
+that are not shell commands available to the user. For example, the
+\textit{commands}, command prints all the available commands, also known as the
+lesson's \textit{vocabulary}, to the screen. There are other special
+commands in the lesson view that allow the user to navigate forward and
+backwards thought the lesson, quit the lesson and toggle \textit{zen-mode}.
+
+\paragraph{Zen mode.} This is a special output printing mode of the lesson
+view. It aims to prevent the user from being overwhelmed by the textual output
+of some commands. When \textit{zen-mode} is activated, the screen clears itself
+before the output of every command. This has the effect of leaving only the
+latest output and task on the screen. This feature is activated by default in
+the very first lesson but then deactivated unless specifically set once the
+user has been taught about clearing the screen using the \textit{clear}
+command.
+
+\paragraph{Feedback coloring.} \textit{CLI-Tutor} utilises colour to
+differentiate different elements of the lesson. For example a cyan colour is
+used to indicate commands, green is used for the task tracker, yellow is used
+for notes or information about key bindings and finally success and failure
+feedback is also coded in red and green respectively (see:
+\autoref{fig:lessonview}).
+
+
+\subsection{Safety Considerations}
+\paragraph{Fake jail warden.}
+In order to minimise the disruptions caused by file permissions issues that may
+be completely cryptic to the user \textit{CLI-Tutor}  uses a fake jail to
+prevent the current working directory from being moved above the home folder of
+the user.
+
+\section{Web Version}
+
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=1\textwidth]{img/cliwebfull}
