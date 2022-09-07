@@ -508,44 +508,70 @@ to examine the individual tokens that make up the whole command. The next steps 
 
 \subsection{Logging}
 
+To assist with gathering usage data and user behaviour, \textit{CLI-Tutor}
+maintains a log file which can be optionally sent back to a server for
+examination. The log file is a mirror copy of the lesson session with
+timestamps for every action that occurs during the lesson.
+
+This feature is on by default during the user study phase of this work but can
+be opted out of with a flag that can be supplied when launching
+\textit{CLI-Tutor}. The purpose of this feature is entirely in support of the
+user study conducted in this thesis work and the feature will likely be removed
+from the tool upon conclusion of this work.
+
 \section{Web Application}
 
-\subsection{Overview of Web Application}
+As previously mentioned, the core of \textit{CLI-Tutor} is the command line
+application described in the previous section. The accompanying web application
+was created in order to simplify distribution of the tool and organising the
+user study. While not originally a design requirement, the idea of sandboxing
+our application proved very attractive, especially given the nature of our
+subject matter. While this kind of sandboxing would be easy to achieve with
+tools such as \textit{docker} or virtual machines. It is too much to expect a
+novice user to setup and diminishes the potential user base of
+\textit{CLI-Tutor}. Creating a web application also relaxes the cross-platform
+compatibility concerns of building an application that interacts directly with
+the operating system, like a shell.
 
-\paragraph{Frontend} The frontend is a simple Javascript web application that
-presents the user with a special front end terminal component. This component
-is then connected to a backend API\footnote{Application Programming Interface}
-running on the same server which uses \textit{docker} to create containers on
-demand. The containers are then connected to the web terminal (see: \autoref{fig:webversion}) on the frontend
-and a WebSocket\footnote{A full-duplex communication protocol native to modern
-web browsers.} connection is established to allow the user to interact
-with the provisioned \textit{docker} container.
 
-\paragraph{Backend} The backend is a REST\footnote{Representational state
+\subsection{Frontend} The frontend is a simple JavaScript web application
+written in Svelte. Svelte was proved to be a good choice due to its simplicity,
+small bundle size and developer ergonomics. Typescript was the main language of
+development when it came to the frontend. The main role of the frontend
+application is to provide some instructions and to present the user with a
+special frontend terminal component. This terminal component, is from the
+popular library \textit{Xterm.js}. This terminal emulation solution was chosen
+due to it's proven robustness as the default terminal in the \textit{VSCode}
+text editor and due to a first party add-on that makes it possible to attach
+the terminal component over the WebSocket\footnote{A full-duplex communication
+protocol native to modern web browsers.} protocol to the interactive
+\textit{docker} container(see: \autoref{fig:webversion}). The process of
+provisioning, connecting and cleaning up to \textit{docker} containers is
+facilitated through the use of API\footnote{Application Programming Interface}
+calls to a backend running on the same server.
+
+\subsection{Backend} The backend is a REST\footnote{Representational state
 transfer: An architectural style for creating interfaces to allow Client-Server
-communication.} API, written in \textit{Go}. The API allows the frontend to communicate
-with the \textit{docker daemon} running on the server, to create,
-resize and stop containers on the backend.
+communication.} API, written in \textit{Go} using the \textit{Fiber} library.
+The API allows the frontend to communicate with the \textit{docker daemon}
+running on the server, to create, resize and stop containers on the backend.
+
+\subsection{Docker Daemon}
  
-\paragraph{CLI Only} As mentioned earlier, a CLI only version (see: \autoref{fig:cliversion})was also created
+\subsection{CLI Only} As mentioned earlier, a CLI only version (see: \autoref{fig:cliversion})was also created
 using essentially the same architecture as the version that includes
 \textit{CLI-Tutor}. Slight visual differences were made to differentiate the
 two however they are based on fundamentally the same \textit{docker} image, with
 the only difference being that the "CLI Only" version does not contain the
 \textit{CLI-Tutor} tool and drops the user directly into a Linux shell.
 
-\paragraph{Documentation Website} Created using MkDocs,\cite{mkdocs} a widely
+\subsection{Documentation Website} Created using MkDocs,\cite{mkdocs} a widely
 used tool for documentation in the software development world. The
 documentation website (see: \autoref{fig:docsweb}) was also built to support the
 User Study. It uses the same lessons as in the \textit{CLI-Tutor}
 application, albeit with some prompts for user interface actions removed.
 
-\paragraph{Logging} To assist with gathering usage data and user behaviour,
-\textit{CLI-Tutor} maintains a log file which can be optionally sent back to a
-server for examination. The log file is a mirror copy of the lesson session
-with timestamps for every action that occurs during the lesson.
 
-% \section{Architecture}
 
 \section{Extending CLI-Tutor}
 
