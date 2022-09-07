@@ -46,7 +46,7 @@
             \item \textit{lipgloss} is a styling and layout toolkit for \textit{bubbletea} applications.
         \end{itemize}
 
-    \item \textit{glamour} is a terminal Markdown rendering library also
+    \item \textit{glamour} is a terminal \textit{Markdown} rendering library also 
         created by the \textit{charm} team. It is used to display lesson tasks
         during a lesson in \textit{CLI-Tutor}.
 
@@ -54,7 +54,7 @@
         \textit{CLI-Tutor} for feature flags, the help menu and for managing
         start up and clean up behaviours.
         
-    \item \textit{goldmark} is a Markdown parser written in \textit{Go}. It is used in
+    \item \textit{goldmark} is a \textit{Markdown} parser written in \textit{Go}. It is used in 
         \textit{CLI-Tutor} for parsing lesson files into data structures that
         drive the lesson interface and also for populating the menu with a list
         of available lessons.
@@ -164,25 +164,47 @@ effect of there being a wide selection of libraries available for implementing
 CLI interfaces (see: \autoref{sec:tools}). In addition to good tooling,
 \textit{Go} programs are compiled and this easier to distribute across
 operating systems than interpreted alternatives such as \textit{Python}
-programs. 
+programs. \textit{Go} also comes with a well featured standard library with
+diverse options for interacting with the operating system, a core requirement
+of \textit{CLI-Tutor}.
 
 
-\subsection{Shell environment}
+\subsection{Shell Environment}
+
+Development of \textit{CLI-Tutor} started with the implementation of a
+shell-like environment. A  \textit{Go} specific
+\textit{readline}\footnote{\url{https://pkg.go.dev/github.com/chzyer/readline}}
+package was used to create a simple \textit{REPL}\footnote{Read Evaluate Print
+Loop} as a proof of concept. The \textit{readline} library supported a custom
+prompt and through the use of some system calls a functional prompt with a
+working \textit{readline} environment was created. The next challenge was how
+to structure, create and interact with lessons.
 
 \subsection{Lessons}
 
-\subsubsection{Anatomy of a Lesson} A lesson is a container that contains a
-series of tasks. A lesson has a title and description which are used to
-populate the menu screen of \textit{CLI-Tutor}. Every task contains a title and
-description as well. The title of a task is displayed in the task tracker and
-the description is the actual textual content of a task. This content is either
-explaining a concept to the user, displaying a diagram or prompting the user to
-input some commands. The amount of tasks dictates the length of the lesson. The
-user can keep track of their progress inside a lesson by the task tracker,
-which displays the title of the current task as well as a progression counter.
+The first task was to model a lesson in the form of a data structure that could
+be used in the working shell environment we had created at this point. It was
+decided that a lesson could be modeled as a container that contains a series of
+tasks, which would be modeled as a separate data structure (see: \autoref{lst:types}).
+
+\subsubsection{Anatomy of a Lesson}
+
+A lesson has a title and description which are used to populate the menu screen
+of \textit{CLI-Tutor}. Every task contains a title and description as well. The
+title of a task is displayed in the task tracker and the description is the
+actual textual content of a task. This content is either explaining a concept
+to the user, displaying a diagram or prompting the user to input some commands.
+The amount of tasks dictates the length of the lesson. The user can keep track
+of their progress inside a lesson by the task tracker, which displays the title
+of lesson, the current task as well as a progression counter. A user is free to
+proceed back and forth through the lesson using the in-built commands
+\textit{n/next} or \textit{p/prev} unless the task is marked as interactive. In
+this case the user must perform an interactive task such as running a specific
+command relevant to the task at hand. This mechanism as well as the progress
+tracker are showcased in \autoref{fig:tracker}.
 
 \vspace{1em}
-\begin{lstlisting}[frame=single, caption=Data structures for a Lesson and a Task within a Lesson.]
+\begin{lstlisting}[label=lst:types, frame=single, caption=Data structures for a Lesson and a Task within a Lesson.]
 type Lesson struct {
 	Name        string
 	Vocabulary  []string
@@ -197,15 +219,207 @@ type Task struct {
 }
 \end{lstlisting}
 
-\subsection{Embedded Files}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/tracker}
+	\caption{Screen shot of the progress tracker and interactive task feature.}
+	\label{fig:tracker}
+\end{figure}
+\clearpage
+
+\subsubsection{Specifying Lessons}
+% \vspace{-3em} %TODO: Figure out this float issue.
+
+The first versions of a \textit{CLI-Tutor} lesson were written directly in
+\textit{Go} source code. Not only was this tedious but also extremely specific
+to this implementation, rendering extensibility and open-source contributions
+difficult. It was decided that some sort of data exchange or markup language
+would be more appropriate for specifying lessons. Early considerations included
+\textit{JSON}\footnote{JavaScript Object Notation. See:
+\url{https://www.json.org/json-en.html}} and \textit{YAML}\footnote{Yet Another
+Markup Language. See \url{https://yaml.org/}}. These solutions proved to be
+difficult to work with in terms of formatting and did not make the process of
+contributing lessons any easier for an external contributor.
+
+Ultimately, the decision to implement the lessons in \textit{CommonMark
+Markdown}\footnote{A popular implementation of \textit{Markdown}. See:
+\url{https://commonmark.org/}} was taken. \textit{Markdown} was a pragmatic
+decision due to its ubiquity in the software development space and abundance of
+parsers. Furthermore, \textit{Markdown} allowed us to specify our formatting
+directly in the lesson document and made for a source code free template for
+specifying lessons.
+
+\subsection{Lesson Parser}
+\label{sec:parser}
+
+Once \textit{Markdown} was decided to be the implementation language for our
+lessons the next step was to populate our lesson related data structures (see:
+\autoref{lst:types}) in order to drive the tutorial program. To achieve this a
+structure for specifying a lesson had to be created. After the specification
+was complete a parser had to be written. The \textit{goldmark} markdown parsing
+library for \textit{Go} was selected. This library allowed us to create a
+custom parser for our lesson files. The parser first parses a selected lesson file into an \textit{AST}
+(Abstract Syntax Tree). Once this tree is created, it is traversed using a
+\textit{Depth First Search} in order to navigate to all the different syntax
+nodes in the tree. In our lesson specification we make divisions using heading
+weights in our \textit{Markdown} files. 
+
+Level 1 headings and their subsequent nested text are used for
+\textit{Lesson}\footnote{\textit{Lesson} and \textit{Task} in this
+capitalised and italicised form refer to our \textit{Lesson} and \textit{Task}
+data structures (see: \autoref{lst:types}).} level data, specifically the
+lesson's title and description. 
+
+Each subsequent level 2 heading refers to an individual \textit{Task}. The text
+nested in between the level 2 headings belong the \textit{Task} above the text.
+\textit{Markdown} elements such as code blocks and inline code snippets are
+used to stylise text during the lesson. The expected value feature of
+\textit{Task}s of tasks is achieved by using the quotation element (\textit{>})
+of \textit{Markdown}. As the traversal of the \textit{AST} continues
+\textit{Task}s are appended to the \textit{Tasks} array in the \textit{Lesson}
+data structure. This creates the series of tasks in the lesson, which are
+eventually navigated through by iterating through this \textit{Tasks} array. 
+
+Level 3 headings are used to define the lesson's vocabulary, or set of
+permitted commands. There are additional features such as the nature of how
+interactive task values are to be calculated that can also be specified in the
+lesson file. For a full \textit{Markdown} specification of lesson, see:
+\autoref{lst:markdown} and for the implementation of the custom parser see: \autoref{lst:parser}. 
+
 \subsubsection{Template Expansion}
+
+There is actually one step that takes place just before the parsing of a
+lesson. This is where values can be interpolated into the \textit{Markdown}
+files using \textit{Go}'s powerful in-built
+template\footnote{\url{https://pkg.go.dev/text/template}} library. This allows
+for special system specific or environment specific values to be interpolated
+into a lesson at the time of parsing, allowing for even more personalised
+explanations to be baked into the lessons. An example of this is demonstrated
+in \autoref{fig:templateexpansion} where user and system specific information
+is presented in the explanation of a shell command prompt. This allows for
+lessons to be less static and further capitalises on the opportunities
+available in interactive programs rather than written documentation.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=1\textwidth]{img/cliexpansionfull}
+	\caption{Screen shot of a \textit{CLI-Tutor} lesson showing values interpolated into the lesson.}
+	\label{fig:templateexpansion}
+\end{figure}
+
 \subsubsection{Running Examples}
 
-\subsection{Usability}
+Another feature of \textit{CLI-Tutor} is the inclusion of certain files that
+are created on the user's file system for the duration the tutor program is
+running. These files serve as running examples and allow for lessons that use
+real files and data to be crafted. This allows for more creativity and
+opportunities for engaging user's when creating interactive tasks.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/hidden}
+    \caption{Screen shot of a hidden file created by the \textit{CLI-Tutor} as an interactive example.}
+	\label{fig:hidden}
+\end{figure}
+
+ 
+\subsection{Embedded Files}
+
+The two previous features in addition to the goal of being able to distribute
+\textit{CLI-Tutor} as a single executable binary necessitated the inclusion of
+both lesson files and files that serve as running examples in to the compiled
+binary. This was achieved using a compiler directive built into the \textit{Go}
+compiler named \textit{go:embed}\footnote{\url{https://pkg.go.dev/embed}}. This
+allowed for the creation of a virtual file system for the program to be able to
+read files from as if it were a real file system. Embedding files directly into
+the program also greatly contributes towards the ease of distribution and
+contribution of \textit{CLI-Tutor} as all the parts that make up the tutor live
+in one codebase.
+
+\subsection{User Interface}
+
+The user interface of \textit{CLI-Tutor} is divided into two main views, the
+lesson view and menu view. The default view and what the user is presented with
+upon launching \textit{CLI-Tutor} is the menu view. The menu is populated using
+a variation of the parser described in \autoref{sec:parser}. As previously
+mentioned \textit{CLI-Tutor} is a TUI application. To manage the two distinct
+views and provide interactive user interface elements the \textit{Bubbletea}
+library was used. \textit{Bubbletea} is a library for making Textual User
+Interfaces and is inspired by the \textit{Elm}
+architecture\footnote{\url{https://guide.elm-lang.org/architecture/}}. The
+\textit{Elm} architecture is a pattern that consists of three part structure
+where messages are sent between parts to alter state, update the user interface
+and act upon messages.
+
+\subsubsection{The \textit{Elm} Architecture applied to \textit{CLI-Tutor}} 
+
+The \textit{Elm} architectures three main parts are:
+
+
+\begin{itemize}
+    \item \textit{Model:} The model controls the state of the application. The 
+        \textit{CLI-Tutor} tool uses three models to manage its state. The
+        \textit{MainModel} is, as the name suggests, the main controller and
+        houses the models for the menu view and the lesson view inside it. The
+        job of the \textit{MainModel} is to present the correct view to the
+        user and to process all the different messages that can be sent back
+        from the lesson and menu models. The selection of views is done by the \textit{state} member of the \textit{MainModel}.  The definitions of the three models in \textit{CLI-Tutor} can be found in \autoref{lst:model}.
+
+\begin{lstlisting}[label=lst:model, frame=single, caption=Models used to build the user interface of \textit{CLI-Tutor} ]
+const (
+	menuView sessionState = iota
+	lessonView
+)
+
+type MainModel struct {
+	state      sessionState
+	menu       tea.Model
+	lesson     tea.Model
+	quitting   bool
+	windowsize tea.WindowSizeMsg
+}
+
+type MenuModel struct {
+	list       list.Model
+	choice     string
+	quitting   bool
+	windowsize tea.WindowSizeMsg
+}
+
+type LessonModel struct {
+	currentLesson lesson.Lesson
+	rl            *readline.Instance
+	r             *glamour.TermRenderer
+	quitting      bool
+}
+\end{lstlisting}
+
+\item \textit{Update:} Is a method that is implemented for a model. The
+    \textit{Update} method consumes the messages sent around between the
+    components of a system built on the \textit{Elm} architecture. The update
+    function can then manipulate the state of it's corresponding model to
+    create reactivity. Messages are events generated through interaction with
+    the application and actions such as resizing a window for example. In
+    \textit{CLI-Tutor}, messages are used to communicate the size of the
+    terminal, manage key presses, enable selections in the menu and to handle
+    quitting the application. A message based architecture allows for a lot of
+    flexibility in terms of defining custom messages that can trigger other
+    behaviours or make state changes. An example is parsing a lesson after it
+    is selected in the menu view and assigning it as the current lesson in the
+    lesson view.
+
+\item \textit{View:} The \textit{View} is the last part of the \textit{Elm}
+    architecture and is responsible for rendering the visual environment based
+    on the state of its related \textit{Model}. In \textit{CLI-Tutor}, the view
+    is only used for the menu view of the application. The lesson view of the
+    application, due to the implementation of the \textit{readline} library,
+    consists of a blocking \textit{for} loop.
+
+\end{itemize}
+
+\subsubsection{Markdown Renderer}
 
 \subsection{Logging}
-
-%talk more about the data structures here 
 
 \section{Web Application}
 
@@ -244,17 +458,7 @@ application, albeit with some prompts for user interface actions removed.
 server for examination. The log file is a mirror copy of the lesson session
 with timestamps for every action that occurs during the lesson.
 
-\section{Architecture}
-
-\subsubsection{Anatomy of a lesson} A lesson is a container that contains a
-series of tasks. A lesson has a title and description which are used to
-populate the menu screen of \textit{CLI-Tutor}. Every task contains a title and
-description as well. The title of a task is displayed in the task tracker and
-the description is the actual textual content of a task. This content is either
-explaining a concept to the user, displaying a diagram or prompting the user to
-input some commands. The amount of tasks dictates the length of the lesson. The
-user can keep track of their progress inside a lesson by the task tracker,
-which displays the title of the current task as well as a progression counter.
+% \section{Architecture}
 
 \section{Extending CLI-Tutor}
 
@@ -307,9 +511,3 @@ vim, ls, cp, cat, echo <--- only these commands will be permitted in this lesson
 
 \end{lstlisting}
 
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=1\textwidth]{img/cliexpansionfull}
-	\caption{Screen shot of a \textit{CLI-Tutor} lesson showing values interpolated into the lesson.}
-	\label{fig:templateexpansion}
-\end{figure}
