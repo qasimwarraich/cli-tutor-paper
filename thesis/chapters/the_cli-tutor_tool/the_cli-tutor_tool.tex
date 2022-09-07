@@ -45,7 +45,7 @@ Flags:
 Use "cli-tutor [command] --help" for more information about a command.
 \end{lstlisting}
 
-\textit{CLI-Tutor} is a command line application written in the Go
+\textit{CLI-Tutor} is a command line application written in the \textit{Go} 
 programming language. It is an interactive tutorial focused on introducing
 novices to the Linux command line environment. The application is intended to
 be a forgiving but faithful representation of a shell running
@@ -211,12 +211,13 @@ Markdown-based lesson files.
 \paragraph{Lesson view.} The lesson view is where the shell environment is
 reproduced. It is designed to look exactly like what interacting with the shell
 in a terminal looks like but with some added cues from the lesson. These cues
-include the current task, its instructions and any feedback about the
-last input of the user (see: \autoref{fig:lessonview}). The lesson view is also
-running golang \textit{readline} library to have an input mechanism essentially
-identical to that of a normal shell. The expected shortcuts all work as they
-should but certain controls such as \textit{Ctrl+d} and the  \textit{Ctrl+c}
-interrupts are captured in order to not close the program unexpectedly.
+include the current task, its instructions and any feedback about the last
+input of the user (see: \autoref{fig:lessonview}). The lesson view is also
+running a \textit{Go} \textit{readline} library to provide a user input
+mechanism essentially identical to that of a normal shell. The expected
+shortcuts all work as they should but certain controls such as \textit{Ctrl+d},
+\textit{Ctrl+z} and the \textit{Ctrl+c} interrupts are captured and ignored in
+order to not close the program unexpectedly.
 
 \begin{figure}[htbp]
 	% \begin{figure}[H]
