@@ -1,5 +1,5 @@
-\chapter{Design And Implementation}
-% - Design and Implementation
+\chapter{Design And Implementation} % - Design and Implementation
+\label{chap:design}
 %   - overview
 %   - original tinkering and considerations
 %   - features and considerations
@@ -15,11 +15,100 @@
 %   - architecture of cli-tool
 %   - architecture of web-tool
 %       - how sandboxing is achieved
-\label{chap:design}
-\section{Overview}
-% Libs and tools used
 
-\subsubsection{sub}
+
+\section{Tools and Libraries}
+
+\subsection{\textit{CLI-Tutor}}
+\begin{itemize}
+    \item \textit{readline} is the Go port of the gnu readline
+        \cite{ramey_fox_readline} line editing software. It forms the backbone
+        of the lesson menu in \textit{CLI-Tutor}.
+
+    \item \textit{bubbletea} is Go framework for building stateful terminal
+        applications using the Elm Architecture\footnote{More on the Elm
+        Architecture here: \url{https://guide.elm-lang.org/architecture/}}.
+        \textit{bubbletea} is a part of the charm\footnote{More on the charm
+        project here: \url{https://charm.sh}} project, which is a host of
+        frameworks and libraries aimed at modernising the command line
+        interface. The project also includes a host of smaller libraries and
+        extensions designed to be used with \textit{bubbletea}
+        applications.\textit{bubbletea} is the tui framework used to manage
+        switching between the menu and lesson views in \textit{CLI-Tutor}.
+
+        \begin{itemize}
+            \item \textit{bubbles} is a collection of ui components to be used alongside \textit{bubbletea}.
+            \item \textit{bubblezone} is a community contributed extension to
+                \textit{bubbles} components that allows for zones and hit boxes
+                to be established in the user interface.
+            \item \textit{lipgloss} is a styling and layout toolkit for \textit{bubbletea} applications.
+        \end{itemize}
+
+    \item \textit{glamour} is a terminal Markdown rendering library also
+        created by the \textit{charm} team. It is used to display lesson tasks
+        during a lesson in \textit{CLI-Tutor}.
+
+    \item \textit{cobra} is a very popular CLI framework that is used in
+        \textit{CLI-Tutor} for feature flags, the help menu and for managing
+        start up and clean up behaviours.
+        
+    \item \textit{goldmark} is a Markdown parser written in Go. It is used in
+        \textit{CLI-Tutor} for parsing lesson files into data structures that
+        drive the lesson interface and also for populating the menu with a list
+        of available lessons.
+
+    \item \textit{termenv}  is a Go library used for managing terminal colours
+        and environments. It is used in \textit{CLI-Tutor} for maximising
+        compatibility across terminals, producing colours and for certain
+        terminal controls such as screen clearing.
+\end{itemize}
+
+\subsection{Web Application}
+\begin{itemize}
+    \item \textit{Svelte} is a JavaScript/TypeScript frontend framework. It was
+        chosen to be the frontend for our web application due to its
+        simplicity, low learning curve and bundled output approach.
+
+    \item \textit{Vite} is the JavaScript bundler used alongside Svelte to package the project for the web.
+
+    \item \textit{XtermJs} is a terminal component for frontend applications.
+        It is famously used as the terminal in the extremely popular text
+        editor VSCode\footnote{More about VSCode here:
+        \url{https://code.visualstudio.com/}}. The terminal component is used
+        alongside it's \textit{attach} add-on to form a connection over
+        WebSockets to a docker container. This is how sandboxed environments
+        are provided over the web to users.
+
+    \item \textit{Fiber} is the HTTP framework used to create the backend for
+        our web application. It is primarily used as a proxy between the
+        frontend and the docker deamon running on our backend server.
+
+    \item \textit{Docker SDK} is a first party Go Software Development Kit
+        (SDK) for interacting with the docker deamon. It was chosen for
+        interoperability with the backend HTTP framework which also uses Go.
+
+    \item \textit{MkDocs} is an industry standard static site generator for
+        documentation websites. It was used to create a documentation website
+        for the user study conducted in this work.
+        \begin{itemize}
+            \item \textit{MkDocs-Material} is an extension to \textit{MkDocs}
+                providing an attractive modern theme and some additional visual
+                elements to the static documentation website created for
+                \textit{CLI-Tutor}.
+        \end{itemize}
+\end{itemize}
+
+\subsection{Server Infrastructure}
+\begin{itemize}
+    \item \textit{Linode} is a cloud service provider offering low cost Virtual Private Servers. Two servers were used to implement the web application portion of \textit{CLI-Tutor}.
+    \item \textit{Nginx} is a high performance web server. It was utilised on
+        both our servers to serve as a reverse proxy to allow communication
+        with docker and our backend API.
+    \item \textit{Gitlab CI/CD} is a Continuous Integration and Continue Delivery service used for testing, building and deploying our web application.
+    \item \textit{Grafana Cloud} is a monitoring service. It was used in
+        \textit{CLI-Tutor} to monitor uptime and for log agglomeration from our
+        servers to ensure everything was running well.
+\end{itemize}
 
 \subsubsection{Anatomy of a lesson} A lesson is a container that contains a
 series of tasks. A lesson has a title and description which are used to
@@ -36,12 +125,25 @@ which displays the title of the current task as well as a progression counter.
 server for examination. The log file is a mirror copy of the lesson session
 with timestamps for every action that occurs during the lesson.
 \section{Architecture}
+
+\subsubsection{Anatomy of a lesson} A lesson is a container that contains a
+series of tasks. A lesson has a title and description which are used to
+populate the menu screen of \textit{CLI-Tutor}. Every task contains a title and
+description as well. The title of a task is displayed in the task tracker and
+the description is the actual textual content of a task. This content is either
+explaining a concept to the user, displaying a diagram or prompting the user to
+input some commands. The amount of tasks dictates the length of the lesson. The
+user can keep track of their progress inside a lesson by the task tracker,
+which displays the title of the current task as well as a progression counter.
+
 \section{Extending CLI-Tutor}
 
 
 \section{Web Application}
-\subsection{Overview of Web Application}
 
+
+
+\subsection{Overview of Web Application}
 
 \paragraph{Frontend} The frontend is a simple Javascript web application that
 presents the user with a special front end terminal component. This component
@@ -70,6 +172,7 @@ used tool for documentation in the software development world. The
 documentation website (see: \autoref{fig:docsweb}) was also built to support the
 User Study. It uses the same lessons as in the \textit{CLI-Tutor}
 application, albeit with some prompts for user interface actions removed.
+
 \begin{lstlisting}[float=htbp, frame=single, language={}, label=lst:markdown, caption=Specification for Markdown lesson files.]
 # Lesson Title
 
@@ -119,9 +222,7 @@ vim, ls, cp, cat, echo <--- only these commands will be permitted in this lesson
 
 \end{lstlisting}
 
-\subsubsection{Subsubsection}
 
-\paragraph{Paragraph.} Always with a point.
 
 
 \begin{figure}[htbp]
