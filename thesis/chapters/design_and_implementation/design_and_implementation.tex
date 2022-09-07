@@ -28,14 +28,14 @@
         of the lesson menu in \textit{CLI-Tutor}.
 
     \item \textit{bubbletea} is \textit{Go} framework for building stateful terminal
-        applications using the Elm Architecture\footnote{More on the Elm
+        applications using the \textit{Elm} Architecture\footnote{More on the \textit{Elm}
         Architecture here: \url{https://guide.elm-lang.org/architecture/}}.
         \textit{bubbletea} is a part of the charm\footnote{More on the charm
         project here: \url{https://charm.sh}} project, which is a host of
         frameworks and libraries aimed at modernising the command line
         interface. The project also includes a host of smaller libraries and
         extensions designed to be used with \textit{bubbletea}
-        applications.\textit{bubbletea} is the tui framework used to manage
+        applications. \textit{bubbletea} is the TUI framework used to manage
         switching between the menu and lesson views in \textit{CLI-Tutor}.
 
         \begin{itemize}
@@ -66,6 +66,7 @@
 \end{itemize}
 
 \subsection{Web Application}
+
 \begin{itemize}
     \item \textit{Svelte} is a JavaScript/TypeScript frontend framework. It was
         chosen to be the frontend for our web application due to its
@@ -162,7 +163,7 @@ such as the \textit{GitHub} CLI \cite{github_cli} and \textit{docker} CLI
 \cite{dockerinc_2022}. This popularity in CLI applications also has the side
 effect of there being a wide selection of libraries available for implementing
 CLI interfaces (see: \autoref{sec:tools}). In addition to good tooling,
-\textit{Go} programs are compiled and this easier to distribute across
+\textit{Go} programs are compiled and thus easier to distribute across
 operating systems than interpreted alternatives such as \textit{Python}
 programs. \textit{Go} also comes with a well featured standard library with
 diverse options for interacting with the operating system, a core requirement
@@ -249,7 +250,7 @@ parsers. Furthermore, \textit{Markdown} allowed us to specify our formatting
 directly in the lesson document and made for a source code free template for
 specifying lessons.
 
-\subsection{Lesson Parser}
+\subsection{Lesson Parsing}
 \label{sec:parser}
 
 Once \textit{Markdown} was decided to be the implementation language for our
@@ -258,11 +259,11 @@ lessons the next step was to populate our lesson related data structures (see:
 structure for specifying a lesson had to be created. After the specification
 was complete a parser had to be written. The \textit{goldmark} markdown parsing
 library for \textit{Go} was selected. This library allowed us to create a
-custom parser for our lesson files. The parser first parses a selected lesson file into an \textit{AST}
-(Abstract Syntax Tree). Once this tree is created, it is traversed using a
-\textit{Depth First Search} in order to navigate to all the different syntax
-nodes in the tree. In our lesson specification we make divisions using heading
-weights in our \textit{Markdown} files. 
+custom parser for our lesson files. The parser first parses a selected lesson
+file into an \textit{AST} (Abstract Syntax Tree). Once this tree is created, it
+is traversed using a \textit{Depth First Search} in order to navigate to all
+the different syntax nodes in the tree. In our lesson file specification we
+make divisions using heading weights in our \textit{Markdown} files. 
 
 Level 1 headings and their subsequent nested text are used for
 \textit{Lesson}\footnote{\textit{Lesson} and \textit{Task} in this
@@ -328,7 +329,7 @@ opportunities for engaging user's when creating interactive tasks.
 The two previous features in addition to the goal of being able to distribute
 \textit{CLI-Tutor} as a single executable binary necessitated the inclusion of
 both lesson files and files that serve as running examples in to the compiled
-binary. This was achieved using a compiler directive built into the \textit{Go}
+binary. This was achieved using a compiler directive recognised by the \textit{Go}
 compiler named \textit{go:embed}\footnote{\url{https://pkg.go.dev/embed}}. This
 allowed for the creation of a virtual file system for the program to be able to
 read files from as if it were a real file system. Embedding files directly into
@@ -345,16 +346,14 @@ a variation of the parser described in \autoref{sec:parser}. As previously
 mentioned \textit{CLI-Tutor} is a TUI application. To manage the two distinct
 views and provide interactive user interface elements the \textit{Bubbletea}
 library was used. \textit{Bubbletea} is a library for making Textual User
-Interfaces and is inspired by the \textit{Elm}
-architecture\footnote{\url{https://guide.elm-lang.org/architecture/}}. The
-\textit{Elm} architecture is a pattern that consists of three part structure
-where messages are sent between parts to alter state, update the user interface
-and act upon messages.
+Interfaces and is inspired by the \textit{Elm} architecture. The \textit{Elm}
+architecture is a pattern that consists of three part structure where messages
+are sent between parts to alter state, update the user interface and act upon
+messages.
 
 \subsubsection{The \textit{Elm} Architecture applied to \textit{CLI-Tutor}} 
 
 The \textit{Elm} architectures three main parts are:
-
 
 \begin{itemize}
     \item \textit{Model:} The model controls the state of the application. The 
@@ -413,11 +412,99 @@ type LessonModel struct {
     on the state of its related \textit{Model}. In \textit{CLI-Tutor}, the view
     is only used for the menu view of the application. The lesson view of the
     application, due to the implementation of the \textit{readline} library,
-    consists of a blocking \textit{for} loop.
+    consisting of a blocking \textit{for} loop. To get around this we block the
+    \textit{Elm} update loop for the duration of the lesson with the
+    \textit{readline} loop. When a lesson is completed or the user elects to
+    quit the lesson, the \textit{readline} loop breaks and an exit message is
+    sent to the \textit{Update} method \textit{MainModel} signifying the change
+    of state from lesson to menu. This update then triggers a state change on
+    the \textit{MainModel} which results in the user being presented the menu
+    view. Because state is kept throughout the run time of the application the
+    menu will still have the lesson the user selected highlighted, enhancing
+    the user experience.
 
 \end{itemize}
 
 \subsubsection{Markdown Renderer}
+
+We mentioned how we parse the lesson Markdown files in \autoref{sec:parser}. As
+lines of \textit{Markdown} are parsed they are stored as raw byte arrays in the
+\textit{Lesson} and \textit{Task} data structures. This has the desired side
+effect of maintaining the formatting inherently coded into a \textit{Markdown}
+document. When it comes time to display this information during a lesson, a
+terminal \textit{Markdown} renderer named \textit{glamour} is used. Rendered
+text to the terminal is both styled and formatted by \textit{glamour} resulting
+in a near direct translation between the lesson file and what is displayed to
+the user in the terminal. Using a \textit{Markdown} renderer also gave us the
+flexibility of specifying custom styling on all the different \textit{Markdown}
+style elements and to fine tune the look and feel of lessons by tweaking the
+style sheet being used by the renderer.
+
+\subsection{Validation}
+
+In order to build interactivity into our lessons, we needed to have a way of
+validating the inputs and actions of our users. Our input validation mechanism
+is incorporated into the \textit{readline} loop of the lesson view in
+\textit{CLI-Tutor}. Every time the user issues a command by hitting enter, the
+string the user entered at the command prompt is sent through a validation
+cycle. The first step is checking whether the string matches one of the many
+in-built special commands. These commands do things like proceed back and forth
+through the lesson, quit the lesson, print out a list of available commands and
+toggle \textit{zen-mode}. If the string is not one of these special commands
+then it is assumed that the user is attempting to issue a system or shell
+command. For convenience, input strings at this point are stripped of white space and split into an array
+to examine the individual tokens that make up the whole command. The next steps are:
+
+\begin{itemize}
+
+    \item Checking whether the specified command is in the current lesson's
+        vocabulary and thus permitted to be run. This is done by checking the
+        very first token of the string. Any tokens following the special shell
+        operators \textit{|} and \textit{\&} are also validated. If the command
+        passes this stage it means the string contains commands valid and
+        permitted in the current lesson.
+
+
+    \item After passing initial validation, further checks are performed to
+        prevent the user from running into permissions issues or working in a
+        sensitive root or system directory. The command is also checked for
+        certain special conditions that need to accounted for. Special
+        conditions such as:
+
+        \begin{itemize}
+            \item Several commands chained as pipes.
+            \item The presence of logical operators such as \textit{||} and \textit{\&\&}.  
+            \item Whether the command has arguments or flags specified.
+            \item Whether the command launches an external command like a
+                pager, which would require a redirection of the spawned
+                sub-process' standard input and output streams to those of
+                \textit{CLI-Tutor}.  
+        \end{itemize}
+
+        Each of these cases requires special handling in the way the system
+        call is placed. The correct method is selected at this point and a
+        system call is issued.
+
+    \item At this stage the issued command is stored in a variable that tracks
+        the last issued command. This is necessary in order to support the
+        repeat previous command or \textit{!!} shell operation.
+
+    \item The next step is to return the combined output of the issued
+        commands standard out and error streams to the user interface. In the
+        case that the command was an interactive sub-process like a pager, the
+        streams of the sub-process and redirected to the user interface at this
+        point.
+
+    \item A final step is to check where the current \textit{Task} has a
+        defined expected value. If this is the case the returned output of the
+        issued command is compared to this expected value and the appropriate
+        success or failure feedback is provided to the user. If the user
+        successfully completed the task the tutor automatically increments the
+        task tracker, resulting in the user being automatically advanced to the
+        next task in the lesson.
+
+
+\end{itemize}
 
 \subsection{Logging}
 
