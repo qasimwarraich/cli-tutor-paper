@@ -39,9 +39,9 @@
         switching between the menu and lesson views in \textit{CLI-Tutor}.
 
         \begin{itemize}
-            \item \textit{bubbles} is a collection of ui components to be used alongside \textit{bubbletea}.
-            \item \textit{bubblezone} is a community contributed extension to
-                \textit{bubbles} components that allows for zones and hit boxes
+            \item \textit{bubbles} is a collection of UI components to be used alongside \textit{bubbletea}.
+            \item \textit{bubblezone} is a community-contributed extension to
+                \textit{bubbles} components that allows for zones and hitboxes
                 to be established in the user interface.
             \item \textit{lipgloss} is a styling and layout toolkit for \textit{bubbletea} applications.
         \end{itemize}
@@ -52,7 +52,7 @@
 
     \item \textit{cobra} is a very popular CLI framework that is used in
         \textit{CLI-Tutor} for feature flags, the help menu and for managing
-        start up and clean up behaviours.
+        start-up and clean-up behaviours.
         
     \item \textit{goldmark} is a \textit{Markdown} parser written in \textit{Go}. It is used in 
         \textit{CLI-Tutor} for parsing lesson files into data structures that
@@ -75,7 +75,7 @@
     \item \textit{Vite} is the JavaScript bundler used alongside Svelte to package the project for the web.
 
     \item \textit{XtermJs} is a terminal component for frontend applications.
-        It is famously used as the terminal in the extremely popular text
+        It is the default terminal in the exceptionally popular text
         editor VSCode\footnote{More about VSCode here:
         \url{https://code.visualstudio.com/}}. The terminal component is used
         alongside it's \textit{attach} add-on to form a connection over
@@ -90,7 +90,7 @@
         (SDK) for interacting with the \textit{docker daemon}. It was chosen for
         interoperability with the backend HTTP framework which also uses \textit{Go}.
 
-    \item \textit{MkDocs} is an industry standard static site generator for
+    \item \textit{MkDocs} is an industry-standard static site generator for
         documentation websites. It was used to create a documentation website
         for the user study conducted in this work.
         \begin{itemize}
@@ -103,7 +103,7 @@
 
 \subsection{Server Infrastructure}
 \begin{itemize}
-    \item \textit{Linode} is a cloud service provider offering low cost Virtual Private Servers. Two servers were used to implement the web application portion of \textit{CLI-Tutor}.
+    \item \textit{Linode} is a cloud service provider offering low-cost Virtual Private Servers. Two servers were used to implement the web application portion of \textit{CLI-Tutor}.
     \item \textit{Nginx} is a high performance web server. It was utilised on
         both our servers to serve as a reverse proxy to allow communication
         with \textit{docker} and our backend API.
@@ -113,46 +113,47 @@
         servers to ensure everything was running well.
 \end{itemize}
 
-\section{First Attempts} In the early stags of this thesis work, while
+\section{First Attempts} In the early stages of this thesis work, while
 attempting to model the problem and develop the requirements for a technical
-solution a number of prototypes were created. The early prototypes were written
+solution several prototypes were created. The early prototypes were written
 in \textit{Python} \cite{python}. It was clear from an early stage that
-\textit{readline} would be a mandatory element of approach we would take. Early
+\textit{readline} would be a mandatory element of the approach we would take. Early
 attempts broadly focused on two different approaches:
 
 \begin{itemize} \item An \textit{Expect}\cite{libes1995exploring} like
     approach. \textit{Expect} is an add-on to the \textit{Tcl} scripting
-    language and is a way of writing scripted interactions with sub processes.
-    An \textit{Expect} script can be used to launch a sub process and
+    language and is a way of writing scripted interactions with sub-processes.
+    An \textit{Expect} script can be used to launch a sub-process and
     communicate with it, for each action expected results can be specified.
     \textit{Expect} scripts are popular for feigning user input and for testing
     or combining separate services. It is designed entirely with command line
     applications in mind and thus seemed a worthwhile approach for
     \textit{CLI-Tutor}, especially because we wanted to design lessons which
-    had expected values and interactive exercises. Two prototypes were build
+    had expected values and interactive exercises. Two prototypes were built
     using  \textit{Python} and \textit{Go}. The plan was to use \textit{Expect}
-    to interact with a spawned \textit{Bash} sub process. While initially
+    to interact with a spawned \textit{Bash} sub-process. While initially
     promising, the \textit{Expect} approach was abandoned due to limitations in
-    the libraries and concerns around being able to building an appropriate
-    user interface to wrap \textit{Expect}.
+    the libraries and concerns around being able to build an appropriate user
+    interface to wrap \textit{Expect}.
 
     \item Creating and managing PTYs\footnote{PTY refers to a Linux
-        psuedoterminal, the low level interface through which terminal data
+        pseudoterminal, the low-level interface through which terminal data
     flow is implemented in Linux.}. Prototypes integrating \textit{readline}
     implementations were built using this approach with some success. However,
-    this approach necessitated intricate low level programming and raw
+    this approach necessitated intricate low-level programming and raw
     communication with the terminal. It was eventually deemed too complicated
-    and operating system specific to be appropriate for the purpose of
-    \textit{CLI-Tutor}. \end{itemize}
+    and operating system specific to be appropriate for \textit{CLI-Tutor}. 
+
+\end{itemize}
 
     Other attempts included writing a GUI application to create a fake terminal
     environment. However, it was decided that a compiled command line
     application would be most appropriate for this purpose as it would allow us
     to capitalise on the existing interface of the user's terminal and the
     wealth of libraries and tools available to facilitate command line
-    application development. An approach of creating a mock shell environment
-    and using operating system native system calls would be the most proper
-    approach for \textit{CLI-Tutor}.
+    application development. Creating a mock shell environment and using
+    operating system native system calls would be the most proper approach for
+    \textit{CLI-Tutor}.
 
 \section{Features and Considerations of \textit{CLI-Tutor}}
 
@@ -165,7 +166,7 @@ effect of there being a wide selection of libraries available for implementing
 CLI interfaces (see: \autoref{sec:tools}). In addition to good tooling,
 \textit{Go} programs are compiled and thus easier to distribute across
 operating systems than interpreted alternatives such as \textit{Python}
-programs. \textit{Go} also comes with a well featured standard library with
+programs. \textit{Go} also comes with a well-featured standard library with
 diverse options for interacting with the operating system, a core requirement
 of \textit{CLI-Tutor}.
 
@@ -185,8 +186,8 @@ to structure, create and interact with lessons.
 
 The first task was to model a lesson in the form of a data structure that could
 be used in the working shell environment we had created at this point. It was
-decided that a lesson could be modeled as a container that contains a series of
-tasks, which would be modeled as a separate data structure (see: \autoref{lst:types}).
+decided that a lesson could be modelled as a container that contains a series of
+tasks, which would be modelled as a separate data structure (see: \autoref{lst:types}).
 
 \subsubsection{Anatomy of a Lesson}
 
@@ -195,12 +196,12 @@ of \textit{CLI-Tutor}. Every task contains a title and description as well. The
 title of a task is displayed in the task tracker and the description is the
 actual textual content of a task. This content is either explaining a concept
 to the user, displaying a diagram or prompting the user to input some commands.
-The amount of tasks dictates the length of the lesson. The user can keep track
+The amount of tasks dictate the length of the lesson. The user can keep track
 of their progress inside a lesson by the task tracker, which displays the title
-of lesson, the current task as well as a progression counter. A user is free to
+of the lesson, and the current task as well as a progression counter. A user is free to
 proceed back and forth through the lesson using the in-built commands
 \textit{n/next} or \textit{p/prev} unless the task is marked as interactive. In
-this case the user must perform an interactive task such as running a specific
+this case, the user must perform an interactive task such as running a specific
 command relevant to the task at hand. This mechanism as well as the progress
 tracker are showcased in \autoref{fig:tracker}.
 
@@ -247,22 +248,22 @@ Markdown}\footnote{A popular implementation of \textit{Markdown}. See:
 \url{https://commonmark.org/}} was taken. \textit{Markdown} was a pragmatic
 decision due to its ubiquity in the software development space and abundance of
 parsers. Furthermore, \textit{Markdown} allowed us to specify our formatting
-directly in the lesson document and made for a source code free template for
+directly in the lesson document and made for a source code-free template for
 specifying lessons.
 
 \subsection{Lesson Parsing}
 \label{sec:parser}
 
 Once \textit{Markdown} was decided to be the implementation language for our
-lessons the next step was to populate our lesson related data structures (see:
+lessons the next step was to populate our lesson-related data structures (see:
 \autoref{lst:types}) in order to drive the tutorial program. To achieve this a
 structure for specifying a lesson had to be created. After the specification
 was complete a parser had to be written. The \textit{goldmark} markdown parsing
 library for \textit{Go} was selected. This library allowed us to create a
 custom parser for our lesson files. The parser first parses a selected lesson
 file into an \textit{AST} (Abstract Syntax Tree). Once this tree is created, it
-is traversed using a \textit{Depth First Search} in order to navigate to all
-the different syntax nodes in the tree. In our lesson file specification we
+is traversed using a \textit{Depth First Search} as a means to navigate to all
+the different syntax nodes in the tree. In our lesson file specification, we
 make divisions using heading weights in our \textit{Markdown} files. 
 
 Level 1 headings and their subsequent nested text are used for
@@ -272,16 +273,16 @@ data structures (see: \autoref{lst:types}).} level data, specifically the
 lesson's title and description. 
 
 Each subsequent level 2 heading refers to an individual \textit{Task}. The text
-nested in between the level 2 headings belong the \textit{Task} above the text.
+nested in between the level 2 headings belongs to the \textit{Task} above the text.
 \textit{Markdown} elements such as code blocks and inline code snippets are
 used to stylise text during the lesson. The expected value feature of
 \textit{Task}s of tasks is achieved by using the quotation element (\textit{>})
 of \textit{Markdown}. As the traversal of the \textit{AST} continues
 \textit{Task}s are appended to the \textit{Tasks} array in the \textit{Lesson}
 data structure. This creates the series of tasks in the lesson, which are
-eventually navigated through by iterating through this \textit{Tasks} array. 
+eventually navigated through by iterating this \textit{Tasks} array. 
 
-Level 3 headings are used to define the lesson's vocabulary, or set of
+Level 3 headings are used to define the lesson's vocabulary or set of
 permitted commands. There are additional features such as the nature of how
 interactive task values are to be calculated that can also be specified in the
 lesson file. For a full \textit{Markdown} specification of lesson, see:
@@ -293,10 +294,10 @@ There is actually one step that takes place just before the parsing of a
 lesson. This is where values can be interpolated into the \textit{Markdown}
 files using \textit{Go}'s powerful in-built
 template\footnote{\url{https://pkg.go.dev/text/template}} library. This allows
-for special system specific or environment specific values to be interpolated
+for special system-specific or environment-specific values to be interpolated
 into a lesson at the time of parsing, allowing for even more personalised
 explanations to be baked into the lessons. An example of this is demonstrated
-in \autoref{fig:templateexpansion} where user and system specific information
+in \autoref{fig:templateexpansion} where user and system-specific information
 is presented in the explanation of a shell command prompt. This allows for
 lessons to be less static and further capitalises on the opportunities
 available in interactive programs rather than written documentation.
@@ -314,7 +315,7 @@ Another feature of \textit{CLI-Tutor} is the inclusion of certain files that
 are created on the user's file system for the duration the tutor program is
 running. These files serve as running examples and allow for lessons that use
 real files and data to be crafted. This allows for more creativity and
-opportunities for engaging user's when creating interactive tasks.
+opportunities for engaging the user's when creating interactive tasks.
 
 \begin{figure}[htbp]
 	\centering
@@ -328,11 +329,11 @@ opportunities for engaging user's when creating interactive tasks.
 
 The two previous features in addition to the goal of being able to distribute
 \textit{CLI-Tutor} as a single executable binary necessitated the inclusion of
-both lesson files and files that serve as running examples in to the compiled
+both lesson files and files that serve as running examples into the compiled
 binary. This was achieved using a compiler directive recognised by the \textit{Go}
 compiler named \textit{go:embed}\footnote{\url{https://pkg.go.dev/embed}}. This
 allowed for the creation of a virtual file system for the program to be able to
-read files from as if it were a real file system. Embedding files directly into
+read files as if it were a real file system. Embedding files directly into
 the program also greatly contributes towards the ease of distribution and
 contribution of \textit{CLI-Tutor} as all the parts that make up the tutor live
 in one codebase.
@@ -340,14 +341,14 @@ in one codebase.
 \subsection{User Interface}
 
 The user interface of \textit{CLI-Tutor} is divided into two main views, the
-lesson view and menu view. The default view and what the user is presented with
+lesson view and the menu view. The default view and what the user is presented with
 upon launching \textit{CLI-Tutor} is the menu view. The menu is populated using
 a variation of the parser described in \autoref{sec:parser}. As previously
 mentioned \textit{CLI-Tutor} is a TUI application. To manage the two distinct
 views and provide interactive user interface elements the \textit{Bubbletea}
 library was used. \textit{Bubbletea} is a library for making Textual User
 Interfaces and is inspired by the \textit{Elm} architecture. The \textit{Elm}
-architecture is a pattern that consists of three part structure where messages
+architecture is a pattern that consists of three-part structure where messages
 are sent between parts to alter state, update the user interface and act upon
 messages.
 
@@ -393,15 +394,15 @@ type LessonModel struct {
 }
 \end{lstlisting}
 
-\item \textit{Update:} Is a method that is implemented for a model. The
+\item \textit{Update:} This a method that is implemented for a model. The
     \textit{Update} method consumes the messages sent around between the
     components of a system built on the \textit{Elm} architecture. The update
-    function can then manipulate the state of it's corresponding model to
+    function can then manipulate the state of its corresponding model to
     create reactivity. Messages are events generated through interaction with
     the application and actions such as resizing a window for example. In
     \textit{CLI-Tutor}, messages are used to communicate the size of the
-    terminal, manage key presses, enable selections in the menu and to handle
-    quitting the application. A message based architecture allows for a lot of
+    terminal, manage key presses, enable selections in the menu and handle
+    quitting the application. A message-based architecture allows for a lot of
     flexibility in terms of defining custom messages that can trigger other
     behaviours or make state changes. An example is parsing a lesson after it
     is selected in the menu view and assigning it as the current lesson in the
@@ -410,18 +411,18 @@ type LessonModel struct {
 \item \textit{View:} The \textit{View} is the last part of the \textit{Elm}
     architecture and is responsible for rendering the visual environment based
     on the state of its related \textit{Model}. In \textit{CLI-Tutor}, the view
-    is only used for the menu view of the application. The lesson view of the
-    application, due to the implementation of the \textit{readline} library,
-    consisting of a blocking \textit{for} loop. To get around this we block the
-    \textit{Elm} update loop for the duration of the lesson with the
+    is only used for the menu view of the application. It cannot be used in the
+    lesson view due to the implementation of the \textit{readline} library,
+    which consists of a blocking \textit{for} loop. To get around this we
+    block the \textit{Elm} update loop for the duration of the lesson with the
     \textit{readline} loop. When a lesson is completed or the user elects to
     quit the lesson, the \textit{readline} loop breaks and an exit message is
     sent to the \textit{Update} method \textit{MainModel} signifying the change
     of state from lesson to menu. This update then triggers a state change on
-    the \textit{MainModel} which results in the user being presented the menu
-    view. Because state is kept throughout the run time of the application the
-    menu will still have the lesson the user selected highlighted, enhancing
-    the user experience.
+    the \textit{MainModel} which results in the user being presented with the
+    menu view. Because the state is kept throughout the run time of the
+    application the menu will still have the lesson the user selected
+    highlighted, enhancing the user experience.
 
 \end{itemize}
 
@@ -437,12 +438,12 @@ text to the terminal is both styled and formatted by \textit{glamour} resulting
 in a near direct translation between the lesson file and what is displayed to
 the user in the terminal. Using a \textit{Markdown} renderer also gave us the
 flexibility of specifying custom styling on all the different \textit{Markdown}
-style elements and to fine tune the look and feel of lessons by tweaking the
+style elements and to fine-tune the look and feel of lessons by tweaking the
 style sheet being used by the renderer.
 
 \subsection{Validation}
 
-In order to build interactivity into our lessons, we needed to have a way of
+In the interest of building interactivity into our lessons, we needed to have a way of
 validating the inputs and actions of our users. Our input validation mechanism
 is incorporated into the \textit{readline} loop of the lesson view in
 \textit{CLI-Tutor}. Every time the user issues a command by hitting enter, the
@@ -467,8 +468,8 @@ to examine the individual tokens that make up the whole command. The next steps 
 
     \item After passing initial validation, further checks are performed to
         prevent the user from running into permissions issues or working in a
-        sensitive root or system directory. The command is also checked for
-        certain special conditions that need to accounted for. Special
+        sensitive root or system directory. The command also checks for
+        certain special conditions that need to be accounted for. Special
         conditions such as:
 
         \begin{itemize}
@@ -477,7 +478,7 @@ to examine the individual tokens that make up the whole command. The next steps 
             \item Whether the command has arguments or flags specified.
             \item Whether the command launches an external command like a
                 pager, which would require a redirection of the spawned
-                sub-process' standard input and output streams to those of
+                sub-process's standard input and output streams to those of
                 \textit{CLI-Tutor}.  
         \end{itemize}
 
@@ -486,7 +487,7 @@ to examine the individual tokens that make up the whole command. The next steps 
         system call is issued.
 
     \item At this stage the issued command is stored in a variable that tracks
-        the last issued command. This is necessary in order to support the
+        the last issued command. This is necessary to support the
         repeat previous command or \textit{!!} shell operation.
 
     \item The next step is to return the combined output of the issued
@@ -517,32 +518,32 @@ This feature is on by default during the user study phase of this work but can
 be opted out of with a flag that can be supplied when launching
 \textit{CLI-Tutor}. The purpose of this feature is entirely in support of the
 user study conducted in this thesis work and the feature will likely be removed
-from the tool upon conclusion of this work.
+from the tool upon the conclusion of this work.
 
 \section{Web Application}
 
 As previously mentioned, the core of \textit{CLI-Tutor} is the command line
 application described in the previous section. The accompanying web application
-was created in order to simplify distribution of the tool and organising the
-user study. While not originally a design requirement, the idea of sandboxing
-our application proved very attractive, especially given the nature of our
-subject matter. While this kind of sandboxing would be easy to achieve with
-tools such as \textit{docker} or virtual machines. It is too much to expect a
-novice user to setup and diminishes the potential user base of
+was created with the goal of simplifying the distribution of the tool and
+organising the user study. While not originally a design requirement, the idea
+of sandboxing our application proved very attractive, especially given the
+nature of our subject matter. While this kind of sandboxing would be easy to
+achieve with tools such as \textit{docker} or virtual machines. It is too much
+to expect a novice user to set up and diminishes the potential user base of
 \textit{CLI-Tutor}. Creating a web application also relaxes the cross-platform
 compatibility concerns of building an application that interacts directly with
 the operating system, like a shell.
 
 
 \subsection{Frontend} The frontend is a simple JavaScript web application
-written in Svelte. Svelte was proved to be a good choice due to its simplicity,
-small bundle size and developer ergonomics. Typescript was the main language of
+written in Svelte. Svelte proved to be a good choice due to its simplicity,
+small bundle size and developer ergonomics. TypeScript was the main language of
 development when it came to the frontend. The main role of the frontend
 application is to provide some instructions and to present the user with a
-special frontend terminal component. This terminal component, is from the
+special frontend terminal component. This terminal component is from the
 popular library \textit{Xterm.js}. This terminal emulation solution was chosen
-due to it's proven robustness as the default terminal in the \textit{VSCode}
-text editor and due to a first party add-on that makes it possible to attach
+due to its proven robustness as the default terminal in the \textit{VSCode}
+text editor and due to a first-party add-on that makes it possible to attach
 the terminal component over the WebSocket\footnote{A full-duplex communication
 protocol native to modern web browsers.} protocol to the interactive
 \textit{docker} container(see: \autoref{fig:webversion}). The process of
@@ -577,13 +578,13 @@ manages all incoming \textit{HTTP(S)}\footnote{Hypertext Transfer Protocol
 (Secure)} connections to the server. 
 
  
-\subsection{CLI Only} As mentioned earlier, a CLI only version (see:
+\subsection{CLI Only} As mentioned earlier, a CLI-only version (see:
 \autoref{fig:cliversion}) was also created using essentially the same
 architecture as the version that includes \textit{CLI-Tutor}. Slight visual
 differences were made to differentiate the two however they are based on
 fundamentally the same \textit{docker} image, with the only difference being
 that the "CLI Only" version does not contain the \textit{CLI-Tutor} tool and
-drops the user directly into a Linux shell. The CLI only version also contains
+drops the user directly into a Linux shell. The CLI-only version also contains
 an additional button for navigating to the documentation website.
 
 \subsection{Documentation Website} Created using MkDocs,\cite{mkdocs} a widely
@@ -596,13 +597,13 @@ creating web pages out of the files straightforward.
 
 \subsection{Monitoring}
 
-A monitoring stack using \textit{Grafana} was also setup on the web servers.
-This was done in order to monitor performance, availability and to facilitate
+A monitoring stack using \textit{Grafana} was also set up on the web servers.
+This was done to monitor performance, availability and to facilitate
 the debugging of any potential issues. Log agglomeration was also performed
 with \textit{Loki}\footnote{Log agglomeration tool in the \textit{Grafana}
 monitoring stack} and \textit{Promtail}\footnote{The server side agent used by 
     \textit{Loki} to scrape system logs.}, the latter of which was run in a
-    seperate docker  container. This information was forwarded to the
+    separate docker container. This information was forwarded to the
     \textit{Grafana Cloud} web interface.
 
 \section{Extending CLI-Tutor}
@@ -662,7 +663,7 @@ a system call by prepending a `!` and then the expected command.
 
 > !ls -la
 
-### Lesson Vocabulary (Provided as a comma separated list of values under a
+### Lesson Vocabulary (Provided as a comma-separated list of values under a
 level 3 heading )
 
 vim, ls, cp, cat, echo <--- only these commands will be permitted in this lesson.
