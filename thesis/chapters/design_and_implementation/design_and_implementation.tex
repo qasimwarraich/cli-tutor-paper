@@ -548,32 +548,77 @@ protocol native to modern web browsers.} protocol to the interactive
 \textit{docker} container(see: \autoref{fig:webversion}). The process of
 provisioning, connecting and cleaning up to \textit{docker} containers is
 facilitated through the use of API\footnote{Application Programming Interface}
-calls to a backend running on the same server.
+calls to a backend running on the same server. 
 
 \subsection{Backend} The backend is a REST\footnote{Representational state
 transfer: An architectural style for creating interfaces to allow Client-Server
 communication.} API, written in \textit{Go} using the \textit{Fiber} library.
-The API allows the frontend to communicate with the \textit{docker daemon}
-running on the server, to create, resize and stop containers on the backend.
+The API allows the frontend to communicate with the \textit{docker daemon} also
+running on the same server. Container creation, deletion and resizing of the
+containers \textit{PTY}\footnote{This is necessary to sync the size of the pty
+created in the frontend terminal with the interactive \textit{docker}
+container's terminal running on the server.} are handled by this backend API
+using the \textit{docker} SDK for \textit{Go}; which interacts directly with
+the \textit{docker deamon} running on the server. The attaching over
+\textit{WebSockets} of the frontend to the spawned docker container is achieved
+through an API call directly to the \textit{docker deamon} using the
+container's id which is received in a response message from the container
+creation API endpoint.
 
-\subsection{Docker Daemon}
+\subsection{\textit{Docker Daemon}} To facilitate the sandboxing via
+\textit{docker}, the \textit{docker daemon} is exposed over
+\textit{TCP}\footnote{Transmission Control Protocol} with
+\textit{TLS}\footnote{Transport Layer Security}. This allows for a direct
+connection over \textit{WebSockets} to be negotiated between the frontend user
+interface and the \textit{docker} container running \textit{CLI-Tutor}. For
+safety and consistency with how the backend API is accessed, the \textit{docker
+daemon} is accessed via reverse proxy using the \textit{Nginx} web server which
+manages all incoming \textit{HTTP(S)}\footnote{Hypertext Transfer Protocol
+(Secure)} connections to the server. 
+
  
-\subsection{CLI Only} As mentioned earlier, a CLI only version (see: \autoref{fig:cliversion})was also created
-using essentially the same architecture as the version that includes
-\textit{CLI-Tutor}. Slight visual differences were made to differentiate the
-two however they are based on fundamentally the same \textit{docker} image, with
-the only difference being that the "CLI Only" version does not contain the
-\textit{CLI-Tutor} tool and drops the user directly into a Linux shell.
+\subsection{CLI Only} As mentioned earlier, a CLI only version (see:
+\autoref{fig:cliversion}) was also created using essentially the same
+architecture as the version that includes \textit{CLI-Tutor}. Slight visual
+differences were made to differentiate the two however they are based on
+fundamentally the same \textit{docker} image, with the only difference being
+that the "CLI Only" version does not contain the \textit{CLI-Tutor} tool and
+drops the user directly into a Linux shell. The CLI only version also contains
+an additional button for navigating to the documentation website.
 
 \subsection{Documentation Website} Created using MkDocs,\cite{mkdocs} a widely
 used tool for documentation in the software development world. The
-documentation website (see: \autoref{fig:docsweb}) was also built to support the
-User Study. It uses the same lessons as in the \textit{CLI-Tutor}
-application, albeit with some prompts for user interface actions removed.
+documentation website (see: \autoref{fig:docsweb}) was built to support the
+User Study. It uses the same lessons as in the \textit{CLI-Tutor} application,
+albeit with some prompts for user interface actions removed. The fact that the
+lessons in \textit{CLI-Tutor} are implemented in \textit{Markdown} made
+creating web pages out of the files straightforward.
 
+\subsection{Monitoring}
 
+A monitoring stack using \textit{Grafana} was also setup on the web servers.
+This was done in order to monitor performance, availability and to facilitate
+the debugging of any potential issues. Log agglomeration was also performed
+with \textit{Loki}\footnote{Log agglomeration tool in the Grafana monitoring
+stack} and Promtail\footnote{The server side agent used by \textit{Loki} to
+scrape system logs.}, the latter of which was run in a seperate docker  
+container. This information was forwarded to the \textit{Grafana Cloud} web
+interface.
 
 \section{Extending CLI-Tutor}
+%TODO: Check if the "following page" thing holds true in the final version of
+%the paper
+
+The extensibility of \textit{CLI-Tutor} has been a priority since the inception
+of the tool. This is a key factor for the longevity and usefulness of the tool
+beyond this thesis work. \textit{CLI-Tutor} is open source and hosted in public
+repositories under a \textit{MIT}\cite{mitlicense} license. Contributing
+lessons to \textit{CLI-Tutor} is uncomplicated thanks to the lesson's use of
+\textit{Markdown}. On the following page, we provide a complete
+specification and readable example of all the features available during lesson
+creation and supported by \textit{CLI-Tutor}'s lesson parse, at the time of
+writing (see: \autoref{lst:markdown}).
+
 
 \begin{lstlisting}[float=htbp, frame=single, language={}, label=lst:markdown, caption=Specification for Markdown lesson files.]
 # Lesson Title
