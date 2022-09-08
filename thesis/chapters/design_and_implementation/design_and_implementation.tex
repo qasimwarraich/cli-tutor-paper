@@ -16,7 +16,7 @@
 %   - architecture of web-tool
 %       - how sandboxing is achieved
 
-%docker deamon exposed over https for the sake of websockets. something the sdk cannot handle.
+%docker daemon exposed over https for the sake of websockets. something the sdk cannot handle.
 
 \section{Tools and Libraries}
 \label{sec:tools}
@@ -84,10 +84,10 @@
 
     \item \textit{Fiber} is the HTTP framework used to create the backend for
         our web application. It is primarily used as a proxy between the
-        frontend and the \textit{docker deamon} running on our backend server.
+        frontend and the \textit{docker daemon} running on our backend server.
 
     \item \textit{Docker SDK} is a first party \textit{Go} Software Development Kit
-        (SDK) for interacting with the \textit{docker deamon}. It was chosen for
+        (SDK) for interacting with the \textit{docker daemon}. It was chosen for
         interoperability with the backend HTTP framework which also uses \textit{Go}.
 
     \item \textit{MkDocs} is an industry standard static site generator for
@@ -559,9 +559,9 @@ containers \textit{PTY}\footnote{This is necessary to sync the size of the pty
 created in the frontend terminal with the interactive \textit{docker}
 container's terminal running on the server.} are handled by this backend API
 using the \textit{docker} SDK for \textit{Go}; which interacts directly with
-the \textit{docker deamon} running on the server. The attaching over
+the \textit{docker daemon} running on the server. The attaching over
 \textit{WebSockets} of the frontend to the spawned docker container is achieved
-through an API call directly to the \textit{docker deamon} using the
+through an API call directly to the \textit{docker daemon} using the
 container's id which is received in a response message from the container
 creation API endpoint.
 
