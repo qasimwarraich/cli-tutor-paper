@@ -4,29 +4,107 @@
 %       - assignment
 %       - survey structure
 %    - participants
-%    - findings
 % DATAPOINTS: Interest in interactive learnign or percentage of people who find
 % it more effective than reading
 \label{chap:userstudy}
-\section{Section}
-In addition to these two views, there
-is also a prompt to enter an identifier when the program is first launched.
-This was only added to the program to help identify log files for the user
-study conducted as a part of this thesis work.
 
-%
-\subsubsection{Subsubsection}
+In order to test and validate the effectiveness of our solution, a user study
+was conducted. The goal of this user study was two part. Firstly, we were
+interested in assessing the usability and response to \textit{CLI-Tutor}.
+Secondly, we wanted to ascertain if interactive learning would be a more
+effective medium to teach command line interaction than the traditional means
+such as online documentation or books. In this chapter, we will describe our
+user study in detail.
+
+
+\section{Methodology}
+
+The user study for this thesis work was conducted remotely and asynchronously.
+We designed an online survey using the \textit{LimeSurvey}\cite{schmitzlime}
+tool made available to us by the University of Zurich.
+
+The user study focused on the comparison between interactive learning
+approaches such as that of \textit{CLI-Tutor} and traditional ones, which are
+mostly reading based. In the modern software development space, online
+documentation is the status quo and the medium we choose to compare our
+solution against. As discussed in \autoref{chap:design}, \textit{CLI-Tutor}
+uses \textit{Markdown} to specify lessons. Many static documentation generation
+websites use Markdown files to generate documentation from. This is also true
+for our chosen generator. This enables us to make objectively compare the
+interaction medium rather than the lesson content, since the exact same lessons
+can be used in both tools. Furthermore, due to the popularity of
+\textit{MkDocs} it is a very realistic representation of documentation that
+individuals may encounter in the wild.
+
+
+\subsection{Interactive versus Non-interactive}
+
+
+
+
+\subsection{Structure}
+
+
+Our online survey was divided into the following sections:
+
+\begin{itemize}
+
+    \item User Familiarity: In this section users answered questions relating
+        to their experience, interest and preferences to provide us with some
+        information regarding each individual participant.
+
+    \item Assignment: All participants where divided into one of two groups,
+        interactive and non-interactive. The assignment value is unknown to the
+        participant at the time of starting the survey. Our survey tool then
+        conditionally rendered a URL for the participants to follow to the next
+        section of the survey.
+
+    \item Tutorial: At this stage, once the participants have been assigned to
+        one of the two groups, they will either be sent to our web application
+        running \textit{CLI-Tutor} or to our documentation website. If assigned
+        to the non-interactive group
+
+    \item Evaluation: The evaluation stage is where participants were asked a
+        series of basic questions relating to the lessons they took in the
+        previous stage.
+
+    \item Feedback
+
+    \item Feedback Opposite (optional)
+\end{itemize}
+
+\subsection{Assignment}
+
+Assignment was achieved through the use of psuedorandom number generation, a
+feature of \textit{LimeSurvey}.
+
+\section{Participants}
+
+In total, {XX} participatns took part in our user study. Recruitment was
+primarily done through University channels though some participants were also
+sourced through work email and word of mouth.
+
+
+
+
+\section{Section} In addition to these two views, there is also a prompt to
+enter an identifier when the program is first launched. This was only added to
+the program to help identify log files for the user study conducted as a part
+of this thesis work.
 
 \paragraph{Paragraph.} Always with a point.
 
+
 \begin{figure}[H]
+	\centering
 	\scalebox{0.75}{\input{plots/programming_exp/plot.pgf}}
 	\caption{The distribution of programming experience amongst study participants.}
 	\label{fig:programmingexp}
 \end{figure}
 
 \begin{figure}[H]
-	\scalebox{1}{\input{plots/uni_exp/plot.pgf}}
+	\centering
+	\scalebox{0.8}{\input{plots/uni_exp/plot.pgf}}
 	\caption{University level Computer Science experience amongst study participants.}
 	\label{fig:uniexp}
 \end{figure}
@@ -37,7 +115,7 @@ study conducted as a part of this thesis work.
 		\centering
 		\scalebox{0.7}{\input{plots/uni_exp/plot.pgf}}
 		\caption{first figure}
-    \end{minipage}\hspace{-1em}
+	\end{minipage}\hspace{-1em}
 	\begin{minipage}{0.45\textwidth}
 		\centering
 		\scalebox{0.7}{\input{plots/uni_exp/plot.pgf}}
@@ -60,7 +138,7 @@ study conducted as a part of this thesis work.
 \end{figure}
 
 \begin{figure}[H]
-    \centering
+	\centering
 	\scalebox{0.72}{\input{plots/previnteractive/plot.pgf}}
 	\caption{previnteractive}
 	\label{fig:previnteractive}
@@ -73,9 +151,9 @@ study conducted as a part of this thesis work.
 \end{figure}
 
 \begin{figure}[H]
-    \centering
+	\centering
 	\scalebox{0.67}{\input{plots/confidence/plot.pgf}}
-    \vspace{-4em}
+	\vspace{-4em}
 	\caption{confidence}
 	\label{fig:question}
 \end{figure}
