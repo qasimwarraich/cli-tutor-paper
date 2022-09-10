@@ -10,8 +10,20 @@
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
+\usepackage{caption}
 \usepackage{listings}
-\usepackage{listings-golang}
+\usepackage[newfloat, chapter]{minted}
+\usemintedstyle{perldoc}
+\definecolor{codebackground}{RGB}{240, 240, 235}
+\setminted{
+    frame=single,
+    linenos,
+    breaklines=true,
+    fontsize=\small,
+    bgcolor=codebackground,
+    numbersep=1pt
+}
+\renewcommand{\theFancyVerbLine}{\sffamily \textcolor[rgb]{0,0,0}{\footnotesize \oldstylenums{\arabic{FancyVerbLine}}}}
 \usepackage{xspace}
 \usepackage{enumitem}
 
@@ -19,8 +31,6 @@
 \usepackage{layouts}
 \usepackage{float}
 \usepackage{array}
-\usepackage{svg}
-\svgpath{{img/}}
 
 \usepackage[hidelinks]{hyperref}
 \addto\extrasenglish{%
@@ -69,8 +79,7 @@
 \renewcommand\labelitemi{\tiny\raisebox{1.5pt}{$\m@th\bullet$}}
 
 %% configuration and helpers for listings
-% \lstset{language=Java}
-\lstset{language=Golang}
+\lstset{language=Java}
 \lstset{columns=fullflexible}
 \lstset{breaklines=true}
 \lstset{numbers=left}
@@ -113,5 +122,6 @@
 \newcommand{\code}[1]{\texttt{\small #1}}
 \newcommand{\codecap}[1]{\texttt{\footnotesize #1}}
 
+\newenvironment{longlisting}{\captionsetup{type=figure}}{}
 
 \endinput

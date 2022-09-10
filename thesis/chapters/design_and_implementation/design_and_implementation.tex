@@ -205,21 +205,25 @@ this case, the user must perform an interactive task such as running a specific
 command relevant to the task at hand. This mechanism as well as the progress
 tracker are showcased in \autoref{fig:tracker}.
 
-\vspace{1em}
-\begin{lstlisting}[label=lst:types, frame=single, caption=Data structures for a Lesson and a Task within a Lesson.]
+% \vspace{1em}
+\begin{listing}
+    \begin{minted}{go}
 type Lesson struct {
-	Name        string
-	Vocabulary  []string
-	Description string
-	Tasks       []Task
+    Name        string
+    Vocabulary  []string
+    Description string
+    Tasks       []Task
 }
 
 type Task struct {
-	Title       string
-	Description string
-	Expected    string
+    Title       string
+    Description string
+    Expected    string
 }
-\end{lstlisting}
+    \end{minted}
+    \caption{Data structures for a Lesson and a Task within a Lesson.}
+    \label{lst:types}
+\end{listing}
 
 \begin{figure}[htbp]
 	\centering
@@ -365,7 +369,8 @@ The \textit{Elm} architectures three main parts are:
         user and to process all the different messages that can be sent back
         from the lesson and menu models. The selection of views is done by the \textit{state} member of the \textit{MainModel}.  The definitions of the three models in \textit{CLI-Tutor} can be found in \autoref{lst:model}.
 
-\begin{lstlisting}[label=lst:model, frame=single, caption=Models used to build the user interface of \textit{CLI-Tutor} ]
+\begin{listing}
+\begin{minted}{go}
 const (
 	menuView sessionState = iota
 	lessonView
@@ -392,7 +397,10 @@ type LessonModel struct {
 	r             *glamour.TermRenderer
 	quitting      bool
 }
-\end{lstlisting}
+\end{minted}
+    \caption{Models used to build the user interface of \textit{CLI-Tutor}.}
+    \label{lst:model}
+\end{listing}
 
 \item \textit{Update:} This a method that is implemented for a model. The
     \textit{Update} method consumes the messages sent around between the
@@ -614,14 +622,17 @@ The extensibility of \textit{CLI-Tutor} has been a priority since the inception
 of the tool. This is a key factor for the longevity and usefulness of the tool
 beyond this thesis work. \textit{CLI-Tutor} is open source and hosted in public
 repositories under a \textit{MIT}\cite{mitlicense} license. Contributing
-lessons to \textit{CLI-Tutor} is uncomplicated thanks to the lesson's use of
-\textit{Markdown}. On the following page, we provide a complete
-specification and readable example of all the features available during lesson
-creation and supported by \textit{CLI-Tutor}'s lesson parse, at the time of
-writing (see: \autoref{lst:markdown}).
+lessons to \textit{CLI-Tutor} is uncomplicated owing to the use of
+\textit{Markdown} files to specify lessons. On the following page, we provide a
+complete specification and readable example of all the features available
+during lesson creation and supported by \textit{CLI-Tutor}'s lesson parse, at
+the time of writing (see: \autoref{lst:markdown}).
 
 
-\begin{lstlisting}[float=htbp, frame=single, language={}, label=lst:markdown, caption=Specification for Markdown lesson files.]
+\begin{listing}
+    \caption{Specification for Markdown lesson files.}
+    \label{lst:markdown}
+\begin{minted}{markdown}
 # Lesson Title
 
 A line under a level 1 heading is the lesson description. This is also
@@ -631,8 +642,8 @@ displayed in the menu.
 
 Task instructions are parsed as normal lines under a level 2 heading.
 
-Even line breaks and nested elements will reflect in the lesson. This greatly
-enhances readability.
+Even line breaks and nested elements will reflect in the lesson. This
+greatly enhances readability.
 
 `Commands` are highlighted with backticks.
 
@@ -641,25 +652,26 @@ functions like this --> {{SomeFunc}}
 
 ## Second Task Title
 
-This is the first line following a second level 2 heading and thus the text of
-task #2.
+This is the first line following a second level 2 heading and thus the text
+of task #2.
 
 ```
-Code blocks can also be used to represent larger blocks of instructions or for
-ASCII diagrams.
+Code blocks can also be used to represent larger blocks of instructions or
+for ASCII diagrams.
 ```
 ## Interactive tasks with expected values
 
-If the current task is expecting a certain output to a command the user types,
-we can specify that using the `>` syntax.
+If the current task is expecting a certain output to a command the user 
+types, we can specify that using the `>` syntax.
 
 > {{TestFunc}}
 
 ## Runtime expected value calculation
 
-Sometimes the correct value for a given task can only be computed at run time,
-to achieve this we can specify the expected value of a task to be the output of
-a system call by prepending a `!` and then the expected command.
+Sometimes the correct value for a given task can only be computed at run 
+time, to achieve this we can specify the expected value of a task to 
+be the output of a system call by prepending a `!` and then the expected
+command.
 
 > !ls -la
 
@@ -667,6 +679,5 @@ a system call by prepending a `!` and then the expected command.
 level 3 heading )
 
 vim, ls, cp, cat, echo <--- only these commands will be permitted in this lesson.
-
-\end{lstlisting}
-
+\end{minted}
+\end{listing}

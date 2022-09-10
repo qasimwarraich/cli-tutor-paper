@@ -13,3 +13,7 @@ thesis/thesis.blg
 thesis/thesis.fdb_latexmk
 thesis/thesis.fls
 thesis/thesis.out
+
+thesis/_minted-thesis
+thesis/seal.fdb_latexmk
+thesis/seal.fls

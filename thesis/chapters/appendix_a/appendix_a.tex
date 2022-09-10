@@ -278,7 +278,10 @@ Users were also encouraged to optionally try the alternative tool to which they 
 
 \section{Parser}
 
-\begin{lstlisting}[label=lst:parser, caption=Custom Markdown Parser]
+Here is the custom parser:
+
+\begin{longlisting}
+\begin{minted}[frame=none, breakanywhere, obeytabs=true,tabsize=4, fontsize=\footnotesize]{go}
 package main
 
 func ParseLesson(content []byte) Lesson {
@@ -343,5 +346,7 @@ func ParseLesson(content []byte) Lesson {
 	})
 	return *Lesson
 }
-
-\end{lstlisting}
+\end{minted}
+\caption{Custom Markdown Parser}
+\label{lst:parser}
+\end{longlisting}
