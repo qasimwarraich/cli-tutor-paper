@@ -117,7 +117,7 @@
 attempting to model the problem and develop the requirements for a technical
 solution several prototypes were created. The early prototypes were written
 in \textit{Python} \cite{python}. It was clear from an early stage that
-\textit{readline} would be a mandatory element of the approach we would take. Early
+\textit{readline} would be a mandatory element of any approach we would take. Early
 attempts broadly focused on two different approaches:
 
 \begin{itemize} \item An \textit{Expect}\cite{libes1995exploring} like
@@ -304,7 +304,7 @@ explanations to be baked into the lessons. An example of this is demonstrated
 in \autoref{fig:templateexpansion} where user and system-specific information
 is presented in the explanation of a shell command prompt. This allows for
 lessons to be less static and further capitalises on the opportunities
-available in interactive programs rather than written documentation.
+available in interactive programs compared to written documentation.
 
 \begin{figure}[htbp]
 	\centering
@@ -630,8 +630,6 @@ the time of writing (see: \autoref{lst:markdown}).
 
 
 \begin{listing}
-    \caption{Specification for Markdown lesson files.}
-    \label{lst:markdown}
 \begin{minted}{markdown}
 # Lesson Title
 
@@ -675,9 +673,10 @@ command.
 
 > !ls -la
 
-### Lesson Vocabulary (Provided as a comma-separated list of values under a
-level 3 heading )
+### Lesson Vocabulary (Provided as a comma-separated list of values under a level 3 heading )
 
 vim, ls, cp, cat, echo <--- only these commands will be permitted in this lesson.
 \end{minted}
+    \caption{Specification for Markdown lesson files.}
+    \label{lst:markdown}
 \end{listing}
