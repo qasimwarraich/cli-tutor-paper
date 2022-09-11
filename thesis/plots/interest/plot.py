@@ -16,9 +16,9 @@ plt.xlabel(
     "Are you interested in integrating the command line more into your day to day computer use?"
 )
 
-total = 17.0
-yes = 12.0
-no = 5.0
+total = 34.0
+yes = 27.0
+no = 7.0
 
 avg_yes = (yes / total) * 100
 avg_no = (no / total) * 100

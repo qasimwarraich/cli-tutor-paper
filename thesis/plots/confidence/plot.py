@@ -15,18 +15,18 @@ fig.suptitle(
     "Do you feel more or less intimidated by the command line after this interactive tutor?"
 )
 
-total = 10.0
-yes = 10.0
-no = 0.0
+total = 19.0
+yes = 1.0
+no = 18.0
 
 avg_yes = (yes / total) * 100
 avg_no = (no / total) * 100
 avgs = [avg_yes, avg_no]
 data = np.array([avg_yes, avg_no])
 
-b_total = 17.0
-b_yes = 10.0
-b_no = 7.0
+b_total = 15.0
+b_yes = 4.0
+b_no = 11.0
 
 b_avg_yes = (b_yes / b_total) * 100
 b_avg_no = (b_no / b_total) * 100
@@ -34,8 +34,8 @@ b_avgs = [b_avg_yes, b_avg_no]
 b_data = np.array([b_avg_yes, b_avg_no])
 
 labels = [
-    "Yes",
-    "No",
+    "More",
+    "Less",
 ]
 
 max = int(data.max())

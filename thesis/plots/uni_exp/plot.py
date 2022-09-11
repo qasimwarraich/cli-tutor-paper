@@ -14,7 +14,7 @@ sns.set(style="ticks")
 
 plt.xlabel("Computer Science University")
 
-data = np.array([29.41, 29.41, 29.41, 0, 11.76, 0])
+data = np.array([29.41, 41.48, 23.53, 0, 5.88, 0])
 labels = [
     "No CS Degree",
     "Bachelors's Degree",

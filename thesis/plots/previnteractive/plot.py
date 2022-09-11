@@ -16,9 +16,9 @@ plt.xlabel(
     "Have you ever previously used an interactive learning resource?"
 )
 
-total = 17.0
-yes = 10.0
-no = 7.0
+total = 34.0
+yes = 25.0
+no = 9.0
 
 avg_yes = (yes / total) * 100
 avg_no = (no / total) * 100

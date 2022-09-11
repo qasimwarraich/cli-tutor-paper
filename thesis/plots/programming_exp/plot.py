@@ -17,12 +17,48 @@ plt.xlabel("Programming Experience in Years")
 plt.ylabel("Number of Participants")
 plt.tight_layout()
 
-data = np.array([1, 5, 8, 1, 1, 6, 1, 20, 4, 5, 23, 2, 3, 0.5, 0, 4, 4])
+data = np.array(
+    [
+        1,
+        5,
+        8,
+        1,
+        10,
+        6,
+        1,
+        20,
+        4,
+        5,
+        23,
+        2,
+        3,
+        0.5,
+        0,
+        4,
+        4,
+        0,
+        6,
+        6,
+        1,
+        1,
+        8,
+        1,
+        4,
+        3,
+        10,
+        0.5,
+        3,
+        0,
+        5,
+        3,
+        5,
+        1,
+    ]
+)
+
 max = int(data.max())
-bins = (
-    np.arange(max + 2) - 0.5
-)  # Aligns ticks to middle with -.5 
-   # to have something atleast 1 greater than the max val we add 2 due to the subtraction.
+bins = np.arange(max + 2) - 0.5  # Aligns ticks to middle with -.5
+# to have something atleast 1 greater than the max val we add 2 due to the subtraction.
 
 sns.boxplot(x=data, ax=ax1, color="c", boxprops=dict(alpha=0.6))
 sns.despine(ax=ax1, left=True)
