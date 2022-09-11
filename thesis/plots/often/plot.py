@@ -4,7 +4,6 @@ mpl.use("pgf")
 
 import matplotlib.pyplot as plt
 import seaborn as sns
-import numpy as np
 
 fig = plt.figure()
 
@@ -36,7 +35,7 @@ for bar in bars:
         weight = "bold",
     )
 
-plt.xlabel("On average, How often do you use commadn line applications or cli tools?")
+plt.xlabel("Number of responses")
 
 plt.tight_layout()
 fig.savefig("plot.png", dpi=100)

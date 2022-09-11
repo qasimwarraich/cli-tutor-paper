@@ -27,7 +27,7 @@
 \begingroup%
 \makeatletter%
 \begin{pgfpicture}%
-\pgfpathrectangle{\pgfpointorigin}{\pgfqpoint{6.979023in}{4.840000in}}%
+\pgfpathrectangle{\pgfpointorigin}{\pgfqpoint{5.746660in}{4.840000in}}%
 \pgfusepath{use as bounding box, clip}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -38,8 +38,8 @@
 \pgfsetstrokeopacity{0.000000}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{0.000000in}{-0.000000in}}%
-\pgfpathlineto{\pgfqpoint{6.979023in}{-0.000000in}}%
-\pgfpathlineto{\pgfqpoint{6.979023in}{4.840000in}}%
+\pgfpathlineto{\pgfqpoint{5.746660in}{-0.000000in}}%
+\pgfpathlineto{\pgfqpoint{5.746660in}{4.840000in}}%
 \pgfpathlineto{\pgfqpoint{0.000000in}{4.840000in}}%
 \pgfpathlineto{\pgfqpoint{0.000000in}{-0.000000in}}%
 \pgfpathclose%
@@ -240,7 +240,7 @@
 \definecolor{textcolor}{rgb}{0.150000,0.150000,0.150000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=3.780960in,y=0.261295in,,top]{\color{textcolor}\sffamily\fontsize{12.000000}{14.400000}\selectfont On average, How often do you use commadn line applications or cli tools?}%
+\pgftext[x=3.780960in,y=0.261295in,,top]{\color{textcolor}\sffamily\fontsize{12.000000}{14.400000}\selectfont Number of responses}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%

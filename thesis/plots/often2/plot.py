@@ -4,7 +4,6 @@ mpl.use("pgf")
 
 import matplotlib.pyplot as plt
 import seaborn as sns
-import numpy as np
 
 fig = plt.figure()
 
@@ -37,7 +36,7 @@ for bar in bars:
     )
 
 
-plt.xlabel("On average, How often do you perform regular computing tasks such as file management from the command line")
+plt.xlabel("Number of responses")
 
 plt.tight_layout()
 fig.savefig("plot.png", dpi=100)
