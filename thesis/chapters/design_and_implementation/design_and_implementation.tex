@@ -296,15 +296,16 @@ lesson file. For a full \textit{Markdown} specification of lesson, see:
 
 There is actually one step that takes place just before the parsing of a
 lesson. This is where values can be interpolated into the \textit{Markdown}
-files using \textit{Go}'s powerful in-built
-template\footnote{\url{https://pkg.go.dev/text/template}} library. This allows
-for special system-specific or environment-specific values to be interpolated
-into a lesson at the time of parsing, allowing for even more personalised
-explanations to be baked into the lessons. An example of this is demonstrated
-in \autoref{fig:templateexpansion} where user and system-specific information
-is presented in the explanation of a shell command prompt. This allows for
-lessons to be less static and further capitalises on the opportunities
-available in interactive programs compared to written documentation.
+files using \textit{Go}'s powerful in-built template\footnote{\textit{Go}
+    standard library documentation: \url{https://pkg.go.dev/text/template}}
+    library. This allows for special system-specific or environment-specific
+    values to be interpolated into a lesson at the time of parsing, allowing
+    for even more personalised explanations to be baked into the lessons. An
+    example of this is demonstrated in \autoref{fig:templateexpansion} where
+    user and system-specific information is presented in the explanation of a
+    shell command prompt. This allows for lessons to be less static and further
+    capitalises on the opportunities available in interactive programs compared
+    to written documentation.
 
 \begin{figure}[htbp]
 	\centering
