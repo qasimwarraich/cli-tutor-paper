@@ -14,7 +14,7 @@ sns.set(style="ticks")
 
 plt.xlabel("Computer Science University")
 
-data = np.array([29.41, 41.48, 23.53, 0, 5.88, 0])
+data = np.array([29.32, 41.36, 23.46, 0.0, 5.86, 0.0])
 labels = [
     "No CS Degree",
     "Bachelors's Degree",
@@ -27,8 +27,8 @@ labels = [
 max = int(data.max())
 colors = sns.color_palette("Set3")[0:7]
 
-plt.pie(data, colors=colors, autopct="%.1f%%")
-legend_labels = ["%s, %1.1f %%" % (l, s) for l, s in zip(labels, data)]
+plt.pie(data, colors=colors, autopct="%.2f%%")
+legend_labels = ["%s, %1.2f %%" % (l, s) for l, s in zip(labels, data)]
 plt.legend(
     legend_labels,
     bbox_to_anchor=(0.88, -0.04),
