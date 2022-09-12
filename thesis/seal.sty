@@ -33,6 +33,10 @@
 \usepackage{array}
 \usepackage{placeins}
 
+%for quotes
+% \usepackage[xcolor,leftbars]{changebar}
+\usepackage{framed}
+
 \usepackage[hidelinks]{hyperref}
 \addto\extrasenglish{%
   \def\chapterautorefname{Chapter}%
@@ -62,6 +66,29 @@
 	\fi
 	\vskip\belowcaptionskip%
 }
+%% Quotations
+% \newenvironment{quotes}%
+% {\begin{quotation}%
+%         \itshape
+%   \begin{changebar}\cbcolor{gray}\color{black}}%
+%   {\end{changebar}%
+% \end{quotation}}
+
+\renewenvironment{leftbar}[1][\hsize]
+{%
+    \def\FrameCommand
+    {%
+        {\color{gray}\vrule width 3pt}%
+        \hspace{0pt}%must no space.
+    }%
+    \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+}
+{\endMakeFramed}
+\newenvironment{quotes}%
+{\begin{leftbar}[0.9\linewidth]\begin{quote}
+    \itshape
+    }%
+{\end{quote}\end{leftbar}}
 
 %% General figure command
 % use: \fig[width]{file}{caption}{label}
