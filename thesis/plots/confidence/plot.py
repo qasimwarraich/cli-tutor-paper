@@ -12,7 +12,7 @@ fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(5.90666,3))
 sns.set(style="ticks")
 
 fig.suptitle(
-    "Do you feel more or less intimidated by the command line after this interactive tutor?"
+    "Do you feel more or less intimidated by the command line after this\n (interactive/non-interactive) tutor?"
 )
 
 total = 19.0
