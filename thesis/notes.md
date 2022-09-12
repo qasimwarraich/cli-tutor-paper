@@ -18,6 +18,7 @@
 - consequently, 
 - chat apps and search engines use cli like interaction things like slashes and
 - progress tracking or state woudld be nice, perhaps sqlite 
+- mobile version would be nice
 
 ## Feedback
 

@@ -238,7 +238,7 @@ type Task struct {
 
 The first versions of a \textit{CLI-Tutor} lesson were written directly in
 \textit{Go} source code. Not only was this tedious but also extremely specific
-to this implementation, rendering extensibility and open-source contributions
+to this implementation; rendering extensibility and open-source contributions
 difficult. It was decided that some sort of data exchange or markup language
 would be more appropriate for specifying lessons. Early considerations included
 \textit{JSON}\footnote{JavaScript Object Notation. See:
@@ -252,7 +252,7 @@ Markdown}\footnote{A popular implementation of \textit{Markdown}. See:
 \url{https://commonmark.org/}} was taken. \textit{Markdown} was a pragmatic
 decision due to its ubiquity in the software development space and abundance of
 parsers. Furthermore, \textit{Markdown} allowed us to specify our formatting
-directly in the lesson document and made for a source code-free template for
+directly in the lesson document and made for a source code free template for
 specifying lessons.
 
 \subsection{Lesson Parsing}
@@ -262,7 +262,7 @@ Once \textit{Markdown} was decided to be the implementation language for our
 lessons the next step was to populate our lesson-related data structures (see:
 \autoref{lst:types}) in order to drive the tutorial program. To achieve this a
 structure for specifying a lesson had to be created. After the specification
-was complete a parser had to be written. The \textit{goldmark} markdown parsing
+was complete, a parser had to be written. The \textit{goldmark} markdown parsing
 library for \textit{Go} was selected. This library allowed us to create a
 custom parser for our lesson files. The parser first parses a selected lesson
 file into an \textit{AST} (Abstract Syntax Tree). Once this tree is created, it
@@ -280,17 +280,18 @@ Each subsequent level 2 heading refers to an individual \textit{Task}. The text
 nested in between the level 2 headings belongs to the \textit{Task} above the text.
 \textit{Markdown} elements such as code blocks and inline code snippets are
 used to stylise text during the lesson. The expected value feature of
-\textit{Task}s of tasks is achieved by using the quotation element (\textit{>})
+\textit{Task}s is implemented using the quotation element (\textit{>})
 of \textit{Markdown}. As the traversal of the \textit{AST} continues
 \textit{Task}s are appended to the \textit{Tasks} array in the \textit{Lesson}
 data structure. This creates the series of tasks in the lesson, which are
 eventually navigated through by iterating this \textit{Tasks} array. 
 
-Level 3 headings are used to define the lesson's vocabulary or set of
-permitted commands. There are additional features such as the nature of how
-interactive task values are to be calculated that can also be specified in the
-lesson file. For a full \textit{Markdown} specification of lesson, see:
-\autoref{lst:markdown} and for the implementation of the custom parser see: \autoref{lst:parser}. 
+Level 3 headings are used to define the lesson's vocabulary or set of permitted
+commands. There are additional features such as the nature of how interactive
+task values are to be calculated that can also be specified in the lesson file.
+For a full \textit{Markdown} specification of a \textit{CLI-Tutor} lesson, see:
+\autoref{lst:markdown} and for the implementation of the custom parser see:
+\autoref{lst:parser}. 
 
 \subsubsection{Template Expansion}
 
@@ -340,7 +341,7 @@ compiler named \textit{go:embed}\footnote{\url{https://pkg.go.dev/embed}}. This
 allowed for the creation of a virtual file system for the program to be able to
 read files as if it were a real file system. Embedding files directly into
 the program also greatly contributes towards the ease of distribution and
-contribution of \textit{CLI-Tutor} as all the parts that make up the tutor live
+contribution of \textit{CLI-Tutor} as all the parts that make up the tutor reside
 in one codebase.
 
 \subsection{User Interface}
@@ -349,7 +350,7 @@ The user interface of \textit{CLI-Tutor} is divided into two main views, the
 lesson view and the menu view. The default view and what the user is presented with
 upon launching \textit{CLI-Tutor} is the menu view. The menu is populated using
 a variation of the parser described in \autoref{sec:parser}. As previously
-mentioned \textit{CLI-Tutor} is a TUI application. To manage the two distinct
+mentioned, \textit{CLI-Tutor} is a TUI application. To manage the two distinct
 views and provide interactive user interface elements the \textit{Bubbletea}
 library was used. \textit{Bubbletea} is a library for making Textual User
 Interfaces and is inspired by the \textit{Elm} architecture. The \textit{Elm}
@@ -359,7 +360,7 @@ messages.
 
 \subsubsection{The \textit{Elm} Architecture applied to \textit{CLI-Tutor}} 
 
-The \textit{Elm} architectures three main parts are:
+The \textit{Elm} architecture's three main parts are:
 
 \begin{itemize}
     \item \textit{Model:} The model controls the state of the application. The 
@@ -406,16 +407,15 @@ type LessonModel struct {
 \item \textit{Update:} This a method that is implemented for a model. The
     \textit{Update} method consumes the messages sent around between the
     components of a system built on the \textit{Elm} architecture. The update
-    function can then manipulate the state of its corresponding model to
-    create reactivity. Messages are events generated through interaction with
-    the application and actions such as resizing a window for example. In
-    \textit{CLI-Tutor}, messages are used to communicate the size of the
-    terminal, manage key presses, enable selections in the menu and handle
-    quitting the application. A message-based architecture allows for a lot of
-    flexibility in terms of defining custom messages that can trigger other
-    behaviours or make state changes. An example is parsing a lesson after it
-    is selected in the menu view and assigning it as the current lesson in the
-    lesson view.
+    function can then manipulate the state of its corresponding model to create
+    reactivity. Messages are events generated through interaction with the
+    application and actions such as resizing a window. In \textit{CLI-Tutor},
+    messages are used to communicate the size of the terminal, manage key
+    presses, enable selections in the menu and handle quitting the application.
+    A message-based architecture allows for a lot of flexibility in terms of
+    defining custom messages that can trigger other behaviours or make state
+    changes. An example is parsing a lesson after it is selected in the menu
+    view and assigning it as the current lesson in the lesson view.
 
 \item \textit{View:} The \textit{View} is the last part of the \textit{Elm}
     architecture and is responsible for rendering the visual environment based
