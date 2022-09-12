@@ -13,6 +13,7 @@ sns.set(style="ticks")
 
 colors = sns.color_palette("colorblind")
 
+fig.suptitle("On average how often do you use command line applications or terminal based tools?", wrap=True)
 
 total = 34
 data = {

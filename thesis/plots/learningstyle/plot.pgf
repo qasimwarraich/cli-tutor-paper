@@ -27,7 +27,7 @@
 \begingroup%
 \makeatletter%
 \begin{pgfpicture}%
-\pgfpathrectangle{\pgfpointorigin}{\pgfqpoint{8.383734in}{4.546649in}}%
+\pgfpathrectangle{\pgfpointorigin}{\pgfqpoint{8.651391in}{5.046649in}}%
 \pgfusepath{use as bounding box, clip}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -38,9 +38,9 @@
 \pgfsetstrokeopacity{0.000000}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{0.000000in}{0.000000in}}%
-\pgfpathlineto{\pgfqpoint{8.383734in}{0.000000in}}%
-\pgfpathlineto{\pgfqpoint{8.383734in}{4.546649in}}%
-\pgfpathlineto{\pgfqpoint{0.000000in}{4.546649in}}%
+\pgfpathlineto{\pgfqpoint{8.651391in}{0.000000in}}%
+\pgfpathlineto{\pgfqpoint{8.651391in}{5.046649in}}%
+\pgfpathlineto{\pgfqpoint{0.000000in}{5.046649in}}%
 \pgfpathlineto{\pgfqpoint{0.000000in}{0.000000in}}%
 \pgfpathclose%
 \pgfusepath{}%
@@ -560,6 +560,18 @@
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
 \pgftext[x=3.793266in,y=4.000098in,left,base]{\color{textcolor}\sffamily\fontsize{12.000000}{14.400000}\bfseries\selectfont 14.71\%}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.150000,0.150000,0.150000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=3.290748in, y=4.794696in, left, base]{\color{textcolor}\sffamily\fontsize{14.400000}{17.280000}\selectfont What is your preferred method of learning related to}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.150000,0.150000,0.150000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=5.083179in, y=4.570751in, left, base]{\color{textcolor}\sffamily\fontsize{14.400000}{17.280000}\selectfont  technical topics?}%
 \end{pgfscope}%
 \end{pgfpicture}%
 \makeatother%

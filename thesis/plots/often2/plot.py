@@ -9,10 +9,12 @@ fig = plt.figure()
 
 fig.set_size_inches(5.90666, 5)
 
+
 sns.set(style="ticks")
 
 colors = sns.color_palette("colorblind")
 
+fig.suptitle("On average, How often do you perform regular computing tasks\n such as file management from the command line?")
 
 total = 34
 data = {

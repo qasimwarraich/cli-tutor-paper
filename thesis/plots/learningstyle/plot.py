@@ -47,6 +47,7 @@ for bar in bars:
 
 plt.xlabel("Number of responses")
 
+fig.suptitle("What is your preferred method of learning related to\n technical topics?", wrap=True)
 # plt.tight_layout()
 fig.savefig("plot.png", dpi=100)
 fig.savefig("plot.pgf", format="pgf", bbox_inches="tight", transparent=True)
