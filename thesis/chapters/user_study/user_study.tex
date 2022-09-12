@@ -16,21 +16,20 @@ effective medium to teach command line interaction than the traditional means
 such as online documentation or books. In this chapter, we will describe our
 user study in detail.
 
-
 \section{Methodology}
 
 The user study for this thesis work was conducted remotely and asynchronously.
 We designed an online survey using the \textit{LimeSurvey}\cite{schmitzlime}
 tool made available to us by the University of Zurich.
 
-The user study focused on the comparison between interactive learning
-approaches such as that of \textit{CLI-Tutor} and traditional ones, which are
-mostly reading based. In the modern software development space, online
-documentation is the status quo and the medium we choose to compare our
+The focus of the user study was primarily on the comparison between interactive
+learning approaches such as that of \textit{CLI-Tutor} and traditional ones,
+which are mostly reading based. In the modern software development space,
+online documentation is the status quo and the medium we choose to compare our
 solution against. As discussed in \autoref{chap:design}, \textit{CLI-Tutor}
 uses \textit{Markdown} to specify lessons. Many static documentation generation
 websites use Markdown files to generate documentation from. This is also true
-for our chosen generator. This enables us to make objectively compare the
+for our chosen generator. This enables us to objectively compare the
 interaction medium rather than the lesson content, since the exact same lessons
 can be used in both tools. Furthermore, due to the popularity of
 \textit{MkDocs} it is a very realistic representation of documentation that
@@ -39,10 +38,10 @@ individuals may encounter in the wild.
 
 \subsection{Interactive versus Non-interactive}
 
-Our user study intended to perform an A/B testing comparing learning mediums.
-To support this we randomly assigned our participants to one of two groups,
-interactive and non-interactive. 
-
+We designed our user study with the intention to perform an A/B style testing
+comparing learning mediums. To support this we used the pseudorandom number
+generation feature of \textit{LimeSurvey} to assign our participants to one of
+two groups, interactive and non-interactive.
 
 \subsection{Structure}
 
@@ -53,7 +52,7 @@ Our online survey was divided into the following sections:
 
 \begin{itemize}
 
-    \item User Familiarity: In this section users answered questions relating
+    \item User Familiarity: In this section, users answered questions relating
         to their experience, interest and preferences to provide us with some
         information regarding each individual participant.
 
@@ -87,101 +86,98 @@ Our online survey was divided into the following sections:
         response to report on their feelings using the alternative tool.
 \end{itemize}
 
-\subsection{Assignment}
-
-Assignment was achieved through the use of pseudorandom number generation, a
-feature of \textit{LimeSurvey}. 19 were assigned to the interactive group and 15 to the non-interactive group.
 
 \section{Participants}
 
-In total, 34 participants took part in our user study. Recruitment was
+In this section we will share insights we gathered from the first section of
+the survey, where we asked experience, familiarity and more general questions.
+
+In total, 34 participants took part in our user study. 19 of whom were assigned
+to the interactive group and 15 to the non-interactive group. Recruitment was
 primarily done through University channels though some participants were also
-sourced through work email and word of mouth.
+sourced through work email and word of mouth. While not limited to individuals
+in software related fields, over 60\% (see: \autoref{fig:uniexp}) of the
+participants were from technical backgrounds or currently computer science
+students.
+
+\subsection{Technical Experience}
+
+Unsurprisingly, most of the individuals who participated in our user study were
+of not very highly experienced, though we did have a couple of outliers with
+over twenty years of programming experience. Most of the participants were far
+less experienced with a median experience of 3 years (see:
+\autoref{fig:programmingexp}). While not very highly experienced in
+programming, most of our participants did come from some sort of Computer
+Science or engineering background (see: \autoref{fig:uniexp}).
 
 
-\section{Section} In addition to these two views, there is also a prompt to
-enter an identifier when the program is first launched. This was only added to
-the program to help identify log files for the user study conducted as a part
-of this thesis work.
-
-\paragraph{Paragraph.} Always with a point.
-
-
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\centering
 	\scalebox{0.75}{\input{plots/programming_exp/plot.pgf}}
 	\caption{The distribution of programming experience amongst study participants.}
 	\label{fig:programmingexp}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\centering
 	\scalebox{0.8}{\input{plots/uni_exp/plot.pgf}}
 	\caption{University level Computer Science experience amongst study participants.}
 	\label{fig:uniexp}
 \end{figure}
 
-\begin{figure}[H]
-	\centering
-	\begin{minipage}{0.45\textwidth}
-		\centering
-		\scalebox{0.7}{\input{plots/uni_exp/plot.pgf}}
-		\caption{first figure}
-	\end{minipage}\hspace{-1em}
-	\begin{minipage}{0.45\textwidth}
-		\centering
-		\scalebox{0.7}{\input{plots/uni_exp/plot.pgf}}
-		\caption{second figure}
-	\end{minipage}
-\end{figure}
+%TODO: SEE IF THIS IS NECESSARY
+\FloatBarrier
 
 
+\subsection{Feelings about the CLIs}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\scalebox{0.72}{\input{plots/comfort/plot.pgf}}
 	\caption{spam}
 	\label{fig:uniexp}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\scalebox{0.72}{\input{plots/interest/plot.pgf}}
 	\caption{more and more}
 	\label{fig:moreandmore}
 \end{figure}
 
-\begin{figure}[H]
-	\centering
-	\scalebox{0.72}{\input{plots/previnteractive/plot.pgf}}
-	\caption{previnteractive}
-	\label{fig:previnteractive}
-\end{figure}
 
-\begin{figure}[H]
-	\scalebox{0.72}{\input{plots/questiontest/plot.pgf}}
-	\caption{question test}
-	\label{fig:question}
-\end{figure}
+%TODO: SEE IF THIS IS NECESSARY
+\FloatBarrier
 
-\begin{figure}[H]
-	\centering
-	\scalebox{0.67}{\input{plots/confidence/plot.pgf}}
-	\vspace{-4em}
-	\caption{confidence}
-	\label{fig:question}
-\end{figure}
+\subsection{CLI Usage}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\centering
 	\scalebox{0.67}{\input{plots/often/plot.pgf}}
 	\caption{On average how often do you use command line applications or terminal based tools?}
 	\label{fig:question}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\centering
 	\scalebox{0.67}{\input{plots/often2/plot.pgf}}
 	\caption{On average how often do you use command line applications or terminal based tools?}
 	\label{fig:question}
 \end{figure}
 
-\input{tables/question_summary}
+
+\begin{figure}[htbp]
+	\scalebox{0.72}{\input{plots/questiontest/plot.pgf}}
+	\caption{question test}
+	\label{fig:question}
+\end{figure}
+
+
+%TODO: SEE IF THIS IS NECESSARY
+\FloatBarrier
+\subsection{Learning Preferences}
+
+\begin{figure}[htbp]
+	\centering
+	\scalebox{0.72}{\input{plots/previnteractive/plot.pgf}}
+	\caption{previnteractive}
+	\label{fig:previnteractive}
+\end{figure}
