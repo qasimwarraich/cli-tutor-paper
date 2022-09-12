@@ -36,6 +36,7 @@
 %for quotes
 % \usepackage[xcolor,leftbars]{changebar}
 \usepackage{framed}
+\usepackage[vskip=0pt, leftmargin=1em]{quoting}
 
 \usepackage[hidelinks]{hyperref}
 \addto\extrasenglish{%
@@ -85,10 +86,10 @@
 }
 {\endMakeFramed}
 \newenvironment{quotes}%
-{\begin{leftbar}[0.9\linewidth]\begin{quote}
+{\begin{leftbar}[0.95\linewidth]\begin{quoting}
     \itshape
     }%
-{\end{quote}\end{leftbar}}
+{\end{quoting}\end{leftbar}}
 
 %% General figure command
 % use: \fig[width]{file}{caption}{label}
