@@ -18,6 +18,61 @@
 
 %docker daemon exposed over https for the sake of websockets. something the sdk cannot handle.
 
+In this chapter, we will dive into the details surrounding the engineering of
+the \textit{CLI-Tutor} tool, its supporting web application and the online
+documentation tool. We will first start by sharing the approaches of some of
+our early prototypes. We will discuss all the considerations and features that
+shaped the architecture of \textit{CLI-Tutor}. Additionally, the technical
+stack that \textit{CLI-Tutor} is built on will be introduced. This includes all
+technical aspects of this work ranging from the core command line application,
+\textit{CLI-Tutor}, to the servers and tools required to build our web
+applications and perform our user study. A detailed discussion of the technical
+aspects around some of the most important features in the current version of
+\textit{CLI-Tutor} will then follow.  
+
+
+\section{First Attempts} In the early stages of this thesis work, while
+attempting to model the problem and develop the requirements for a technical
+solution several prototypes were created. The early prototypes were written
+in \textit{Python} \cite{python}. It was clear from an early stage that
+\textit{readline} would be a mandatory element of any approach we would take. Early
+attempts broadly focused on two different approaches:
+
+\begin{itemize} \item An \textit{Expect}\cite{libes1995exploring} like
+    approach. \textit{Expect} is an add-on to the \textit{Tcl} scripting
+    language and is a way of writing scripted interactions with sub-processes.
+    An \textit{Expect} script can be used to launch a sub-process and
+    communicate with it, for each action expected results can be specified.
+    \textit{Expect} scripts are popular for feigning user input and for testing
+    or combining separate services. It is designed entirely with command line
+    applications in mind and thus seemed a worthwhile approach for
+    \textit{CLI-Tutor}, especially because we wanted to design lessons which
+    had expected values and interactive exercises. Two prototypes were built
+    using  \textit{Python} and \textit{Go}. The plan was to use \textit{Expect}
+    to interact with a spawned \textit{Bash} sub-process. While initially
+    promising, the \textit{Expect} approach was abandoned due to limitations in
+    the libraries and concerns around being able to build an appropriate user
+    interface to wrap \textit{Expect}.
+
+    \item Creating and managing PTYs\footnote{PTY refers to a Linux
+        pseudoterminal, the low-level interface through which terminal data
+    flow is implemented in Linux.}. Prototypes integrating \textit{readline}
+    implementations were built using this approach with some success. However,
+    this approach necessitated intricate low-level programming and raw
+    communication with the terminal. It was eventually deemed too complicated
+    and operating system specific to be appropriate for \textit{CLI-Tutor}. 
+
+\end{itemize}
+
+    Other attempts included writing a GUI application to create a fake terminal
+    environment. However, it was decided that a compiled command line
+    application would be most appropriate for this purpose as it would allow us
+    to capitalise on the existing interface of the user's terminal and the
+    wealth of libraries and tools available to facilitate command line
+    application development. Creating a mock shell environment and using
+    operating system native system calls would be the most proper approach for
+    \textit{CLI-Tutor}.
+
 \section{Tools and Libraries}
 \label{sec:tools}
 
@@ -112,48 +167,6 @@
         \textit{CLI-Tutor} to monitor uptime and for log agglomeration from our
         servers to ensure everything was running well.
 \end{itemize}
-
-\section{First Attempts} In the early stages of this thesis work, while
-attempting to model the problem and develop the requirements for a technical
-solution several prototypes were created. The early prototypes were written
-in \textit{Python} \cite{python}. It was clear from an early stage that
-\textit{readline} would be a mandatory element of any approach we would take. Early
-attempts broadly focused on two different approaches:
-
-\begin{itemize} \item An \textit{Expect}\cite{libes1995exploring} like
-    approach. \textit{Expect} is an add-on to the \textit{Tcl} scripting
-    language and is a way of writing scripted interactions with sub-processes.
-    An \textit{Expect} script can be used to launch a sub-process and
-    communicate with it, for each action expected results can be specified.
-    \textit{Expect} scripts are popular for feigning user input and for testing
-    or combining separate services. It is designed entirely with command line
-    applications in mind and thus seemed a worthwhile approach for
-    \textit{CLI-Tutor}, especially because we wanted to design lessons which
-    had expected values and interactive exercises. Two prototypes were built
-    using  \textit{Python} and \textit{Go}. The plan was to use \textit{Expect}
-    to interact with a spawned \textit{Bash} sub-process. While initially
-    promising, the \textit{Expect} approach was abandoned due to limitations in
-    the libraries and concerns around being able to build an appropriate user
-    interface to wrap \textit{Expect}.
-
-    \item Creating and managing PTYs\footnote{PTY refers to a Linux
-        pseudoterminal, the low-level interface through which terminal data
-    flow is implemented in Linux.}. Prototypes integrating \textit{readline}
-    implementations were built using this approach with some success. However,
-    this approach necessitated intricate low-level programming and raw
-    communication with the terminal. It was eventually deemed too complicated
-    and operating system specific to be appropriate for \textit{CLI-Tutor}. 
-
-\end{itemize}
-
-    Other attempts included writing a GUI application to create a fake terminal
-    environment. However, it was decided that a compiled command line
-    application would be most appropriate for this purpose as it would allow us
-    to capitalise on the existing interface of the user's terminal and the
-    wealth of libraries and tools available to facilitate command line
-    application development. Creating a mock shell environment and using
-    operating system native system calls would be the most proper approach for
-    \textit{CLI-Tutor}.
 
 \section{Features and Considerations of \textit{CLI-Tutor}}
 
