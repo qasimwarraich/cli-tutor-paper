@@ -6,10 +6,85 @@
 %       - areas to explore in the space
 \label{chap:reflection}
 \section{Related Work}
+
 % sandboxing
 Other tools have existed that aimed to personify this friendly environment (lisptutor)
 
+Asynchronous learnings, Computer based learning (linear learning). \cite{becker201950, ossovski2022comparing}
+
 \section{Improvements}
-Hybrid approach as pointed by survey participants also employed by \cite{harris_team, team_meta}
+
+The user study and the associated feedback provided useful insights into how subsequent versions of \textit{CLI-Tutor} could be improved. Some users suggested that adopting a more hybrid approach between the interactive and non-interactive tools could improve \textit{CLI-Tutor}.
+
+\begin{quotes}
+	It's a great tool, feels great to use. Personally i prefer guide books / video guides simply
+	because going back and forth to look for desired info is easier than a more linear interactive
+	approach but i can greatly appreciate such "learning games", and would love to see more of it
+\end{quotes}
+
+\begin{quotes}
+	Still i prefer to be able to quickly look up something in a textbook / scroll back in a video,
+	because it allows to connect information more intricately and more adjusted to my way of
+	storing / recalling information.
+\end{quotes}
+
+These suggestions could improve the utility of \textit{CLI-Tutor} as a
+reference tool and allow for continued use of the tool beyond taking the first
+lesson. This hybrid documentation and interactive sandbox approach is a design
+style that is seeing an increase in popularity recently especially in the web
+development documentation world. A very popular  \textit{JavaScript} framework,
+\textit{React}\footnote{\url{https://reactjs.org/}} has recently released a
+beta version of their documentation that employs exactly this hybrid approach
+\cite{team_meta}. Another popular \textit{JavaScript} framework,
+\textit{Svelte}\footnote{\url{https://svelte.dev/}}, has also employed a similar
+hybrid approach for their introductory tutorials \cite{harris_team}.
+
+
+Other areas for potential improvement to \textit{CLI-Tutor} include:
+
+\begin{itemize}
+
+	\item  \textit{Dynamic feedback}: Integrating some form of feedback that
+	      dynamically adjusts according to the user's input or offers some
+	      intelligent suggestions. Such an approach would have the potential to
+	      offer more personalised and specific feedback than the approach in the
+	      current version of \textit{CLI-Tutor}. \cite{keuning2014strategy,
+		      gerdes2017ask, rivers2017data} are all works targeting this domain of
+	      intelligent feedback generation.
+
+	\item \textit{Mobile version}: A mobile friendly version of
+	      \textit{CLI-Tutor}, particularly the web application, would have the
+	      potential of widening the potential user group and simultaneously
+	      reducing the barrier to entry for \textit{CLI-Tutor}. In order to
+	      implement this, some attention to the sizing of elements in the web
+	      application would be necessary. Furthermore, a mobile friendly
+	      version would necessitate the integration of a modified on-screen
+	      keyboard to ease interaction with the tool, as it is primarily
+	      keyboard driven.
+
+	\item \textit{Progress tracking}: The integration of some sort of
+	      progress tracking would improve the user experience of
+	      \textit{CLI-Tutor}. This could open the doors to elements such as
+	      gameificaton or performance analytics and even more refined feedback
+	      to be integrated. Implementing statefulness in \textit{CLI-Tutor}
+	      could potentially be achieved using lightweight client-side databases
+	      such as \textit{sqlite}\footnote{\url{https://sqlite.org/}}.
+
+\end{itemize}
+
 
 \section{Future Work}
+Building upon this work can provide valuable insights into how to make the
+command line more approachable and on how to build better interactive learning
+software in general. The addition of some suggested improvements in the
+preceding chapter can open the doors to a wide array of future research in
+this domain. Furthermore, the user study in this work could benefit from a
+reproduction with a larger number of participants. Another potential
+modification for future research is could be to perform a user study with
+absolute beginners, or individuals with no programming or command line
+experience.  
+
+Another avenue of research could be to look into more advanced topics and see if
+the benefits of an interactive learning environment still reflect when the
+subject matter is more complicated or targeted at more advanced users.
+
