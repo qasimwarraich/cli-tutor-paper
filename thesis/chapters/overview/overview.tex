@@ -1,6 +1,6 @@
-\chapter{Overview}
-\label{chap:overview}
-% - Overview - problem description - introduce tool - outline thesis
+\chapter{Introduction}
+\label{chap:intro}
+
 \section{Problem Description}
 
 Command line interfaces have been with us since the 1950s
@@ -40,16 +40,73 @@ also interacts directly with the operating system and does not require
 confirmation for certain destructive tasks such as file deletion.
 
 \subsection{Solving The Problem} The goal of this Master's thesis is to develop
-a tool that simultaneously aims to address the previously introduced issues of
-lack of exposure to textual interaction, the novice unfriendly environment of
-the shell and the difficulties of traditional learning methodologies. The tool
-should provide a more forgiving experience than using the shell directly whilst
-still being a faithful representation of a system shell. Concepts learned
-during the interactive tutorials should be directly transferrable to a standard
-Unix-like shell. Furthermore, the tool should be easy to use and encourage
-experimentation in order to augment the learning experience and in order to
-better exploit the advantages offered by interactive learning systems.
+an interactive learning tool that simultaneously aims to address the previously
+introduced issues of lack of exposure to textual interaction, the novice
+unfriendly environment of the shell and the difficulties of traditional
+learning methodologies. The tool should provide a more forgiving experience
+than using the shell directly whilst still being a faithful representation of a
+system shell. Concepts learned during the interactive tutorials should be
+directly transferrable to a standard Unix-like shell. Furthermore, the tool
+should be easy to use and encourage experimentation in order to augment the
+learning experience and in order to better exploit the advantages offered by
+interactive learning systems.
 %TODO: Expand a bit
+
+\subsection{Research Questions}
+\label{subsec:rqs}
+
+In this work, we set out to address the following research questions:
+
+\begin{enumerate}[label=\textbf{RQ\arabic*}, leftmargin=*]
+	\item Are there identifiable patterns of difficulty when it
+	      comes to adopting CLIs? Can the `intimidation factor' be pinned down? \label{rq:1}
+	\item How should an interactive learning tool be designed to mitigate
+	      the difficulty and intimidation factor of learning CLIs? \label{rq:2}
+	\item How can a `forgiving' shell be implemented on top of an existing
+	      shell to enable the transition from learning to real-world usage? \label{rq:3}
+	\item Is the interactive tool more effective than text based learning methods? \label{rq:4}
+	\item Are novice CLI users more likely to continue
+	      using CLI interfaces after using such a tool? \label{rq:5}
+\end{enumerate}
+
+\subsection{Why CLIs?}
+Before introducing our solution to the stated problem, we would like to discuss
+the motivations behind using command line interfaces and lowering the barrier of
+entry to their use.
+
+Command line interfaces are still widely employed and being developed for a
+variety of uses. Benefitting from their simplicity, Command line interfaces
+allow for comparatively rapid development and the implementation of features
+when compared to their graphical counterparts, which would require a much more
+detailed and complicated implementation and more challenging user interface
+considerations. Command line programs also further benefit from simplicity of
+their textual nature when it comes to their ability to work with other
+programs. The simple notion of textual input and output being the main forms of
+interaction allow for an extremely flexible interface\footnote{In this case
+    "interface" describes a medium through which programs can communicate, not
+a user interface.} for chaining tools together. This composition of programs is
+referred to as piping and is a hallmark element of what is considered to be the
+\textit{UNIX Philosophy} \cite{mcilroy1978unix}. Since most command line
+applications share this philosophy of textual input and output there isn't the
+need for bespoke mediums of communication to be developed and features can be
+more effectively shared across programs.
+
+Since CLI programs are run within a shell, which has direct access to the
+underlying operating system, a tight integration between program and system is
+formed. This tight coupling, paired with the low system resource requirements,
+the ability to specify inputs and arguments via text and modify program
+behaviour upon instantiation with flags opens the room for powerful batch
+processing capabilities, easy automation and the ability to deal with large
+amounts of input and output efficiently.
+
+The learning curve of such command line interfaces is however a strong barrier
+to widespread enjoyment of these benefits. For new users, this learning curve
+is made steeper by the paradigm shift in the personal computing space towards
+graphical user interfaces. In this chapter, we will look at the interactive
+learning tool, \textit{CLI-Tutor}, developed as a potential solution that
+addresses the steep learning curve of the command line through interactive
+lessons and a sandboxed shell environment.
+
 
 % \fig[0.75\textwidth]{img/vimtutor}{Screenshot of vimtutor}{fig:vimtutor}
 \section{Introducing "CLI-Tutor"}
