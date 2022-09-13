@@ -6,36 +6,151 @@
 %    - user study
 %       - analysis
 
-%RQs
-% Are there identifiable patterns of difficulty when it
-% comes to adopting CLIs? Can the `indimidation factor' be pinned down? \label{rq:1}
+%%TODO: Should i just rewrite the RQs here as a reminder to the reader. Is that bad form?
 
-% How should an interactive learning tool be designed to mitigate
-% the difficulty and indimidation factor of learning CLIs? \label{rq:2}
+%%%%%
+% RQs 
+%
+% Are there identifiable patterns of difficulty when it                                  
+% comes to adopting CLIs? Can the `indimidation factor' be pinned down? \label{rq:1}     
+                                                                                         
+% How should an interactive learning tool be designed to mitigate                        
+% the difficulty and indimidation factor of learning CLIs? \label{rq:2}                  
+                                                                                         
+% How can a `forgiving' shell be implemented on top of an existing                       
+% shell to enable the transition from learning to real-world usage? \label{rq:3}         
+                                                                                         
+% Is the interactive tool more effective than text based learning methods? \label{rq:4}  
 
-% How can a `forgiving' shell be implemented on top of an existing
-% shell to enable the transition from learning to real-world usage? \label{rq:3}
+% Are novice CLI users more likely to continue                                           
+% using CLI interfaces after using such a tool? \label{rq:5}                             
 
-% Is the interactive tool more effective than text based learning methods? \label{rq:4}
-% Are novice CLI users more likely to continue
+In this chapter, we will discuss the outcomes of this thesis work. We will look
+into our findings in light of our research questions we defined in
+\autoref{chap:intro} in \autoref{subsec:rqs}. Furthermore, we will divide our
+results into two distinct sections, focusing on the results of the engineering
+effort in building \textit{CLI-Tutor} and secondly, the findings from the user
+study discussed in the preceding chapter.
 
-% using CLI interfaces after using such a tool? \label{rq:5}
 
+\section{Engineering Results}
 
-\section{Engineering}
+From an engineering perspective we managed to achieve almost all the
+technical goals we set out for \textit{CLI-Tutor}. Design goals relating to
+distributability were fulfilled as \textit{CLI-Tutor} is a single binary that
+is easy to distribute and containerise. \textit{CLI-Tutor} also works natively
+on  \textit{GNU/Linux} and  \textit{Macintosh} operating systems and thanks to
+the associated web application and docker images for the tool, it is possible
+to use \textit{CLI-Tutor} on almost any mainstream operating system. The web
+application and ease of containerisation also helped achieve another goal of
+creating a safe and forgiving sandboxed environment for users to experiment
+with in.
 
-\subsection{Tool}
+This ease of experimentation and application of learnt skills is an
+important factor when it comes to developing confidence with CLIs as they are a
+foreign interaction paradigm to most novices. Ease of experimentation and
+ability to apply learnt skills is not purely achievable through technical
+design alone. The curriculum of \textit{CLI-Tutor} also reflects an emphasis on
+giving the user space to try things out without worry or the tutorial software
+actually getting in the way. One participant in the user study particularly
+admired this: 
+
+\begin{quotes}
+    "I think the cli-tutor really provides the right amount of guidance, while
+    leaving enough freedom to experiment and test things. Thus it was trivial to
+    examine small questions one asks themselves like:  what would happen if one
+    calls "rmdir" on a directory that contains another empty directory.  All in all
+    a great experience, and a drastic improvement compared to non-interactive  2
+    hour lectures."
+\end{quotes}
+
+Based, on feedback received by participants in the user study we can conclude
+that the curriculum was well received and appropriately designed as many
+respondents found this to be a particularly strong aspect of
+\textit{CLI-Tutor}. 
+
+\begin{quotes}
+    "Very good tutorial, great work! It starts at the beginning and fills the gaps
+    that are necessary to make working with the command line more quicker and more
+    useful."
+\end{quotes}
+
+\begin{quotes}
+    "It was overall very well structured. I feelt like the tutorial was a very
+    smooth process, taking you from one topic to the most closely related next
+    topic."
+\end{quotes}
+
+\begin{quotes}
+"Great work, short but precise! I would love to do more of your tutorials :)"
+\end{quotes}
+
+The level of difficulty was also appropriate as many participants found the
+course content appropriate for newcomers. This is encouraging as tutorial tools
+are generally targeted at beginners and \textit{CLI-Tutor} is no exception. 
+
+\begin{quotes}
+    "Was a pleasent and well thought out lesson. Would recommend this for newcomers
+    to the CLI, as it does have a friendly and fun tone to the entire teaching
+    environment."
+\end{quotes}
+
+There were also multiple participants who particularly enjoyed the interactive
+aspect \textit{CLI-Tutor}. This was of particular interest to use given our a
+major intention of our research was to assess the effectiveness of interactive
+learning tools for the command line.
+
+\begin{quotes}
+    "The cli-tutor made it really easy for me to learn how to use the command line
+    in an uncomplicated way. The interactive part was the best part about the tool.
+    It required me to directly put my understanding into practice, making the
+    learning process very convenient."
+\end{quotes}
+
+Even when interactive style learning was not the preference of the participant,
+as is the case with the participant below. They still were able to find some
+merits in the interactive approach.
+
+\begin{quotes}
+    "i personally prefer to acquire knowledge first and then put it into practice on my own. but i
+    think interactive learning is a very effective method for many people to learn new things.
+    especially when it comes to something that triggers fear of contact (for example the cli, or git).
+    the cli-tutor is a really cool tool, visually and in terms of content! the most important things are
+    repeated more than once, and repetitions are very important for the learning effect."
+\end{quotes}
 
 \subsection{Relevant Research Questions}
 
-\section{User Study}
+\ref{rq:2} and \ref{rq:3} are technically orientated research questions. Based
+on what we learnt in the feedback provided by participants in the user-study we
+will now provide some insights into potential answers to these research questions.
+
+
+% How should an interactive learning tool be designed to mitigate                        
+% the difficulty and indimidation factor of learning CLIs? \label{rq:2}                  
+
+                                                                                         
+% How can a `forgiving' shell be implemented on top of an existing                       
+% shell to enable the transition from learning to real-world usage? \label{rq:3}         
+
+
+\section{User Study Results}
 
 \subsection{Evaluation section}
+
+As mentioned in \autoref{chap:userstudy} and evaluation or examination was part of all the blah balh
 
 \input{tables/question_summary}
 \FloatBarrier %TODO: SEE IF THIS IS NECESSARY
 
-\subsection{Findings}
+\subsection{Relevant Research Questions}
+
+\subsection{Intimidation Factors}
+
+In the user study, participants were asked about intimidation factors regarding
+command line usage in order to better understand the difficulties faced by
+beginners in order to further improve \textit{CLI-Tutor} and any other future
+research in the area of making command line interfaces more approachable.
 
 \begin{figure}[htbp]
 	\centering
@@ -45,5 +160,3 @@
 	\label{fig:confidence}
 \end{figure}
 
-\subsection{Relevant Research Questions}
-\subsection{Intimidation Factors}
