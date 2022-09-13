@@ -1,0 +1,11 @@
+# Fdb version 3
+["pdflatex"] 1663088185 "question_summary.tex" "question_summary.pdf" "question_summary" 1663088185
+  "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/share/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1650183167 1328 c834bbb027764024c09d3d2bf908b5f0 ""
+  "/usr/share/texmf-dist/web2c/texmf.cnf" 1650183167 39911 2da6c67557ec033436fe5418a70a8a61 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1652890201 2927661 e98ae68e8f09972819cf7cc4734a3302 ""
+  "question_summary.aux" 1663088182 32 3985256e7290058c681f74d7a3565a19 ""
+  "question_summary.tex" 1663088166 4926 d0b4044bb3135c7b25f8a06f44f55017 ""
+  (generated)
+  "question_summary.log"
+  "question_summary.pdf"
