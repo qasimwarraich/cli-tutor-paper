@@ -13,13 +13,13 @@
 %
 % Are there identifiable patterns of difficulty when it                                  
 % comes to adopting CLIs? Can the `indimidation factor' be pinned down? \label{rq:1}     
-                                                                                         
+
 % How should an interactive learning tool be designed to mitigate                        
 % the difficulty and indimidation factor of learning CLIs? \label{rq:2}                  
-                                                                                         
+
 % How can a `forgiving' shell be implemented on top of an existing                       
 % shell to enable the transition from learning to real-world usage? \label{rq:3}         
-                                                                                         
+
 % Is the interactive tool more effective than text based learning methods? \label{rq:4}  
 
 % Are novice CLI users more likely to continue                                           
@@ -53,46 +53,46 @@ ability to apply learnt skills is not purely achievable through technical
 design alone. The curriculum of \textit{CLI-Tutor} also reflects an emphasis on
 giving the user space to try things out without worry or the tutorial software
 actually getting in the way. One participant in the user study particularly
-admired this: 
+admired this:
 
 \begin{quotes}
-    "I think the cli-tutor really provides the right amount of guidance, while
-    leaving enough freedom to experiment and test things. Thus it was trivial to
-    examine small questions one asks themselves like:  what would happen if one
-    calls "rmdir" on a directory that contains another empty directory.  All in all
-    a great experience, and a drastic improvement compared to non-interactive  2
-    hour lectures."
+	"I think the cli-tutor really provides the right amount of guidance, while
+	leaving enough freedom to experiment and test things. Thus it was trivial to
+	examine small questions one asks themselves like:  what would happen if one
+	calls "rmdir" on a directory that contains another empty directory.  All in all
+	a great experience, and a drastic improvement compared to non-interactive  2
+	hour lectures."
 \end{quotes}
 
 Based, on feedback received by participants in the user study we can conclude
 that the curriculum was well received and appropriately designed as many
 respondents found this to be a particularly strong aspect of
-\textit{CLI-Tutor}. 
+\textit{CLI-Tutor}.
 
 \begin{quotes}
-    "Very good tutorial, great work! It starts at the beginning and fills the gaps
-    that are necessary to make working with the command line more quicker and more
-    useful."
+	"Very good tutorial, great work! It starts at the beginning and fills the gaps
+	that are necessary to make working with the command line more quicker and more
+	useful."
 \end{quotes}
 
 \begin{quotes}
-    "It was overall very well structured. I feelt like the tutorial was a very
-    smooth process, taking you from one topic to the most closely related next
-    topic."
+	"It was overall very well structured. I feelt like the tutorial was a very
+	smooth process, taking you from one topic to the most closely related next
+	topic."
 \end{quotes}
 
 \begin{quotes}
-"Great work, short but precise! I would love to do more of your tutorials :)"
+	"Great work, short but precise! I would love to do more of your tutorials :)"
 \end{quotes}
 
 The level of difficulty was also appropriate as many participants found the
 course content appropriate for newcomers. This is encouraging as tutorial tools
-are generally targeted at beginners and \textit{CLI-Tutor} is no exception. 
+are generally targeted at beginners and \textit{CLI-Tutor} is no exception.
 
 \begin{quotes}
-    "Was a pleasent and well thought out lesson. Would recommend this for newcomers
-    to the CLI, as it does have a friendly and fun tone to the entire teaching
-    environment."
+	"Was a pleasent and well thought out lesson. Would recommend this for newcomers
+	to the CLI, as it does have a friendly and fun tone to the entire teaching
+	environment."
 \end{quotes}
 
 There were also multiple participants who particularly enjoyed the interactive
@@ -101,10 +101,10 @@ major intention of our research was to assess the effectiveness of interactive
 learning tools for the command line.
 
 \begin{quotes}
-    "The cli-tutor made it really easy for me to learn how to use the command line
-    in an uncomplicated way. The interactive part was the best part about the tool.
-    It required me to directly put my understanding into practice, making the
-    learning process very convenient."
+	"The cli-tutor made it really easy for me to learn how to use the command line
+	in an uncomplicated way. The interactive part was the best part about the tool.
+	It required me to directly put my understanding into practice, making the
+	learning process very convenient."
 \end{quotes}
 
 Even when interactive style learning was not the preference of the participant,
@@ -112,11 +112,11 @@ as is the case with the participant below. They still were able to find some
 merits in the interactive approach.
 
 \begin{quotes}
-    "i personally prefer to acquire knowledge first and then put it into practice on my own. but i
-    think interactive learning is a very effective method for many people to learn new things.
-    especially when it comes to something that triggers fear of contact (for example the cli, or git).
-    the cli-tutor is a really cool tool, visually and in terms of content! the most important things are
-    repeated more than once, and repetitions are very important for the learning effect."
+	"i personally prefer to acquire knowledge first and then put it into practice on my own. but i
+	think interactive learning is a very effective method for many people to learn new things.
+	especially when it comes to something that triggers fear of contact (for example the cli, or git).
+	the cli-tutor is a really cool tool, visually and in terms of content! the most important things are
+	repeated more than once, and repetitions are very important for the learning effect."
 \end{quotes}
 
 \subsection{Relevant Research Questions}
@@ -126,24 +126,85 @@ on what we learnt in the feedback provided by participants in the user-study we
 will now provide some insights into potential answers to these research questions.
 
 
-% How should an interactive learning tool be designed to mitigate                        
-% the difficulty and indimidation factor of learning CLIs? \label{rq:2}                  
+\paragraph{\ref{rq:2}.} \textit{How should an interactive learning tool be designed to mitigate
+the difficulty and intimidation factor of learning CLIs?}
 
-                                                                                         
-% How can a `forgiving' shell be implemented on top of an existing                       
-% shell to enable the transition from learning to real-world usage? \label{rq:3}         
+Based on the feedback received during the user study, it can be said that in
+order build effective interactive learning tools the structure and lesson
+content are of high importance. The correct sequencing, building up and
+repetition of examples are key for creating an effective curriculum. Allowing
+room for exploration and experimentation are other important aspects of an
+effective interactive learning tool. To some participants the ability to
+directly try out the lesson content made for a stronger learning experience.
+
+
+
+\paragraph{\ref{rq:3}.} \textit{How can a `forgiving' shell be implemented on top of an existing
+shell to enable the transition from learning to real-world usage?}
+
+The approach taken by \textit{CLI-Tutor} based on its reception seems to be
+promising. Creating an intermediary between the user and the shell allowed for
+tailoring the environment specifically to beginners while still being able to
+be faithful to the shell interaction experience. Wrapping the shell also enabled
+safety measures like not allowing the user into the sensitive root level
+directories, which contributes to the safety aspect and reduces the overall
+intimidation factor. The sandboxing approach takes this point and pushes it
+even further as then the user has no fears of any negative consequences of their system.
+
 
 
 \section{User Study Results}
 
 \subsection{Evaluation section}
 
-As mentioned in \autoref{chap:userstudy} and evaluation or examination was part of all the blah balh
+
+As mentioned in \autoref{chap:userstudy} and evaluation section of our user
+study is what we used to evaluate the effectiveness of the lessons our study
+participants took. Since the content of all the lessons was exactly the same
+across both interaction medium this sections offers a reasonable way to focus
+our comparison on the interaction medium.
+
+A question by question breakdown of the percentage of correct responses per
+question for both user groups is shown in \autoref{tab:evaluation}. When
+averaged across all questions in the evaluation section, the interactive group
+performed 9.34\% better than their non-interactive counterparts. When looking
+deeper at the differences in performance there was one observable trend.
+Individuals who took the interactive version of the tutor seemed to score
+significantly higher on questions that related to topics that contained lots of
+interactive examples in \textit{CLI-Tutor}. This is especially true for
+questions relating to flags and the file system.  
+
+For a visual representation of the differences between both participant groups
+in the evaluation section (see: \autoref{fig:eval}).
+
+\subsection{Discussion}
+
+Despite the positive results, the higher level in performance cannot be
+conclusively attributed to the interaction medium alone. There are factors such
+as existing experience, outliers and a small study size that must be considered
+when analysing these results. However, given that the performance of the
+interactive group was comparatively higher on more interactively practiced
+topics in the tutor, there appears to be a correlation between practice and
+success when it comes to the command line.
+
 
 \input{tables/question_summary}
-\FloatBarrier %TODO: SEE IF THIS IS NECESSARY
 
+\begin{figure}[htbp]
+	\centering
+	\scalebox{0.67}{\input{plots/evalplot/plot.pgf}}
+	\caption{Chart depicting the evaluation section results of the interactive and non-interactive participant groups.}
+	\label{fig:eval}
+\end{figure}
+
+
+\FloatBarrier %TODO: SEE IF THIS IS NECESSARY
 \subsection{Relevant Research Questions}
+
+
+\paragraph{\ref{rq:4}.} \textit{Is the interactive tool more effective than text based learning
+methods?}
+
 
 \subsection{Intimidation Factors}
 
@@ -152,11 +213,86 @@ command line usage in order to better understand the difficulties faced by
 beginners in order to further improve \textit{CLI-Tutor} and any other future
 research in the area of making command line interfaces more approachable.
 
+
+\paragraph{\ref{rq:1}.} \textit{Are there identifiable patterns of difficulty when it comes to
+adopting CLIs? Can the `intimidation factor' be pinned down?}
+
+Based on the results from the feedback sections of the user study, we can say
+based on the data that individuals who used the interactive \textit{CLI-Tutor},
+on average, left less intimidated than their non-interactive tutor
+counterparts. As shown in \autoref{fig:confidence}, a mere 5.26\% of
+respondents assigned to the interactive group reported feeling more intimidated
+after their experience with \textit{CLI-Tutor}. On the non-interactive side
+this figure was considerably higher with 26.567\% of respondents reporting
+being more intimidated by the command line after the user study.
+
+In terms of identifiable patterns of difficulty and intimidation factors,
+participants were asked identify their personal intimidation factors. Responses
+included fears about lack of safety mechanism or unintentional errors.
+
+\begin{quotes}
+    "irreversible actions"
+\end{quotes}
+
+\begin{quotes}
+"something fatal happens that I didn't want to to (something like rm without wanting it/typos/...)"
+\end{quotes}
+
+One of the most often cited intimidation factors was about remembering all the commands. 
+\begin{quotes}
+"If you don't use it that often, the overwhelming number of commands makes it difficult to use."
+\end{quotes}
+
+\begin{quotes}
+remembering all the things to write in order to give the command correctly
+\end{quotes}
+
+\begin{quotes}
+difficult to memorise the command and flags, especially when I'm not using them frequently
+\end{quotes}
+
+One participant even feared that the memorisation requirements might even
+nullify any potential productivity gains of using the command line.
+
+\begin{quotes}
+not knowing the commands by heart and needing to look it up (taking more time in the
+process)
+\end{quotes}
+
+Additionally, there was also mention of the unfamiliarity of command line
+interfaces as an intimidation factor.
+
+\begin{quotes}
+unfamiliar setting, no overview
+\end{quotes}
+
+
 \begin{figure}[htbp]
 	\centering
 	\scalebox{0.67}{\input{plots/confidence/plot.pgf}}
-	\vspace{-2em}
 	\caption{Charts comparing the post lesson intimidation levels between the two study groups.}
 	\label{fig:confidence}
 \end{figure}
+\clearpage
 
+\paragraph{\ref{rq:5}.} \textit{Are novice CLI users more likely to continue using CLI interfaces
+after using such a tool?}
+
+Participants were questioned during the feedback section of the user study
+whether their experience had any effect on their anticipated usage of CLIs
+going forward. The differences across interaction groups are more subtle
+compared to the previous comparison. In the interactive group, 94.74\% (see:
+\autoref{fig:continue}) of participants indicated that they would use CLIs more
+in the future following their experience with \textit{CLI-Tutor}. On the
+non-interactive side this group was slightly smaller, but at 87.50\% it still
+represented the majority of participants. While the differences across
+interaction paradigms are less pronounced in this result, it does indicate that
+the curriculum designed in this work targeted intimidation factors well and
+generally inspired confidence in users. 
+
+\begin{figure}[htbp]
+	\centering
+	\scalebox{0.67}{\input{plots/continue/plot.pgf}}
+	\caption{Charts comparing the post lesson future CLI usage impressions.}
+	\label{fig:continue}
+\end{figure}
