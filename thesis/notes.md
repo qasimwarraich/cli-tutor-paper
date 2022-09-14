@@ -3,7 +3,9 @@
 ## Random notes
 
 - Search engines can also be considered CLIs
-- Elements of CLIs are often found in GUIs and websites. Like / to search
+- chat apps and search engines use cli like interaction things like slashes and @article{norman2007breakthrough,
+
+-donehaskell of CLIs are often found in GUIs and websites. Like / to search
 - Motivate the usage of CLIs. Uncovered features, batch processing, larger
   datasets, limited resources, ease of remote work.
 - Asynchronous learnings, Computer based learning (linear learning).
@@ -16,7 +18,6 @@
   teaching a library or programming language.
 - lesson5 typo in screenshots
 - consequently, 
-- chat apps and search engines use cli like interaction things like slashes and
 - progress tracking or state woudld be nice, perhaps sqlite 
 - mobile version would be nice
 
