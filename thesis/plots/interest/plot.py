@@ -13,7 +13,7 @@ fig.set_size_inches(5.90666, 5)
 sns.set(style="ticks")
 
 plt.xlabel(
-    "Are you interested in integrating the command line more into your day to day computer use?"
+    "Are you interested in integrating the command line more into your day-to-day computer use?"
 )
 
 total = 34.0

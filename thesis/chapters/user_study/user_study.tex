@@ -9,10 +9,10 @@
 \label{chap:userstudy}
 
 In order to test and validate the effectiveness of our solution, a user study
-was conducted. The goal of this user study was two part. Firstly, we were
+was conducted. The goal of this user study was two-part. Firstly, we were
 interested in assessing the usability and response to \textit{CLI-Tutor}.
 Secondly, we wanted to ascertain if interactive learning would be a more
-effective medium to teach command line interaction than the traditional means
+effective medium to teach command line interaction than traditional alternatives
 such as online documentation or books. In this chapter, we will describe our
 user study in detail.
 
@@ -24,21 +24,21 @@ tool made available to us by the University of Zurich.
 
 The focus of the user study was primarily on the comparison between interactive
 learning approaches such as that of \textit{CLI-Tutor} and traditional ones,
-which are mostly reading based. In the modern software development space,
+which are mostly reading-based. In the modern software development space,
 online documentation is the status quo and the medium we choose to compare our
 solution against. As discussed in \autoref{chap:design}, \textit{CLI-Tutor}
 uses \textit{Markdown} to specify lessons. Many static documentation generation
-websites use Markdown files to generate documentation from. This is also true
+websites use Markdown files to generate documentation. This is also true
 for our chosen generator. This enables us to objectively compare the
 interaction medium rather than the lesson content, since the exact same lessons
 can be used in both tools. Furthermore, due to the popularity of
-\textit{MkDocs} it is a very realistic representation of documentation that
+\textit{MkDocs}, it is a very realistic representation of documentation that
 individuals may encounter in the wild.
 
 
 \subsection{Interactive versus Non-interactive}
 
-We designed our user study with the intention to perform an A/B style testing
+We designed our user study intending to perform A/B style testing
 comparing learning mediums. To support this we used the pseudorandom number
 generation feature of \textit{LimeSurvey} to assign our participants to one of
 two groups, interactive and non-interactive.
@@ -46,18 +46,19 @@ two groups, interactive and non-interactive.
 \subsection{Structure}
 
 In this section, we provide a structural overview of our online survey. The
-entire survey is available in \autoref{chap:appendixa}.
+entire survey, complete with possible answers, is available the
+\hyperref[chap:appendixa]{appendix}.
 
 Our online survey was divided into the following steps:
 
 \begin{enumerate}
 
-	\item User Familiarity: In this section, users answered questions relating
+	\item User Familiarity: In this section, participants answered questions relating
 	      to their experience, interest and preferences to provide us with some
 	      insights on each individual participant.
 
 	\item Assignment: All participants where divided into one of two groups,
-	      interactive and non-interactive. The assignment value is unknown to the
+	      interactive or non-interactive. The assignment value is unknown to the
 	      participant at the time of starting the survey. Our survey tool then
 	      conditionally rendered a URL for the participants to follow to the next
 	      section of the survey.
@@ -66,17 +67,17 @@ Our online survey was divided into the following steps:
 	      one of the two groups, they will either be sent to our web application
 	      running \textit{CLI-Tutor} or to our documentation website. If assigned
 	      to the non-interactive group participants were also given the option of
-	      navigating to the  \textit{CLI-only} version of our tool, in case they
+	      navigating to the \textit{CLI-only} version of our tool, in case they
 	      did not have access to a Unix-like terminal (see:
 	      \autoref{fig:cliversion}).
 
 	\item Evaluation: The evaluation stage is where participants were asked a
 	      series of basic questions relating to the lessons they took in the
-	      previous stage. Questions were a mixture of multiple choice and free
+	      previous step. Questions were a mixture of multiple choice and free
 	      text questions. This section was identical for both user groups as the
 	      lessons were also identical.
 
-	\item Feedback: In this section participants were able to provide feedback
+	\item Feedback: In this section, participants were able to provide feedback
 	      regarding their experience. All but one of the questions in this
 	      section were identical for both user groups. The non-interactive group
 	      were asked one additional question regarding interactive learning:
@@ -86,9 +87,9 @@ Our online survey was divided into the following steps:
 	\item Feedback Opposite (optional): This section was optional and included
 	      only one quick feedback question. At the end of the survey,
 	      participants were then given a chance to try out the opposite tool to
-	      which they were assigned for the bulk of the user study. No evaluation
-	      or tutorial was mandated here and participants were given one free text
-	      response to report on their feelings using the alternative tool.
+          which they were assigned for the  user study. No evaluation or
+          tutorial was mandated here and participants were given one free text
+          field to report on their feelings using the alternative tool.
 \end{enumerate}
 
 
@@ -100,7 +101,7 @@ the survey, where we asked experience, familiarity and more general questions.
 In total, 34 participants took part in our user study. 19 of whom were assigned
 to the interactive group and 15 to the non-interactive group. Recruitment was
 primarily done through University channels though some participants were also
-sourced through work email and word of mouth. While not limited to individuals
+sourced through work emails and word of mouth. While not limited to individuals
 in software related fields, over 60\% (see: \autoref{fig:uniexp}) of the
 participants were from technical backgrounds or currently computer science
 students.
@@ -108,7 +109,7 @@ students.
 \subsection{Technical Experience}
 
 Given the goals of \textit{CLI-Tutor}, It comes as no surprise that most of the
-individuals who participated in our user study were of not very highly
+individuals who participated in our user study were not very highly
 experienced, though there were two outliers with over twenty years of
 programming experience. Most of the participants were far less experienced with
 a median experience of 3 years (see: \autoref{fig:programmingexp}). While not
@@ -139,7 +140,6 @@ distributed in the University of Zurich.
 	\label{fig:uniexp}
 \end{figure}
 
-%TODO: SEE IF FOLLOWING PAGE THING HOLDS
 Participants were also asked about whether they had any University experience
 in Computer Science or related fields. Most participants had some degree of
 experience at the Bachelor's and Master's level but despite this 29.32\%
@@ -153,8 +153,8 @@ distribution across all levels of university experience can be found on the foll
 \subsection{Feelings about the CLIs}
 
 To gauge interest and feelings, questions regarding interest and comfort level
-with CLIs were also asked. In general the interest in integrating the command
-line more into day to day computer use was high. With 79.41\% (see:
+with CLIs were also asked. In general, the interest in integrating the command
+line more into day-to-day computer use was high. With 79.41\% (see:
 \autoref{fig:daytoday}) of respondents reporting that they were interested in
 doing so. Participants were also asked to explain their motivations.
 Motivations were varied, but there were some commonalities in the motivations
@@ -194,7 +194,7 @@ environment as a productivity booster or as an important skill.
 
 \begin{figure}[htbp]
 	\scalebox{0.65}{\input{plots/interest/plot.pgf}}
-	\caption{Chart depicting interest in integrating CLIs more into day to day computer use.}
+	\caption{Chart depicting interest in integrating CLIs more into day-to-day computer use.}
 	\label{fig:daytoday}
 \end{figure}
 
@@ -212,7 +212,7 @@ Likert-style fashion with answers ranging from "Extremely Uncomfortable" to
 More than half of the participants responded that they were extremely or at
 least uncomfortable with using the command line. The percentage of individuals
 who identified as at least comfortable was 23.53\%. This large amount of
-discomfort aligns with the higher amount of low experience participants.
+discomfort aligns with the higher amount of low-experience participants.
 Another potential contributing factor is the fact that most people were
 university students who generally have only ever worked with GUIs in their
 personal computer usage.
@@ -221,33 +221,33 @@ personal computer usage.
 
 \subsection{CLI Usage}
 
-Beyond comfort and interest, the amount existing experience specifically with
+Beyond comfort and interest, the amount of existing experience specifically with
 command line interfaces is another interesting factor. Participants were
 questioned about their existing usage of command line interfaces. These
-questions were presented in a multiple choice and single answer form. Two
+questions were presented in a multiple choice and single-answer form. Two
 questions were asked of the participants, and they were intentionally divided
-in order to highlight the differences between general experience  (see:
+in order to highlight the differences between general usage  (see:
 \autoref{fig:often}) and individuals who also use CLIs in their personal time
 (see: \autoref{fig:often2}). Furthermore, this intentional division was
 intended to balance the fact that a lot of individuals participating in the
 user study were computer science students and might have had some experience
-that did not reflect their personal affinity towards CLIs.
+that does not reflect their personal affinity towards CLIs.
 
 The usage of command line interfaces amongst our participant groups with higher
 than anticipated. Over half of respondents stated they use command line
 applications or tools at least once a month, with 35.29\% stating that they
 almost use them every day. This finding, strongly highlights the continuing
 relevance of command line interfaces, especially in the software development
-space. Fascinatingly, when asked about usage of command line applications or
-tools in day to day personal computing the statistics are almost mirrored
-between the previous question. With almost 38.24\% stating that they never use
+space. Fascinatingly, when asked about the usage of command line applications or
+tools in day-to-day personal computing the statistics are almost mirrored
+between the previous question. Almost 38.24\% stated that they never use
 command line applications for personal tasks. This indicates that CLIs are
-perceived and used mostly as work related tools and their qualities in
-personal computing are not highlighted. This point could be related to the fact
-that since CLIs are no longer the default paradigm of interaction with the
-computer they are only presented to individuals in environments where they are
-considered the De Facto \textit{tool  for the job}, such as with
-\textit{git}\cite{hultstrand2015git}.
+perceived and used mostly as work-related tools and their qualities in
+personal computing are not considered or are not accessible. This point could
+be related to the fact that since CLIs are no longer the default paradigm of
+interaction with the computer, and they are usually presented to individuals in
+environments where the tool is considered the De Facto \textit{tool  for the job},
+such as with \textit{git}\cite{hultstrand2015git}.
 
 \begin{figure}[htbp]
 	\centering
@@ -268,7 +268,7 @@ considered the De Facto \textit{tool  for the job}, such as with
 
 \subsection{Learning Preferences}
 
-The preferences regarding learning mediums is another important factor relevant
+The preferences regarding learning mediums are another important factor relevant
 to this study. As also mentioned in our research questions (see:
 \autoref{subsec:rqs}), analysing the effectiveness of interactive learning
 tools is part of the goals of this work.
@@ -280,7 +280,7 @@ learning was at least partially interactive, with most indicating that their
 preferred method was video tutorials. This is most likely due to the vast
 amount of video content, especially technical content, available on the web.
 This large proportion of individuals preferring video and interactive tutorials
-is a good indicator for the potential utility of interactive learning tools
+is a good indicator of the potential utility of interactive learning tools
 such as \textit{CLI-Tutor}. 26.37\% of participants stated their preferred
 method of learning was via books or online documentation.
 
