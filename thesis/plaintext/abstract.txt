@@ -7,48 +7,23 @@ include version control software like git, compilers and interpreters for
 programming languages, package managers and various core utilities that are
 popular in areas such as software development, scripting and system
 administration. Command line interfaces are also utilised in areas outside of
-software development. For example the infamous Bloomberg Terminal in the
-financial sector and for general computing purposes such as email
-mutt, neomutt and text editing Vim, Neovim, Wordstar, etc.. . 
+software development. For example, the infamous Bloomberg Terminal in the
+financial sector and in general computing applications such as email e.g. mutt,
+neomutt and text editing e.g. Vim, Neovim, Wordstar.
 
-As previously mentioned, the use of the command line as an interaction paradigm has
+As mentioned before, the use of the command line as an interaction paradigm has
 effectively disappeared from a mainstream personal computer usage perspective.
-This reality contributes greatly to the intimidation factor and learning difficulty for
-those interested in getting into software engineering or system administration.
-This unfamiliarity, paired with the inevitability of usage of CLIs in the
-development space highlights a need to make the command line more accessible to
-new users for whom text-based interaction with their computer is an alien
-concept. In recent years interactive learning utilising tools such as sandboxed
-environments have been gaining in popularity and have the potential to be a
-suitable medium for learning command line basics through actual usage, examples
-and practice.
+This reality contributes greatly to the intimidation factor and learning
+difficulty for those interested in getting into software engineering or system
+administration. This unfamiliarity, paired with the inevitability of usage of
+CLIs in the development space, highlights a need to make the command line more
+accessible to new users for whom text-based interaction with their computer is
+an alien concept. In recent years, interactive learning tools utilising
+features such as sandboxed environments have been gaining in popularity and
+have the potential to be a suitable medium for learning command line basics
+through actual usage, examples and practice.
 
 In this work, we have created just such an interactive tutoring tool tailored
 for the command line. CLI-Tutor is a forgiving CLI application that aims to
-teach topics such as shell basics and Unix-like core utility usage through the
-use of guided lessons with interactive examples and feedback at the command
-line.
-
-
-Trotz des wohl veralteten Aussehens, schwierige Lernkurve und praktisch
-Nichtexistenz im allgemeinen Personal-Computing-Bereich,
-Befehlszeilenschnittstellen (CLIs) haben sich in der Welt der
-Softwareentwicklung mehr als bewährt. Es gibt eine Vielzahl äußerst beliebter
-Tools und Anwendungen, die konzentrieren sich in erster Linie auf die CLI als
-Interaktionsmedium. Einige Beispiele enthalten Versionskontrollsoftware wie
-`git', Compiler und Interpreter für Programmiersprachen, Paketmanager und
-verschiedene Kerndienstprogramme beliebt in Bereichen wie Softwareentwicklung,
-Scripting und System Verwaltung.
-
-Wie bereits erwähnt, hat die Verwendung der Befehlszeile als
-Interaktionsparadigma praktisch aus der Perspektive der Mainstream-PC-Nutzung
-verschwunden. Dies trägt stark zum Einschüchterungsfaktor und zur
-Lernschwierigkeit bei die daran interessiert sind, in die Softwareentwicklung
-oder Systemadministration einzusteigen. Diese Ungewohntheit, gepaart mit der
-Zwangsläufigkeit der Nutzung von CLIs im Der Entwicklungsbereich unterstreicht
-die Notwendigkeit, die Befehlszeile zugänglicher zu machen neue Benutzer, für
-die die textbasierte Interaktion mit ihrem Computer ein Fremdwort ist Konzept.
-In den letzten Jahren interaktives Lernen unter Verwendung von Tools wie
-Sandboxed Umgebungen erfreuen sich zunehmender Beliebtheit und haben das
-Potenzial, a geeignetes Medium zum Erlernen der CLI durch praktische Anwendung,
-Beispiele und üben.
+teach topics such as shell basics and Unix-like core utility usage through
+the use of guided lessons with interactive examples and feedback.
