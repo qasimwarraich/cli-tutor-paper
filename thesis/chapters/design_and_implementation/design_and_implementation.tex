@@ -33,10 +33,10 @@ aspects around some of the most important features in the current version of
 
 \section{First Attempts} In the early stages of this thesis work, while
 attempting to model the problem and develop the requirements for a technical
-solution several prototypes were created. The early prototypes were written
-in \textit{Python} \cite{python}. It was clear from an early stage that
-\textit{readline} would be a mandatory element of any approach we would take. Early
-attempts broadly focused on two different approaches:
+solution several prototypes were created. The early prototypes were written in
+\textit{Python} \cite{python}. It was clear from an early stage that
+\textit{readline} would be a mandatory element of any approach we would take.
+Early attempts broadly focused on two different approaches:
 
 \begin{itemize} \item An \textit{Expect}\cite{libes1995exploring} like
     approach. \textit{Expect} is an add-on to the \textit{Tcl} scripting
@@ -66,12 +66,11 @@ attempts broadly focused on two different approaches:
 
     Other attempts included writing a GUI application to create a fake terminal
     environment. However, it was decided that a compiled command line
-    application would be most appropriate for this purpose as it would allow us
-    to capitalise on the existing interface of the user's terminal and the
-    wealth of libraries and tools available to facilitate command line
-    application development. Creating a mock shell environment and using
-    operating system native system calls would be the most proper approach for
-    \textit{CLI-Tutor}.
+    application would be most appropriate as it would allow us to capitalise on
+    the existing interface of the user's terminal and the wealth of libraries
+    and tools available to facilitate command line application development.
+    Creating a mock shell environment and using operating system native system
+    calls was deemed the most suitable approach for \textit{CLI-Tutor}.
 
 \section{Tools and Libraries}
 \label{sec:tools}
@@ -80,7 +79,7 @@ attempts broadly focused on two different approaches:
 \begin{itemize}
     \item \textit{readline} is the \textit{Go} port of the gnu readline
         \cite{ramey_fox_readline} line editing software. It forms the backbone
-        of the lesson menu in \textit{CLI-Tutor}.
+        of the lesson view in \textit{CLI-Tutor}.
 
     \item \textit{bubbletea} is \textit{Go} framework for building stateful terminal
         applications using the \textit{Elm} Architecture\footnote{More on the \textit{Elm}
@@ -129,11 +128,11 @@ attempts broadly focused on two different approaches:
 
     \item \textit{Vite} is the JavaScript bundler used alongside Svelte to package the project for the web.
 
-    \item \textit{XtermJs} is a terminal component for frontend applications.
+    \item \textit{XtermJs} is a terminal component for frontend web applications.
         It is the default terminal in the exceptionally popular text
         editor VSCode\footnote{More about VSCode here:
         \url{https://code.visualstudio.com/}}. The terminal component is used
-        alongside it's \textit{attach} add-on to form a connection over
+        alongside it's \textit{attach} add-on to establish a connection over
         WebSockets to a \textit{docker} container. This is how sandboxed environments
         are provided over the web to users.
 
@@ -143,7 +142,7 @@ attempts broadly focused on two different approaches:
 
     \item \textit{Docker SDK} is a first party \textit{Go} Software Development Kit
         (SDK) for interacting with the \textit{docker daemon}. It was chosen for
-        interoperability with the backend HTTP framework which also uses \textit{Go}.
+        interoperability with the backend HTTP framework which also uses the \textit{Go} programming language.
 
     \item \textit{MkDocs} is an industry-standard static site generator for
         documentation websites. It was used to create a documentation website
@@ -158,7 +157,7 @@ attempts broadly focused on two different approaches:
 
 \subsection{Server Infrastructure}
 \begin{itemize}
-    \item \textit{Linode} is a cloud service provider offering low-cost Virtual Private Servers. Two servers were used to implement the web application portion of \textit{CLI-Tutor}.
+    \item \textit{Linode} is a cloud service provider offering low-cost Virtual Private Servers. Two servers were used to host the web application portion of \textit{CLI-Tutor}.
     \item \textit{Nginx} is a high performance web server. It was utilised on
         both our servers to serve as a reverse proxy to allow communication
         with \textit{docker} and our backend API.
@@ -210,8 +209,8 @@ title of a task is displayed in the task tracker and the description is the
 actual textual content of a task. This content is either explaining a concept
 to the user, displaying a diagram or prompting the user to input some commands.
 The amount of tasks dictate the length of the lesson. The user can keep track
-of their progress inside a lesson by the task tracker, which displays the title
-of the lesson, and the current task as well as a progression counter. A user is free to
+of their progress inside a lesson via the task tracker, which displays the title
+of the lesson, the current task as well as a progression counter. A user is free to
 proceed back and forth through the lesson using the in-built commands
 \textit{n/next} or \textit{p/prev} unless the task is marked as interactive. In
 this case, the user must perform an interactive task such as running a specific
@@ -251,7 +250,7 @@ type Task struct {
 
 The first versions of a \textit{CLI-Tutor} lesson were written directly in
 \textit{Go} source code. Not only was this tedious but also extremely specific
-to this implementation; rendering extensibility and open-source contributions
+to this implementation; rendering extensibility and the potential of open-source contributions
 difficult. It was decided that some sort of data exchange or markup language
 would be more appropriate for specifying lessons. Early considerations included
 \textit{JSON}\footnote{JavaScript Object Notation. See:
@@ -273,7 +272,7 @@ specifying lessons.
 
 Once \textit{Markdown} was decided to be the implementation language for our
 lessons the next step was to populate our lesson-related data structures (see:
-\autoref{lst:types}) in order to drive the tutorial program. To achieve this a
+\autoref{lst:types}) in order to drive the tutorial program. To achieve this, a
 structure for specifying a lesson had to be created. After the specification
 was complete, a parser had to be written. The \textit{goldmark} markdown parsing
 library for \textit{Go} was selected. This library allowed us to create a
@@ -417,10 +416,10 @@ type LessonModel struct {
     \label{lst:model}
 \end{listing}
 
-\item \textit{Update:} This a method that is implemented for a model. The
+\item \textit{Update:} This a method that is implemented for a \textit{Model}. The
     \textit{Update} method consumes the messages sent around between the
     components of a system built on the \textit{Elm} architecture. The update
-    function can then manipulate the state of its corresponding model to create
+    function can then manipulate the state of its corresponding \textit{Model} to create
     reactivity. Messages are events generated through interaction with the
     application and actions such as resizing a window. In \textit{CLI-Tutor},
     messages are used to communicate the size of the terminal, manage key
@@ -450,7 +449,7 @@ type LessonModel struct {
 
 \subsubsection{Markdown Renderer}
 
-We mentioned how we parse the lesson Markdown files in \autoref{sec:parser}. As
+We mentioned how we parse the lesson \textit{Markdown} files in \autoref{sec:parser}. As
 lines of \textit{Markdown} are parsed they are stored as raw byte arrays in the
 \textit{Lesson} and \textit{Task} data structures. This has the desired side
 effect of maintaining the formatting inherently coded into a \textit{Markdown}
@@ -496,7 +495,7 @@ to examine the individual tokens that make up the whole command. The next steps 
 
         \begin{itemize}
             \item Several commands chained as pipes.
-            \item The presence of logical operators such as \textit{||} and \textit{\&\&}.  
+            \item The presence of shell operators such as \textit{||} and \textit{\&\&}.  
             \item Whether the command has arguments or flags specified.
             \item Whether the command launches an external command like a
                 pager, which would require a redirection of the spawned
@@ -605,7 +604,7 @@ manages all incoming \textit{HTTP(S)}\footnote{Hypertext Transfer Protocol
 architecture as the version that includes \textit{CLI-Tutor}. Slight visual
 differences were made to differentiate the two however they are based on
 fundamentally the same \textit{docker} image, with the only difference being
-that the "CLI Only" version does not contain the \textit{CLI-Tutor} tool and
+that the "CLI-only" version does not contain the \textit{CLI-Tutor} tool and
 drops the user directly into a Linux shell. The CLI-only version also contains
 an additional button for navigating to the documentation website.
 
