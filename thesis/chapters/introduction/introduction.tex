@@ -59,12 +59,12 @@ In this work, we set out to address the following research questions:
 
 \begin{enumerate}[label=\textbf{RQ\arabic*}, leftmargin=*]
 	\item Are there identifiable patterns of difficulty when it
-	      comes to adopting CLIs? Can the `intimidation factor' be pinned down? \label{rq:1}
+	      comes to adopting CLIs? Can the "intimidation factor" be pinned down? \label{rq:1}
 	\item How should an interactive learning tool be designed to mitigate
 	      the difficulty and intimidation factor of learning CLIs? \label{rq:2}
-	\item How can a `forgiving' shell be implemented on top of an existing
+	\item How can a "forgiving" shell be implemented on top of an existing
 	      shell to enable the transition from learning to real-world usage? \label{rq:3}
-	\item Is the interactive tool more effective than text based learning methods? \label{rq:4}
+	\item Is the interactive tool more effective than text-based learning methods? \label{rq:4}
 	\item Are novice CLI users more likely to continue
 	      using CLI interfaces after using such a tool? \label{rq:5}
 \end{enumerate}
@@ -83,9 +83,9 @@ considerations. Command line programs also further benefit from simplicity of
 their textual nature when it comes to their ability to work with other
 programs. The simple notion of textual input and output being the main forms of
 interaction allow for an extremely flexible interface\footnote{In this case
-    "interface" describes a medium through which programs can communicate, not
-a user interface.} for chaining tools together. This composition of programs is
-referred to as piping and is a hallmark element of what is considered to be the
+	"interface" describes a medium through which programs can communicate, not
+	a user interface.} for chaining tools together. This composition of programs is
+referred to as \textit{piping} and is a hallmark element of what is considered to be the
 \textit{UNIX Philosophy} \cite{mcilroy1978unix}. Since most command line
 applications share this philosophy of textual input and output there isn't the
 need for bespoke mediums of communication to be developed and features can be
@@ -99,13 +99,22 @@ behaviour upon instantiation with flags opens the room for powerful batch
 processing capabilities, easy automation and the ability to deal with large
 amounts of input and output efficiently.
 
+Beyond the ease of development and composition, there are user interface
+elements of command line interfaces that even influence widely used graphical
+tools. Command line interaction features can commonly be found implemented into
+the text entry fields of search engines \cite{norman2007breakthrough} and chat
+applications. An example of this is the ability to use the up arrow to edit the
+previously sent message or the ability to use special syntax, like exclamation
+points, to influence search results.
+
 The learning curve of such command line interfaces is however a strong barrier
-to widespread enjoyment of these benefits. For new users, this learning curve
-is made steeper by the paradigm shift in the personal computing space towards
-graphical user interfaces. In this chapter, we will look at the interactive
-learning tool, \textit{CLI-Tutor}, developed as a potential solution that
-addresses the steep learning curve of the command line through interactive
-lessons and a sandboxed shell environment.
+to widespread adoption and enjoyment of the benefits command line interfaces
+may bring. For new users, this learning curve is made steeper by the paradigm
+shift in the personal computing space towards graphical user interfaces. In
+following section, we will introduce the interactive learning tool,
+\textit{CLI-Tutor}, developed as a potential solution that addresses the steep
+learning curve of the command line through interactive lessons and a sandboxed
+shell environment.
 
 
 % \fig[0.75\textwidth]{img/vimtutor}{Screenshot of vimtutor}{fig:vimtutor}
@@ -117,22 +126,23 @@ lessons and a sandboxed shell environment.
 	\label{fig:vimtutor}
 \end{figure}
 
-The \textit{CLI-Tutor} tool is an interactive shell-like interactive tutorial program for
-the command line. We draw inspiration from the
+The \textit{CLI-Tutor} tool is an interactive shell-like tutorial program aimed
+at making the command line more approachable. We draw inspiration from the
 \textit{vimtutor}\cite{pierce_ware_smith_moolenaar_2019} (see: Figure
 \ref{fig:vimtutor}) utility shipping alongside the popular terminal-based text
-editor \textit{Vim}. \textit{Vimtutor} is an interactive tutorial for the Vim text
-editor. It is one long guided lesson presented as a text file. The file itself
-contains the basic instructions for editing and creating text within Vim and is
-intended to be modified while proceeding through the lesson. This "learning by
-doing" approach presented itself as a very suitable choice for teaching the
-command line. Much like with Vim, where one must learn a new paradigm of modal
-editing when novices learn the command line they are not only taking on new
-information about shell usage but also learning an entirely unfamiliar
-(textual) interaction paradigm. Newer versions of \textit{vimtutor} are even more
-interactive. In the version included in the popular fork of Vim called \textit{Neovim}
-\cite{neovimHomeNeovim}, lines intended to be edited by the user also provide
-feedback regarding correctness in the form of green arrows and red crosses.
+editor \textit{Vim}. \textit{Vimtutor} is an interactive tutorial for the Vim
+text editor. It is one long guided lesson presented as a text file. The file
+itself contains the basic instructions for editing and creating text within Vim
+and is intended to be modified while proceeding through the lesson. This
+"learning by doing" approach presented itself as a very suitable approach for
+a command line tutorial application. Much like with Vim, where one must learn a new
+paradigm of modal editing. When novices learn the command line they are not only
+taking on new information about shell usage but also learning an entirely
+unfamiliar (textual) interaction paradigm. Newer versions of \textit{vimtutor}
+are even more interactive. In the version included in the popular fork of Vim
+called \textit{Neovim} \cite{neovimHomeNeovim}, lines intended to be edited by
+the user also provide feedback regarding correctness in the form of green
+arrows and red crosses.
 
 The \textit{CLI-Tutor} tool introduces users to topics such as shell basics and
 Unix-like core utility usage through a series of interactive examples. The tool
@@ -140,22 +150,21 @@ aims to relax the steep learning curve associated with the command line by
 leveraging interactive examples and a feedback mechanism to instruct and
 educate the user about the current stage of the lesson and provide some
 feedback based on the inputs of the user. The core of \textit{CLI-Tutor} is
-contained within a command line application written in golang\footnote{Go
+contained within a command line application written in \textit{Go}\footnote{Go
 	programming language: \href{https://go.dev/}{https://go.dev/}} and serves as a
 standalone application. However, in order to make the learning experience safer
 for the user and to encourage exploration, the CLI application has been wrapped
-into a web application to form a sandboxed environment for the user that
-exposes a terminal over the web. This means the user can use the tutorial
-application without fear of causing their own system any harm.
+into a web application to form a sandboxed environment that exposes a terminal
+over the web. This means the user can use the tutorial application without fear
+of causing their own system any harm.
 
 The \textit{CLI-Tutor} application is fully open source and also comes with its
-own modified parser and structure for specifying lessons based on Markdown
-documents. This means that the material covered by the lessons can be easily
-contributed to and distributed, making the tool easily extensible.
+own custom parser and structure for specifying lessons based on
+\textit{Markdown}\footnote{A popular plain text markup language.} files.
+This means that the material covered by the lessons can be easily contributed
+to and distributed, making the tool easily extensible.
 
 
-% \fig[0.75\textwidth]{img/clitutor}{Screenshot of CLI-Tutor}{fig:clitutor}
-% \begin{figure}[htbp]
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{img/clitutor}
@@ -166,16 +175,13 @@ contributed to and distributed, making the tool easily extensible.
 \section{Thesis Outline}
 
 Over the next few chapters, we will discuss and show the design, implementation
-and overall goals of this solution. \autoref{chap:intro} will discuss the
-problem space and explain the motivations behind the interactive approach
-employed by \textit{CLI-Tutor}. In \autoref{chap:clitutor}, the semantic
-aspects CLI application and associated web application will be discussed. We
-will discuss the design and implementation of the solution in
-\autoref{chap:design}. \autoref{chap:userstudy} will discuss the methodology
-and findings of the user study conducted during this Master's thesis work. In
-\autoref{chap:reflection}, we will evaluate and reflect upon the solution. We
-will consider existing approaches and make suggestions regarding building upon
-and refining the \textit{CLI-Tutor}, before, concluding in
-\autoref{chap:conclusion}.
-
-
+and overall goals of this solution. In \autoref{chap:clitutor}, the semantic
+aspects of the \textit{CLI-Tutor} application and associated web application
+will be discussed. We will discuss the design and implementation of the
+solution in \autoref{chap:design}. \autoref{chap:userstudy}, will discuss the
+methodology and introduce the participants of the user study conducted during
+this Master's thesis work. Our findings will be discussed in
+\autoref{chap:results}. In \autoref{chap:reflection}, we will evaluate and
+reflect upon the solution. We will consider existing approaches and make
+suggestions regarding building upon and refining \textit{CLI-Tutor}, before,
+concluding in \autoref{chap:conclusion}.
