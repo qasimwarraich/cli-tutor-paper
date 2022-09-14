@@ -38,7 +38,7 @@ data1 = [
     94.28,
     100.00,
     63.16,
-    52.64,
+    52.63,
     52.63,
     94.28,
     94.28,
@@ -69,10 +69,21 @@ x = np.arange(len(questions))  # the label locations
 width = 0.45  # the width of the bars
 
 fig, ax = plt.subplots()
-rects1 = ax.barh(x - width/2, data1 , width, label='Interactive')
-rects2 = ax.barh(x + width/2, data2, width, label='Non-Interactive')
+rects1 = ax.barh(x - width/2, data1 , width, label='Interactive', color = "cornflowerblue")
+rects2 = ax.barh(x + width/2, data2, width, label='Non-Interactive', color = "orange")
 plt.gca().invert_yaxis()
 
+for rect in rects1:
+    width = rect.get_width()
+    label_y = rect.get_y() + rect.get_height()
+    plt.text(5, label_y, s=f'{width}%')
+
+for rect in rects2:
+    width = rect.get_width()
+    label_y = rect.get_y() + rect.get_height()
+    plt.text(5, label_y, s=f'{width}%')
+# ax.bar_label(rects1, padding=1, label_type='edge', fmt='%.2f')
+# ax.bar_label(rects2, padding=3, label_type='edge', fmt='%.2f')
 # Add some text for labels, title and custom x-axis tick labels, etc.
 ax.set_ylabel('Questions')
 ax.set_label('Percentage')
@@ -80,8 +91,6 @@ ax.set_title('Percentage of correct answers in the evaluation section')
 ax.set_yticks(x, questions)
 ax.legend(bbox_to_anchor=(0.6,0.5))
 
-ax.bar_label(rects1, padding=1, label_type='center', fmt='%.2f')
-ax.bar_label(rects2, padding=3, label_type='center', fmt='%.2f')
 
 plt.tight_layout()
 fig.savefig("plot.png", dpi=100)
