@@ -7,10 +7,36 @@
 \label{chap:reflection}
 \section{Related Work}
 
-% sandboxing
-Other tools have existed that aimed to personify this friendly environment (lisptutor)
+Interactive learning tools are not a new area of research in the software
+development field. Tutorial software for programming languages has existed  and
+been researched for decades \cite{anderson1985lisp,
+	anderson1986automatedtutoring, gerdes2012interactive,
+	permpool2019interactive, lee2005intelligent, jeuring2011programming,
+	holland2009j,  schez2020intelligent}.
 
-Asynchronous learnings, Computer based learning (linear learning). \cite{becker201950, ossovski2022comparing}
+Interactive tutorial tools in the software development space are primarily
+built for the purpose of introducing specific programming languages
+\cite{donehaskell, holland2009j, ajayi2010development, lee2005intelligent}.
+Pillay et al. laid out a framework for how to develop programming language
+tutors in 2003 \cite{pillay2003developing}. However, Due to the recent growth
+of remote learning and remote working, asynchronous learning and computer based
+learning are seeing a fresh surge in research. Not only are intelligent
+tutoring systems being developed and tested against traditional learning media
+but also against out asynchronous computer based systems such as video lectures
+\cite{becker201950, ossovski2022comparing}.
+
+There are also a handful of interactive tutorial tools that are built primarily
+for the web. \cite{donehaskell, harris_team, harris_team, herweijer,
+lee2005intelligent}. This category of tools often go beyond the realm of
+programming languages and often serve as interactive elements in the official
+documentation of certain web technologies, such as with
+\cite{harris_team,team_meta}. Another interesting aspect of these web based
+tools is that they try to implement a sandboxed environment to make the tools
+more accessible and lower the barrier to use. This sandboxing has long been
+identified as a pragmatic deign choice with research dating as far back as the
+1985 work of Anderson et al. \cite{anderson1985lisp}, \textit{LISP TUTOR}, one
+of the earliest interactive programming tutors. Another more recent work
+looking into this sandboxing is \cite{permpool2019interactive}.
 
 \section{Improvements}
 
@@ -82,9 +108,8 @@ this domain. Furthermore, the user study in this work could benefit from a
 reproduction with a larger number of participants. Another potential
 modification for future research is could be to perform a user study with
 absolute beginners, or individuals with no programming or command line
-experience.  
+experience.
 
 Another avenue of research could be to look into more advanced topics and see if
 the benefits of an interactive learning environment still reflect when the
 subject matter is more complicated or targeted at more advanced users.
-
