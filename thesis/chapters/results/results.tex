@@ -26,7 +26,7 @@
 % using CLI interfaces after using such a tool? \label{rq:5}                             
 
 In this chapter, we will discuss the outcomes of this thesis work. We will look
-into our findings in light of our research questions we defined in
+into our findings in light of the research questions we defined in
 \autoref{chap:intro} in \autoref{subsec:rqs}. Furthermore, we will divide our
 results into two distinct sections, focusing on the results of the engineering
 effort in building \textit{CLI-Tutor} and secondly, the findings from the user
@@ -35,16 +35,16 @@ study discussed in the preceding chapter.
 
 \section{Engineering Results}
 
-From an engineering perspective we managed to achieve almost all the
+From an engineering perspective, we managed to achieve almost all the
 technical goals we set out for \textit{CLI-Tutor}. Design goals relating to
-distributability were fulfilled as \textit{CLI-Tutor} is a single binary that
+ease of distribution and access were fulfilled as \textit{CLI-Tutor} is a single binary that
 is easy to distribute and containerise. \textit{CLI-Tutor} also works natively
 on  \textit{GNU/Linux} and  \textit{Macintosh} operating systems and thanks to
 the associated web application and docker images for the tool, it is possible
 to use \textit{CLI-Tutor} on almost any mainstream operating system. The web
 application and ease of containerisation also helped achieve another goal of
 creating a safe and forgiving sandboxed environment for users to experiment
-with in.
+within.
 
 This ease of experimentation and application of learnt skills is an
 important factor when it comes to developing confidence with CLIs as they are a
@@ -53,7 +53,7 @@ ability to apply learnt skills is not purely achievable through technical
 design alone. The curriculum of \textit{CLI-Tutor} also reflects an emphasis on
 giving the user space to try things out without worry or the tutorial software
 actually getting in the way. One participant in the user study particularly
-admired this:
+admired this aspect of \textit{CLI-Tutor}: 
 
 \begin{quotes}
 	"I think the cli-tutor really provides the right amount of guidance, while
@@ -113,7 +113,7 @@ learning tools for the command line.
 	to type in stuff to get in another level helps me.
 \end{quotes}
 
-Even when interactive style learning was not the preference of the participant,
+Even when interactive styled learning was not the preference of the participant,
 as is the case with the participant below. They still were able to find some
 merits in the interactive approach.
 
@@ -128,7 +128,7 @@ merits in the interactive approach.
 \subsection{Relevant Research Questions}
 
 \ref{rq:2} and \ref{rq:3} are technically orientated research questions. Based
-on what we learnt in the feedback provided by participants in the user-study we
+on what we learnt in the feedback provided by participants in the user study we
 will now provide some insights into potential answers to these research questions.
 
 
@@ -136,13 +136,12 @@ will now provide some insights into potential answers to these research question
 	the difficulty and intimidation factor of learning CLIs?}
 
 Based on the feedback received during the user study, it can be said that in
-order build effective interactive learning tools the structure and lesson
-content are of high importance. The correct sequencing, building up and
-repetition of examples are key for creating an effective curriculum. Allowing
+order to build effective interactive learning tools the structure and content
+of lessons are of high importance. The correct sequencing, building up and
+repetition of examples are key to creating an effective curriculum. Allowing
 room for exploration and experimentation are other important aspects of an
 effective interactive learning tool. To some participants the ability to
 directly try out the lesson content made for a stronger learning experience.
-
 
 
 \paragraph{\ref{rq:3}.} \textit{How can a `forgiving' shell be implemented on top of an existing
@@ -155,7 +154,8 @@ be faithful to the shell interaction experience. Wrapping the shell also enabled
 safety measures like not allowing the user into the sensitive root level
 directories, which contributes to the safety aspect and reduces the overall
 intimidation factor. The sandboxing approach takes this point and pushes it
-even further as then the user has no fears of any negative consequences of their system.
+even further as then the users have no fears of any potential negative
+consequences to their systems.
 
 
 
@@ -170,30 +170,31 @@ The following subsection, addresses research question \ref{rq:4}: \textit{Is
 As mentioned in \autoref{chap:userstudy}, the evaluation section of our user
 study is what we used to evaluate the effectiveness of the lessons our study
 participants took. Since the content of all the lessons was exactly the same
-across both interaction medium this sections offers a reasonable way to focus
-our comparison on the interaction medium.
+across both interaction mediums this offers a reasonable way to focus
+our comparison on only the interaction mediums.
 
-A question by question breakdown of the percentage of correct responses per
+A question-by-question breakdown of the percentage of correct responses per
 question for both user groups is shown in \autoref{tab:evaluation}. When
 averaged across all questions in the evaluation section, the interactive group
 performed 9.34\% better than their non-interactive counterparts. When looking
-deeper at the differences in performance there was one observable trend.
+deeper at the differences in performance there was an observable trend.
 Individuals who took the interactive version of the tutor seemed to score
 significantly higher on questions that related to topics that contained lots of
 interactive examples in \textit{CLI-Tutor}. This is especially true for
-questions relating to flags and the file system.
+questions relating to flags and the file system which consisted of many
+interactive examples.
 
 For a visual representation of the differences between both participant groups
 in the evaluation section (see: \autoref{fig:eval}).
 
 \subsection{Discussion}
 
-Despite the positive results, the higher level in performance cannot be
+Despite the positive results, the higher level of performance cannot be
 conclusively attributed to the interaction medium alone. There are factors such
 as existing experience, outliers and a small study size that must be considered
 when analysing these results. However, given that the performance of the
-interactive group was comparatively higher on more interactively practiced
-topics in the tutor, there appears to be a correlation between practice and
+interactive group was comparatively higher on more interactively practised
+topics in the tutor, there appears to be a correlation between practise and
 success when it comes to the command line.
 
 \input{tables/question_summary}
@@ -210,7 +211,7 @@ success when it comes to the command line.
 \subsection{Intimidation Factors}
 
 In the user study, participants were asked about intimidation factors regarding
-command line usage in order to better understand the difficulties faced by
+command line usage to better understand the difficulties faced by
 beginners in order to further improve \textit{CLI-Tutor} and any other future
 research in the area of making command line interfaces more approachable.
 
@@ -224,12 +225,12 @@ on average, left less intimidated than their non-interactive tutor
 counterparts. As shown in \autoref{fig:confidence}, a mere 5.26\% of
 respondents assigned to the interactive group reported feeling more intimidated
 after their experience with \textit{CLI-Tutor}. On the non-interactive side
-this figure was considerably higher with 26.567\% of respondents reporting
+this figure was considerably higher with 26.67\% of respondents reporting
 being more intimidated by the command line after the user study.
 
 In terms of identifiable patterns of difficulty and intimidation factors,
-participants were asked identify their personal intimidation factors. Responses
-included fears about lack of safety mechanism or unintentional errors.
+participants were asked to identify their personal intimidation factors. Responses
+included fears about lack of safety mechanisms or unintentional errors.
 
 \begin{quotes}
 	"irreversible actions"
@@ -260,8 +261,8 @@ nullify any potential productivity gains of using the command line.
 	process)
 \end{quotes}
 
-Additionally, there was also mention of the unfamiliarity of command line
-interfaces as an intimidation factor.
+Additionally, there was also mention of the unfamiliarity with command line
+interfaces as an additional intimidation factor.
 
 \begin{quotes}
 	unfamiliar setting, no overview
@@ -280,13 +281,13 @@ interfaces as an intimidation factor.
 	after using such a tool?}
 
 Participants were questioned during the feedback section of the user study
-whether their experience had any effect on their anticipated usage of CLIs
-going forward. The differences across interaction groups are more subtle
-compared to the previous comparison. In the interactive group, 94.74\% (see:
-\autoref{fig:continue}) of participants indicated that they would use CLIs more
-in the future following their experience with \textit{CLI-Tutor}. On the
-non-interactive side this group was slightly smaller, but at 87.50\% it still
-represented the majority of participants. While the differences across
+whether their experience in this user study had any effect on their anticipated
+usage of CLIs going forward. The differences across interaction groups are more
+subtle compared to the previous comparison. In the interactive group, 94.74\%
+(see: \autoref{fig:continue}) of participants indicated that they would use
+CLIs more in the future following their experience with \textit{CLI-Tutor}. On
+the non-interactive side, this group was slightly smaller, but at 87.50\% it
+still represented the majority of participants. While the differences across
 interaction paradigms are less pronounced in this result, it does indicate that
 the curriculum designed in this work targeted intimidation factors well and
 generally inspired confidence in users.

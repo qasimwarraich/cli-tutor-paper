@@ -21,7 +21,7 @@ accessible to new users for whom text-based interaction with their computer is
 an alien concept. In recent years, interactive learning tools utilising
 features such as sandboxed environments have been gaining in popularity and
 have the potential to be a suitable medium for learning command line basics
-through actual usage, examples and practice.
+through actual usage, examples and practise.
 
 In this work, we have created just such an interactive tutoring tool tailored
 for the command line. CLI-Tutor is a forgiving CLI application that aims to
